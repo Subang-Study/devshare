@@ -21,11 +21,11 @@ export default function Logo({ isLogin }: ILogoProps) {
         </svg>
       </Link>
 
-      <Link href="/" className="text-[1.75rem] font-semibold">
+      <Link href="/" className="text-[1.75rem] font-medium">
         Dev
-        <span className="inline font-extrabold text-blue-600">{'{'}</span>
+        <span className="inline font-medium text-blue-600">{'{'}</span>
         {isLogin ? ' joseph ' : ' Share '}
-        <span className="inline font-extrabold text-blue-600">{'}'}</span>
+        <span className="inline font-medium text-blue-600">{'}'}</span>
       </Link>
     </div>
   )
