@@ -22,7 +22,7 @@ export default async function Logo() {
       <Link href="/" className="text-[1.75rem] font-medium">
         Dev
         <span className="inline font-medium text-blue-600">{'{'}</span>
-        {session ? ` ${session.user?.name} ` : ' Share '}
+        {session ? ` ${session.user.login} ` : ' Share '}
         <span className="inline font-medium text-blue-600">{'}'}</span>
       </Link>
     </div>

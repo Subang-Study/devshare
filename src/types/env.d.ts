@@ -1,7 +1,8 @@
 declare namespace NodeJS {
   interface ProcessEnv {
     MONGO_DB: string
-    NEXT_AUTH_SECRET: string
+    NEXTAUTH_URL: string
+    NEXTAUTH_SECRET: string
     GITHUB_ID: string
     GITHUB_SECRET: string
   }
