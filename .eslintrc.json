@@ -1,7 +1,7 @@
 {
   "root": true,
   "parser": "@typescript-eslint/parser",
-  "plugins": ["@typescript-eslint","@tanstack/query", "prettier"],
+  "plugins": ["@typescript-eslint", "@tanstack/query", "prettier"],
   "parserOptions": {
     "project": "./tsconfig.json",
     "createDefaultProgram": true
@@ -68,7 +68,8 @@
     ],
     "@tanstack/query/exhaustive-deps": "error",
     "@tanstack/query/prefer-query-object-syntax": "error",
-    "no-console": "off"
+    "no-console": "off",
+    "import/prefer-default-export": "off"
   },
   "settings": {
     "import/resolver": {

@@ -1,15 +1,13 @@
-'use client'
-
 import Link from 'next/link'
 import { K2D } from 'next/font/google'
+import { getServerSession } from 'next-auth'
+import { authOptions } from '@/pages/api/auth/[...nextauth]'
 
 const k2d = K2D({ weight: '500', subsets: ['latin'] })
 
-interface ILogoProps {
-  isLogin: boolean
-}
+export default async function Logo() {
+  const session = await getServerSession(authOptions)
 
-export default function Logo({ isLogin }: ILogoProps) {
   return (
     <div className={`${k2d.className} flex items-center justify-center gap-0.5 h-12`}>
       <Link href="/" className="flex items-center h-full">
@@ -24,7 +22,7 @@ export default function Logo({ isLogin }: ILogoProps) {
       <Link href="/" className="text-[1.75rem] font-medium">
         Dev
         <span className="inline font-medium text-blue-600">{'{'}</span>
-        {isLogin ? ' joseph ' : ' Share '}
+        {session ? ` ${session.user.login} ` : ' Share '}
         <span className="inline font-medium text-blue-600">{'}'}</span>
       </Link>
     </div>
