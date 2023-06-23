@@ -13,7 +13,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <Session>
           <Header />
-          {children}
+          <div className="w-full max-w-4xl p-4 mx-auto">{children}</div>
         </Session>
       </body>
     </html>
