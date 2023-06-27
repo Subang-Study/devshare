@@ -12,6 +12,11 @@
 /.next/
 /out/
 
+# example
+/src/app/example
+/src/app/example/
+/src/app/example/page.tsx
+
 # production
 /build
 
@@ -34,3 +39,4 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
