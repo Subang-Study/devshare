@@ -18,7 +18,7 @@ export default function GithubLoginBtn() {
           fill="#fff"
         />
       </svg>
-      Start with Github
+      Continue with Github
     </button>
   )
 }
