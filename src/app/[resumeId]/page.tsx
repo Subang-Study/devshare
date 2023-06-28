@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import Profile from '@/components/server/Profile'
 import Introduce from '@/components/server/Introduce'
 import Skillset from '@/components/server/Skillset'

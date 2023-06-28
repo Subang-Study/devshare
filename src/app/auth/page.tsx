@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import Logo from '@/components/client/Logo'
 import GithubLoginBtn from '@/components/client/auth/GithubLoginBtn'
 
