@@ -1,7 +1,5 @@
 'use client'
 
-'use client'
-
 /* eslint-disable react/no-array-index-key */
 import Titlename from '@/components/server/Titlename'
 import { ChangeEvent, useState, FormEvent } from 'react'
@@ -41,13 +39,12 @@ export default function CreateProfile() {
     setBlogInputs(updatedInputs)
   }
 
-  const handleIntroduceChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleIntroduceChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
     setIntroduce(e.target.value)
   }
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault()
-    // Handle form submission, e.g., make API calls or update state
   }
 
   return (
@@ -58,7 +55,7 @@ export default function CreateProfile() {
           placeholder="이름"
           value={name}
           onChange={handleNameChange}
-          className="text-[2rem] font-bold mt-4 border-b border-gray-400 focus:border-blue-500"
+          className="text-[2rem] font-bold mt-4  border-gray-400 focus:border-blue-500"
         />
       </div>
       <div>
@@ -67,7 +64,7 @@ export default function CreateProfile() {
           placeholder="간단 자기소개"
           value={bio}
           onChange={handleBioChange}
-          className="text-gray-600 border-b border-gray-400 focus:border-blue-500 outline-none"
+          className="w-full text-gray-600  border-gray-400 focus:border-blue-500 outline-none"
         />
       </div>
       <div className="flex flex-row justify-between gap-4 items-center mt-4 md:flex-wrap w-full">
@@ -81,7 +78,7 @@ export default function CreateProfile() {
               type="text"
               value=""
               placeholder="wonny727@gmail.com"
-              className="border-b border-gray-400 focus:border-blue-500 outline-none"
+              className=" border-gray-400 focus:border-blue-500 outline-none"
             />
           </div>
           <div>
@@ -90,7 +87,7 @@ export default function CreateProfile() {
               type="text"
               value=""
               placeholder="010-0000-0000"
-              className="border-b border-gray-400 focus:border-blue-500 outline-none"
+              className=" border-gray-400 focus:border-blue-500 outline-none"
             />
           </div>
           {blogInputs.map((input, index) => (
@@ -100,14 +97,14 @@ export default function CreateProfile() {
                 value={input.blog}
                 onChange={(e) => handleBlogInputChange(e, index, 'blog')}
                 placeholder="ex)깃허브."
-                className="border-b border-gray-400 focus:border-blue-500 outline-none"
+                className=" border-gray-400 focus:border-blue-500 outline-none"
               />
               <input
                 type="text"
                 value={input.url}
                 onChange={(e) => handleBlogInputChange(e, index, 'url')}
                 placeholder="URL 주소"
-                className="border-b border-gray-400 focus:border-blue-500 outline-none"
+                className=" border-gray-400 focus:border-blue-500 outline-none"
               />
               <button type="button" className="text-black py-1 px-2 rounded" onClick={() => deleteBlogInput(index)}>
                 X
@@ -121,7 +118,7 @@ export default function CreateProfile() {
       </div>
       <Titlename title="Introduce" />
       <div className="border border-gray-300 rounded-md p-4">
-        <input type="text" value={introduce} onChange={handleIntroduceChange} className="outline-none" />
+        <textarea rows={5} value={introduce} onChange={handleIntroduceChange} className="outline-none w-full" />
       </div>
       <button type="submit" className="bg-blue-500 text-white mt-4 py-2 px-4 rounded">
         저장
