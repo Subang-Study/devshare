@@ -27,10 +27,13 @@ export interface IResumeTechStack {
 }
 
 export interface IResumeCategory {
-  title: string // 회사이름이나 프로젝트 이름
-  period: string // 기간
-  content: {
-    title: string // 세부 제목
-    description: string // 내용
-  }
+  title: string
+  detail: {
+    title: string // 회사이름이나 프로젝트 이름
+    period: string // 기간
+    content: {
+      title: string // 세부 제목
+      description: string // 내용
+    }
+  }[]
 }
