@@ -17,13 +17,13 @@ export default function UserInfoForm() {
         placeholder="이름"
         type="text"
         {...register('userInfo.name', { required: true })}
-        className="text-[2rem] font-bold mt-4  border-gray-400 focus:border-blue-500"
+        className="text-[2rem] font-bold mt-4   outline-none "
       />
       <input
         placeholder="한줄 자기소개"
         type="text"
         {...register('userInfo.sentense', { required: true })}
-        className="w-full text-gray-600  border-gray-400 focus:border-blue-500 outline-none"
+        className="w-full text-gray-600    outline-none"
       />
       <div className="flex flex-row justify-between gap-4 items-center mt-4 md:flex-wrap w-full">
         <div className="w-1/4 min-w-[200px]">
@@ -36,7 +36,7 @@ export default function UserInfoForm() {
               placeholder="이름"
               type="text"
               {...register('userInfo.personal.email', { required: true })}
-              className=" border-gray-400 focus:border-blue-500 outline-none"
+              className="  outline-none"
             />
           </div>
           <div>
@@ -45,7 +45,7 @@ export default function UserInfoForm() {
               placeholder="010-0000-0000"
               type="text"
               {...register('userInfo.personal.phone', { required: true })}
-              className=" border-gray-400 focus:border-blue-500 outline-none"
+              className="  outline-none"
             />
             <button type="button" onClick={() => append({ title: '', url: '' })}>
               +
