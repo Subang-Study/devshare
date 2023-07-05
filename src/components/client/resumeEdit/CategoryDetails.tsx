@@ -1,10 +1,8 @@
 'use client'
 
-import { IResumeData } from '@/types/resumeDataType'
+import { IResumeData, initialResumeCategoryDetail } from '@/types/resumeDataType'
 import { useFormContext, useFieldArray } from 'react-hook-form'
-import { RxCrossCircled, RxPlusCircled } from 'react-icons/rx'
-
-const initialAppendValue = { title: '', period: '', content: { title: '', description: '' } }
+import { RxPlusCircled } from 'react-icons/rx'
 
 export default function CategoryDetails({ categoryIdx }: { categoryIdx: number }) {
   const { register, control } = useFormContext<IResumeData>()
@@ -60,9 +58,9 @@ export default function CategoryDetails({ categoryIdx }: { categoryIdx: number }
       <button
         type="button"
         className="flex justify-center w-10 rounded-full aspect-square"
-        onClick={() => append(initialAppendValue)}
+        onClick={() => append(initialResumeCategoryDetail)}
       >
-        <RxPlusCircled className="w-full h-full stroke-0" color="#2563eb" />
+        <RxPlusCircled className="w-full h-full text-blue-600 stroke-0 hover:text-blue-500" />
       </button>
     </div>
   )

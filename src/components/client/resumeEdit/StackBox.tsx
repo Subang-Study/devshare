@@ -1,7 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable @typescript-eslint/no-shadow */
-/* eslint-disable import/no-cycle */
-
 'use client'
 
 import { UseFieldArrayRemove, useFormContext } from 'react-hook-form'
@@ -33,7 +29,7 @@ export default function StackBoxInput({ idx, remove }: IStackBoxProps) {
         type="button"
         onClick={() => remove(idx)}
       >
-        <RxCrossCircled size="100%" color="#2563EB" />
+        <RxCrossCircled className="w-full h-full text-blue-600 hover:text-blue-500" />
       </button>
     </div>
   )

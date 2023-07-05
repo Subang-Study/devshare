@@ -2,8 +2,8 @@
 
 import { useFieldArray, useFormContext } from 'react-hook-form'
 import { k2d } from '@/app/font'
-import { IResumeData } from '@/types/resumeDataType'
-import { TbPlus } from 'react-icons/tb'
+import { IResumeData, initialResumeTechStack } from '@/types/resumeDataType'
+import { RxPlusCircled } from 'react-icons/rx'
 import StackBoxInput from './StackBox'
 
 export default function TechStackForm() {
@@ -23,10 +23,10 @@ export default function TechStackForm() {
         })}
         <button
           type="button"
-          className="flex justify-center w-10 text-4xl leading-9 text-white align-middle rounded-full bg-neutral-300 aspect-square"
-          onClick={() => append({ title: '', description: '' })}
+          className="flex justify-center w-10 rounded-full aspect-square"
+          onClick={() => append(initialResumeTechStack)}
         >
-          <TbPlus className="w-full h-full" />
+          <RxPlusCircled className="w-full h-full text-blue-600 stroke-0 hover:text-blue-500" />
         </button>
       </div>
     </>
