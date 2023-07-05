@@ -1,24 +1,10 @@
 'use client'
 
-import { IResumeData } from '@/types/resumeDataType'
+import { IResumeData, initialResumeCategory } from '@/types/resumeDataType'
 import { useFormContext, useFieldArray } from 'react-hook-form'
 import { k2d } from '@/app/font'
 import Btn from '../Btn'
 import CategoryDetails from './CategoryDetails'
-
-const initialAppendValue = {
-  title: '',
-  detail: [
-    {
-      title: '',
-      period: '',
-      content: {
-        title: '',
-        description: '',
-      },
-    },
-  ],
-}
 
 export default function CategoryForm() {
   const { register, control } = useFormContext<IResumeData>()
@@ -44,7 +30,7 @@ export default function CategoryForm() {
         )
       })}
       <hr className="w-full h-0.5 bg-neutral-300 border-none rounded-full" />
-      <Btn shape="border" className="w-3/4 h-10 my-4" onClick={() => append(initialAppendValue)}>
+      <Btn shape="border" className="w-3/4 h-10 my-4" onClick={() => append(initialResumeCategory)}>
         카테고리 추가
       </Btn>
     </div>

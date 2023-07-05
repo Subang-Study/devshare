@@ -4,7 +4,7 @@ import useOutSideClick from '@/hooks/useOuterClick'
 import { useRef, useState } from 'react'
 import { useSession, signOut } from 'next-auth/react'
 import Link from 'next/link'
-import { HiOutlineUserCircle } from 'react-icons/hi'
+import { PiUserCircle } from 'react-icons/pi'
 
 export default function UserMenu() {
   const menuRef = useRef(null)
@@ -20,7 +20,7 @@ export default function UserMenu() {
     <div className="relative flex items-center h-full md:mr-5" ref={menuRef}>
       <button className="flex items-center gap-2 h-4/5" type="button" onClick={setIsOpenStateReverse}>
         {status === 'authenticated' && <span className="hidden font-semibold md:block">{data.user.login}</span>}
-        <HiOutlineUserCircle size="2rem" strokeWidth="1.5px" />
+        <PiUserCircle size="2rem" />
       </button>
       {isOpen && (
         <div className="absolute flex justify-center p-4 border shadow-lg rounded-lg right-0 top-[110%] w-max bg-white">
