@@ -17,6 +17,7 @@ export default function CreateProfile() {
     <FormProvider {...method}>
       <form onSubmit={method.handleSubmit(onSubmit)} className="flex flex-col w-full">
         <UserInfoForm />
+        <TechStackForm />
         <button type="submit" className="bg-blue-500 text-white mt-4 py-2 px-4 rounded">
           저장
         </button>

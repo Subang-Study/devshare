@@ -86,6 +86,7 @@
 import { useFormContext, useFieldArray } from 'react-hook-form'
 import { IResumeData } from '@/types/resumeDataType'
 import { k2d } from '@/app/font'
+import UserImageUploadButton from './UserImageUploadButton'
 
 export default function UserInfoForm() {
   const { register, control } = useFormContext<IResumeData>()
@@ -116,36 +117,35 @@ export default function UserInfoForm() {
       />
       <div className="flex flex-row justify-between gap-4 items-center mt-4 md:flex-wrap w-full">
         <div className="w-1/4 min-w-[200px]">
-          <label
-            htmlFor="imageUpload"
-            className="bg-blue-500 w-full aspect-square flex items-center justify-center cursor-pointer"
-          >
-            <input id="imageUpload" type="file" accept="image/*" onChange={handleImageUpload} className="hidden" />
-            USERIMAGE
-          </label>
+          <UserImageUploadButton onImageUpload={handleImageUpload} />
         </div>
         <div className="min-w-[400px] h-full text-gray-700 flex flex-col flex-auto">
-          <div>
-            Email{' '}
-            <input
-              placeholder="이름"
-              type="text"
-              {...register('userInfo.personal.email', { required: true })}
-              className="  outline-none"
-            />
-          </div>
-          <div>
-            Phone{' '}
-            <input
-              placeholder="010-0000-0000"
-              type="text"
-              {...register('userInfo.personal.phone', { required: true })}
-              className="  outline-none"
-            />
-            <button type="button" onClick={() => append({ title: '', url: '' })}>
-              +
-            </button>
-          </div>
+          <table>
+            <tbody>
+              <tr>
+                <td>Email</td>
+                <td>
+                  <input
+                    placeholder="이름"
+                    type="text"
+                    {...register('userInfo.personal.email', { required: true })}
+                    className="  outline-none"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>Phone</td>
+                <td>
+                  <input
+                    placeholder="010-0000-0000"
+                    type="text"
+                    {...register('userInfo.personal.phone', { required: true })}
+                    className="  outline-none"
+                  />
+                </td>
+              </tr>
+            </tbody>
+          </table>
           {fields.map((field, idx) => {
             return (
               <div key={field.id}>
@@ -162,6 +162,11 @@ export default function UserInfoForm() {
               </div>
             )
           })}
+          <div>
+            <button type="button" onClick={() => append({ title: '', url: '' })}>
+              +
+            </button>
+          </div>
         </div>
       </div>
       <h3 className={`${k2d.className} text-blue-600 text-3xl`}>Introduce</h3>
@@ -177,3 +182,7 @@ export default function UserInfoForm() {
     </>
   )
 }
+
+// todo 유저이미지 부분 따로 컴포넌트화 시키고 버튼을 눌렀을때 이미지 넣게 하기
+// todo 이메일 폰 아래 주소 부분 테이블 형식으로 만들기 완
+// todo 유효성 정규식 알아오기
