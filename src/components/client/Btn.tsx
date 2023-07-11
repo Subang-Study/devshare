@@ -1,12 +1,9 @@
 'use client'
 
-interface IBtnProps {
-  className: string
+import { ButtonHTMLAttributes } from 'react'
+
+interface IBtnProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   shape: 'basic' | 'border' | 'negative'
-  onClick: () => void
-  // eslint-disable-next-line react/require-default-props
-  type?: 'button' | 'submit' | 'reset' | undefined
-  children: React.ReactNode
 }
 
 const btnShape = {
@@ -16,14 +13,9 @@ const btnShape = {
     'shadow-[0_0_0_2px_inset] shadow-neutral-500 text-neutral-500 hover:shadow-neutral-400 hover:text-neutral-400',
 }
 
-export default function Btn({ className, shape, onClick, children, type }: IBtnProps) {
+export default function Btn({ shape, className, children, ...props }: IBtnProps) {
   return (
-    <button
-      className={`${className} font-semibold p-2 rounded-md ${btnShape[shape]}`}
-      onClick={onClick}
-      // eslint-disable-next-line react/button-has-type
-      type={type || 'button'}
-    >
+    <button className={`${className} font-semibold p-2 rounded-md ${btnShape[shape]}`} {...props}>
       {children}
     </button>
   )
