@@ -1,7 +1,7 @@
 {
   "root": true,
   "parser": "@typescript-eslint/parser",
-  "plugins": ["@typescript-eslint", "prettier"],
+  "plugins": ["@typescript-eslint", "@tanstack/query", "prettier"],
   "parserOptions": {
     "project": "./tsconfig.json",
     "createDefaultProgram": true
@@ -36,14 +36,7 @@
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
     "react/jsx-props-no-spreading": "off",
-    "import/no-extraneous-dependencies": [
-      "error",
-      {
-        "devDependencies": true,
-        "optionalDependencies": true,
-        "peerDependencies": true
-      }
-    ],
+    "react/button-has-type": "off",
     "@typescript-eslint/no-var-requires": "off",
     "no-nested-ternary": "off",
     "consistent-return": "off",
@@ -66,7 +59,10 @@
         }
       }
     ],
-    "no-console": "off"
+    "@tanstack/query/exhaustive-deps": "error",
+    "@tanstack/query/prefer-query-object-syntax": "error",
+    "no-console": "off",
+    "import/prefer-default-export": "off"
   },
   "settings": {
     "import/resolver": {
