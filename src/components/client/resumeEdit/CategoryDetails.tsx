@@ -38,7 +38,7 @@ export default function CategoryDetails({ categoryIdx }: { categoryIdx: number }
             </div>
             <div className="flex flex-col flex-1 gap-1 p-2">
               <input
-                className="w-full"
+                className="w-full p-2"
                 placeholder="요약"
                 type="text"
                 {...register(`categorys.${categoryIdx}.detail.${idx}.content.title`)}
