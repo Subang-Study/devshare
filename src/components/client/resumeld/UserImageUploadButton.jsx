@@ -1,12 +1,5 @@
 'use client'
 
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable react/button-has-type */
-/* eslint-disable jsx-a11y/img-redundant-alt */
-/* eslint-disable @next/next/no-img-element */
-/* eslint-disable react/jsx-filename-extension */
-/* eslint-disable react/jsx-no-useless-fragment */
 import React, { useState, useRef } from 'react'
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
