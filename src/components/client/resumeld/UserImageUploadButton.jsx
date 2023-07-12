@@ -28,7 +28,7 @@ export default function UserImageUploadButton({ onImageUpload }) {
       {!selectedFile ? (
         <label
           htmlFor="imageUpload"
-          className="bg-blue-500 w-full aspect-square flex items-center justify-center cursor-pointer"
+          className="flex items-center justify-center w-full bg-blue-500 cursor-pointer aspect-square"
         >
           파일 업로드
           <input
@@ -49,3 +49,31 @@ export default function UserImageUploadButton({ onImageUpload }) {
     </>
   )
 }
+
+/* <div className="relative flex items-center justify-center w-full bg-blue-500 rounded-full cursor-pointer aspect-square">
+  {selectedFile && (
+    <Image
+      className="w-full h-full rounded-full"
+      width={100}
+      height={100}
+      src={URL.createObjectURL(selectedFile)}
+      alt="Uploaded Image"
+      onClick={handleClickImage}
+    />
+  )}
+  <input
+    id="imageUpload"
+    type="file"
+    accept="image/*"
+    onChange={handleImageUpload}
+    className="hidden"
+    ref={fileInputRef}
+  />
+  <button
+    className="absolute w-8 rounded-full aspect-square bottom-4 right-4 bg-neutral-300"
+    type="button"
+    onClick={handleClickImage}
+  >
+    +
+  </button>
+</div> */

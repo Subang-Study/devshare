@@ -5,10 +5,11 @@
 import { useForm, FormProvider } from 'react-hook-form'
 import UserInfoForm from './UserInfoForm'
 import TechStackForm from '../resumeEdit/TechStackForm'
-import { IResumeData } from '../../../types/resumeDataType'
+import CategoryForm from '../resumeEdit/CategoryForm'
+import { IResumeData, initialResumeData } from '../../../types/resumeDataType'
 
 export default function CreateProfile() {
-  const method = useForm<IResumeData>()
+  const method = useForm<IResumeData>({ defaultValues: initialResumeData })
   const onSubmit = (data: unknown) => {
     console.log(data)
   }
@@ -18,7 +19,8 @@ export default function CreateProfile() {
       <form onSubmit={method.handleSubmit(onSubmit)} className="flex flex-col w-full">
         <UserInfoForm />
         <TechStackForm />
-        <button type="submit" className="bg-blue-500 text-white mt-4 py-2 px-4 rounded">
+        <CategoryForm />
+        <button type="submit" className="px-4 py-2 mt-4 text-white bg-blue-500 rounded">
           저장
         </button>
       </form>

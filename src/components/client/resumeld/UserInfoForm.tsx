@@ -31,9 +31,9 @@ export default function UserInfoForm() {
         placeholder="한줄 자기소개"
         type="text"
         {...register('userInfo.sentense', { required: true })}
-        className="w-full text-gray-600    outline-none"
+        className="w-full text-gray-600 outline-none"
       />
-      <div className="flex flex-row justify-between gap-4 items-center mt-4 md:flex-wrap w-full">
+      <div className="flex flex-row items-center justify-between w-full gap-4 mt-4 md:flex-wrap">
         <div className="w-1/4 min-w-[200px]">
           <UserImageUploadButton onImageUpload={handleImageUpload} />
         </div>
@@ -47,7 +47,7 @@ export default function UserInfoForm() {
                     placeholder="email"
                     type="text"
                     {...register('userInfo.personal.email', { required: true })}
-                    className="  outline-none"
+                    className="outline-none "
                   />
                 </td>
               </tr>
@@ -58,7 +58,7 @@ export default function UserInfoForm() {
                     placeholder="010-0000-0000"
                     type="text"
                     {...register('userInfo.personal.phone', { required: true })}
-                    className="  outline-none"
+                    className="outline-none "
                   />
                 </td>
               </tr>
@@ -95,12 +95,12 @@ export default function UserInfoForm() {
       </div>
       <h3 className={`${k2d.className} text-3xl`}>Introduce</h3>
       <hr className="w-full h-0.5 bg-black border-none rounded-full" />
-      <div className="border border-gray-300 rounded-md mt-4 p-4">
+      <div className="p-4 mt-4 border border-gray-300 rounded-md">
         <textarea
           rows={5}
           placeholder=""
           {...register('userInfo.introduction', { required: true })}
-          className="outline-none w-full gap-1"
+          className="w-full gap-1 outline-none"
         />
       </div>
     </>
