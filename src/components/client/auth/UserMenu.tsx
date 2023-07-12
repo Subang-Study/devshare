@@ -20,7 +20,7 @@ export default function UserMenu() {
     <div className="relative flex items-center h-full md:mr-5" ref={menuRef}>
       <button className="flex items-center gap-2 h-4/5" type="button" onClick={setIsOpenStateReverse}>
         {status === 'authenticated' && <span className="hidden font-semibold md:block">{data.user.login}</span>}
-        <PiUserCircle size="2rem" />
+        <PiUserCircle className="w-8 h-8" />
       </button>
       {isOpen && (
         <div className="absolute flex justify-center p-4 border shadow-lg rounded-lg right-0 top-[110%] w-max bg-white">
