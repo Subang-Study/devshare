@@ -22,7 +22,7 @@ export default function UserInfoForm() {
   return (
     <>
       <input
-        placeholder="이름"
+        placeholder="Nameß"
         type="text"
         {...register('userInfo.name', { required: true })}
         className="text-[2rem] font-bold mt-4    outline-none "
