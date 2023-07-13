@@ -1,9 +1,11 @@
 'use client'
 
 import React, { useState, useRef } from 'react'
+import Image from 'next/image'
+import { IoMdAddCircleOutline } from 'react-icons/io'
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-export default function UserImageUploadButton({ onImageUpload }) {
+export default function UserImageUploadButton() {
   const [selectedFile, setSelectedFile] = useState(null)
   const fileInputRef = useRef(null)
 
@@ -19,61 +21,34 @@ export default function UserImageUploadButton({ onImageUpload }) {
     fileInputRef.current.click()
   }
 
-  const handleReloadImage = () => {
-    setSelectedFile(null)
-  }
-
   return (
-    <>
-      {!selectedFile ? (
-        <label
-          htmlFor="imageUpload"
-          className="flex items-center justify-center w-full bg-blue-500 cursor-pointer aspect-square"
-        >
-          파일 업로드
-          <input
-            id="imageUpload"
-            type="file"
-            accept="image/*"
-            onChange={handleImageUpload}
-            className="hidden"
-            ref={fileInputRef}
-          />
-        </label>
-      ) : (
-        <>
-          <img src={URL.createObjectURL(selectedFile)} alt="Uploaded Image" onClick={handleClickImage} />
-          <button onClick={handleReloadImage}>재업로드</button>
-        </>
+    // eslint-disable-next-line react/jsx-filename-extension
+    <div className="relative flex items-center justify-center w-full bg-blue-500 rounded-full aspect-square">
+      {selectedFile && (
+        <Image
+          className="w-full h-full rounded-full"
+          width={100}
+          height={100}
+          src={URL.createObjectURL(selectedFile)}
+          alt="Uploaded Image"
+          onClick={handleClickImage}
+        />
       )}
-    </>
+      <input
+        id="imageUpload"
+        type="file"
+        accept="image/*"
+        onChange={handleImageUpload}
+        className="hidden"
+        ref={fileInputRef}
+      />
+      <button
+        className="absolute w-8 rounded-full aspect-square bottom-4 right-4 bg-white"
+        type="button"
+        onClick={handleClickImage}
+      >
+        <IoMdAddCircleOutline size={32} color="blue" />
+      </button>
+    </div>
   )
 }
-
-/* <div className="relative flex items-center justify-center w-full bg-blue-500 rounded-full cursor-pointer aspect-square">
-  {selectedFile && (
-    <Image
-      className="w-full h-full rounded-full"
-      width={100}
-      height={100}
-      src={URL.createObjectURL(selectedFile)}
-      alt="Uploaded Image"
-      onClick={handleClickImage}
-    />
-  )}
-  <input
-    id="imageUpload"
-    type="file"
-    accept="image/*"
-    onChange={handleImageUpload}
-    className="hidden"
-    ref={fileInputRef}
-  />
-  <button
-    className="absolute w-8 rounded-full aspect-square bottom-4 right-4 bg-neutral-300"
-    type="button"
-    onClick={handleClickImage}
-  >
-    +
-  </button>
-</div> */
