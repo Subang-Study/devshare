@@ -13,19 +13,19 @@ export default function UserInfoForm() {
     name: 'userInfo.personal.channel',
   })
 
-  const handleImageUpload = async (e) => {
-    // 파일 업로드 로직 작성
-    // 업로드 성공 시 이미지 URL을 폼 데이터에 설정
-    // setValue('userInfo.userImage', imageUrl);
-  }
+  // const handleImageUpload = async () => {
+  //   // 파일 업로드 로직 작성
+  //   // 업로드 성공 시 이미지 URL을 폼 데이터에 설정
+  //   // setValue('userInfo.userImage', imageUrl);
+  // }
 
   return (
     <>
       <input
-        placeholder="Nameß"
+        placeholder="Name"
         type="text"
         {...register('userInfo.name', { required: true })}
-        className="text-[2rem] font-bold mt-4    outline-none "
+        className="text-[2rem] font-bold outline-none "
       />
       <input
         placeholder="한줄 자기소개"
@@ -33,15 +33,15 @@ export default function UserInfoForm() {
         {...register('userInfo.sentense', { required: true })}
         className="w-full text-gray-600 outline-none"
       />
-      <div className="flex flex-row items-center justify-between w-full gap-4 mt-4 md:flex-wrap">
+      <div className="flex flex-row items-center justify-between w-full gap-4 mt-4 max-sm:flex-col">
         <div className="w-1/4 min-w-[200px]">
-          <UserImageUploadButton onImageUpload={handleImageUpload} />
+          <UserImageUploadButton />
         </div>
-        <div className="min-w-[400px] h-full text-gray-700 flex flex-col flex-auto">
+        <div className="sm:min-w-[400px] h-full text-gray-700 flex flex-col flex-auto">
           <table>
             <tbody>
               <tr>
-                <td>Email</td>
+                <td className="w-40">Email</td>
                 <td>
                   <input
                     placeholder="email"
@@ -106,7 +106,3 @@ export default function UserInfoForm() {
     </>
   )
 }
-
-// todo 유저이미지 부분 따로 컴포넌트화 시키고 버튼을 눌렀을때 이미지 넣게 하기
-// todo 이메일 폰 아래 주소 부분 테이블 형식으로 만들기 완
-// todo 유효성 정규식 알아오기

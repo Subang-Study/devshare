@@ -2,16 +2,19 @@
 
 import React, { useState, useRef } from 'react'
 import Image from 'next/image'
-import { IoMdAddCircleOutline } from 'react-icons/io'
+import { IoCamera } from 'react-icons/io5'
+import { PiUserCircleThin } from 'react-icons/pi'
+// import { BsPersonCircle } from 'react-icons/bs'
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export default function UserImageUploadButton() {
   const [selectedFile, setSelectedFile] = useState(null)
   const fileInputRef = useRef(null)
 
   const handleImageUpload = async (e) => {
     const file = e.target.files[0]
-    setSelectedFile(file)
+    if (file) {
+      setSelectedFile(file)
+    }
     // 파일 업로드 로직 작성
     // 업로드 성공 시 이미지 URL을 폼 데이터에 설정
     // setValue('userInfo.userImage', imageUrl);
@@ -23,8 +26,8 @@ export default function UserImageUploadButton() {
 
   return (
     // eslint-disable-next-line react/jsx-filename-extension
-    <div className="relative flex items-center justify-center w-full bg-blue-500 rounded-full aspect-square">
-      {selectedFile && (
+    <div className="relative flex items-center justify-center w-full  border-2 border-blue-500 rounded-full aspect-square">
+      {selectedFile ? (
         <Image
           className="w-full h-full rounded-full"
           width={100}
@@ -33,6 +36,8 @@ export default function UserImageUploadButton() {
           alt="Uploaded Image"
           onClick={handleClickImage}
         />
+      ) : (
+        <PiUserCircleThin className="w-full h-full text-blue-500" />
       )}
       <input
         id="imageUpload"
@@ -43,11 +48,11 @@ export default function UserImageUploadButton() {
         ref={fileInputRef}
       />
       <button
-        className="absolute w-8 rounded-full aspect-square bottom-4 right-4 bg-white"
+        className="shadow-border shadow-blue-500 border-2 border-white absolute w-8 rounded-full aspect-square bottom-4 right-4 bg-white flex justify-center items-center"
         type="button"
         onClick={handleClickImage}
       >
-        <IoMdAddCircleOutline size={32} color="blue" />
+        <IoCamera className="w-4/5 h-4/5 text-blue-600 hover:text-blue-500" />
       </button>
     </div>
   )
