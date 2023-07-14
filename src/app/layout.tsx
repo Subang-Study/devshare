@@ -1,5 +1,5 @@
 import './globals.css'
-import Header from '@/components/server/Header'
+import Header from '@/components/server/ui/Header'
 import Session from '@/utils/Session'
 
 export const metadata = {

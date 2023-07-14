@@ -1,5 +1,5 @@
-import Logo from '../client/Logo'
-import UserMenu from '../client/auth/UserMenu'
+import Logo from '../../client/ui/Logo'
+import UserMenu from '../../client/auth/UserMenu'
 
 export default function Header() {
   return (
