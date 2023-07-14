@@ -1,17 +1,16 @@
 'use client'
 
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, ChangeEvent } from 'react'
 import Image from 'next/image'
 import { IoCamera } from 'react-icons/io5'
 import { PiUserCircleThin } from 'react-icons/pi'
-// import { BsPersonCircle } from 'react-icons/bs'
 
 export default function UserImageUploadButton() {
-  const [selectedFile, setSelectedFile] = useState(null)
-  const fileInputRef = useRef(null)
+  const [selectedFile, setSelectedFile] = useState<File | null>(null)
+  const fileInputRef = useRef<HTMLInputElement>(null)
 
-  const handleImageUpload = async (e) => {
-    const file = e.target.files[0]
+  const handleImageUpload = async (e: ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0]
     if (file) {
       setSelectedFile(file)
     }
@@ -21,12 +20,11 @@ export default function UserImageUploadButton() {
   }
 
   const handleClickImage = () => {
-    fileInputRef.current.click()
+    fileInputRef.current?.click()
   }
 
   return (
-    // eslint-disable-next-line react/jsx-filename-extension
-    <div className="relative flex items-center justify-center w-full  border-2 border-blue-500 rounded-full aspect-square">
+    <div className="relative flex items-center justify-center w-full border-2 border-blue-500 rounded-full aspect-square">
       {selectedFile ? (
         <Image
           className="w-full h-full rounded-full"
