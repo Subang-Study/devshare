@@ -9,7 +9,6 @@ import CreateProfile from '@/components/client/resumeld/CreateProfile'
 export default function CreateProfilePage() {
   return (
     <div>
-      <h1>Create Profile</h1>
       <CreateProfile />
     </div>
   )
