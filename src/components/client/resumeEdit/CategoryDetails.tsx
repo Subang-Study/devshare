@@ -16,27 +16,27 @@ export default function CategoryDetails({ categoryIdx }: { categoryIdx: number }
       {fields.map((field, idx) => {
         return (
           <div key={field.id} className="flex flex-wrap w-full">
-            <div className="relative flex flex-col w-1/4 gap-1 p-1 text-xl border-r-2 border-blue-600">
+            <div className="relative flex flex-col max-md:w-full w-1/4 gap-1 p-1 text-xl md:border-r-2 border-blue-600 min-w-[200px]">
               <input
                 placeholder="소속/프로젝트 명"
                 type="text"
-                {...register(`categorys.${categoryIdx}.detail.${idx}.title`)}
+                {...register(`categorys.${categoryIdx}.detail.${idx}.title`, { required: true })}
               />
               <input
                 className="text-xs text-neutral-500"
                 placeholder="기간"
-                type="date"
+                type="month"
                 {...register(`categorys.${categoryIdx}.detail.${idx}.period`)}
               />
               <button
                 type="button"
-                className="absolute text-xs bottom-2 left-2 w-fit text-neutral-400 hover:text-red-500"
+                className="absolute text-xs md:bottom-2 md:left-2 w-fit text-neutral-400 hover:text-red-500 max-md:top-2 max-md:right-2"
                 onClick={() => remove(idx)}
               >
                 이 항목 삭제
               </button>
             </div>
-            <div className="flex flex-col flex-1 gap-1 p-2">
+            <div className="flex flex-col flex-1 gap-1 md:p-2 md:min-w-[504px]">
               <input
                 className="w-full p-2"
                 placeholder="요약"
