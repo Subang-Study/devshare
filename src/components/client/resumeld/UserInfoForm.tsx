@@ -28,7 +28,7 @@ export default function UserInfoForm() {
         className="text-[2rem] font-bold outline-none "
       />
       <input
-        placeholder="한줄 자기소개"
+        placeholder="한줄 소개"
         type="text"
         {...register('userInfo.sentense', { required: true })}
         className="w-full text-gray-600 outline-none"
