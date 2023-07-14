@@ -13,7 +13,7 @@ export default function UserInfoForm() {
     name: 'userInfo.personal.channel',
   })
 
-  const handleImageUpload = async (e) => {
+  const handleImageUpload = async () => {
     // 파일 업로드 로직 작성
     // 업로드 성공 시 이미지 URL을 폼 데이터에 설정
     // setValue('userInfo.userImage', imageUrl);

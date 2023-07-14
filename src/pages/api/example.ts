@@ -1,6 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import { connectDB } from '@/utils/database'
-import { ObjectId } from 'mongodb'
 import { getServerSession } from 'next-auth'
 import { authOptions } from './auth/[...nextauth]'
 

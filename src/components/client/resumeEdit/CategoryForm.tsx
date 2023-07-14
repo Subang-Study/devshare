@@ -3,7 +3,7 @@
 import { IResumeData, initialResumeCategory } from '@/types/resumeDataType'
 import { useFormContext, useFieldArray } from 'react-hook-form'
 import { k2d } from '@/app/font'
-import Btn from '../Btn'
+import Btn from '../ui/Btn'
 import CategoryDetails from './CategoryDetails'
 
 export default function CategoryForm() {
