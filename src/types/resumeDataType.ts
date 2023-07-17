@@ -1,4 +1,5 @@
 export interface IResumeData {
+  author?: string
   userInfo?: IResumeUserInfo
   techStack?: IResumeTechStack[]
   categorys?: IResumeCategory[]

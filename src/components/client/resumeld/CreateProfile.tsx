@@ -3,6 +3,7 @@
 /* eslint-disable react/no-array-index-key */
 
 import { useForm, FormProvider } from 'react-hook-form'
+import axios from 'axios'
 import UserInfoForm from './UserInfoForm'
 import TechStackForm from '../resumeEdit/TechStackForm'
 import CategoryForm from '../resumeEdit/CategoryForm'
@@ -10,8 +11,9 @@ import { IResumeData, initialResumeData } from '../../../types/resumeDataType'
 
 export default function CreateProfile() {
   const method = useForm<IResumeData>({ defaultValues: initialResumeData })
-  const onSubmit = (data: unknown) => {
-    console.log(data)
+  const onSubmit = async (data: unknown) => {
+    const result = await axios.post('/api/resume/create', data)
+    console.log(result)
   }
 
   return (
