@@ -3,6 +3,7 @@
 import { IResumeData, initialResumeCategoryDetail } from '@/types/resumeDataType'
 import { useFormContext, useFieldArray } from 'react-hook-form'
 import { RxPlusCircled } from 'react-icons/rx'
+import DatePickerComponent from '../ui/DatePickerComponent'
 
 export default function CategoryDetails({ categoryIdx }: { categoryIdx: number }) {
   const { register, control } = useFormContext<IResumeData>()
@@ -28,6 +29,7 @@ export default function CategoryDetails({ categoryIdx }: { categoryIdx: number }
                 type="month"
                 {...register(`categorys.${categoryIdx}.detail.${idx}.period`)}
               />
+              <DatePickerComponent startDateName="startDate" endDateName="endDate" />
               <button
                 type="button"
                 className="absolute text-xs md:bottom-2 md:left-2 w-fit text-neutral-400 hover:text-red-500 max-md:top-2 max-md:right-2"
