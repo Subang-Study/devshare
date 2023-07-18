@@ -1,15 +1,9 @@
-import Link from 'next/link'
+import ResumeCardList from '@/components/client/main/ResumeCardList'
 
 export default function Home() {
   return (
-    <div>
-      <h1>Home</h1>
-      <Link href="/login">
-        <div>login</div>
-      </Link>
-      <Link href="/contact">
-        <div>Contact</div>
-      </Link>
-    </div>
+    <section className="grid w-full grid-cols-2 gap-6 p-4 max-sm:grid-cols-1">
+      <ResumeCardList />
+    </section>
   )
 }

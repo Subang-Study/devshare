@@ -1,4 +1,6 @@
 import './globals.css'
+import Header from '@/components/server/ui/Header'
+import Session from '@/utils/Session'
 
 export const metadata = {
   title: 'Create Next App',
@@ -9,8 +11,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body>
-        <header>jlkj</header>
-        {children}
+        <Session>
+          <Header />
+          <div className="w-full max-w-4xl p-4 mx-auto">{children}</div>
+        </Session>
       </body>
     </html>
   )
