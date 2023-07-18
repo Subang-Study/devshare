@@ -14,7 +14,7 @@ export default function TechStackForm() {
   })
 
   return (
-    <>
+    <div>
       <h3 className={`${k2d.className} text-blue-600 text-3xl`}>Tech Stack</h3>
       <hr className="w-full h-0.5 bg-black border-none rounded-full" />
       <div className="flex flex-row flex-wrap items-center justify-start gap-4 p-4">
@@ -29,6 +29,6 @@ export default function TechStackForm() {
           <RxPlusCircled className="w-full h-full text-blue-600 stroke-0 hover:text-blue-500" />
         </button>
       </div>
-    </>
+    </div>
   )
 }

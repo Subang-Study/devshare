@@ -1,6 +1,6 @@
 export default function ResumeCardLoad() {
   return (
-    <div className="flex flex-col justify-around w-full gap-2 p-4 shadow-xl aspect-video rounded-2xl bg-neutral-200 animate-pulse min-w-[300px]">
+    <div className="flex flex-col justify-around w-full gap-2 p-4 shadow-xl aspect-video rounded-xl bg-neutral-200 animate-pulse min-w-[300px]">
       <div className="flex flex-col w-full gap-2 h-1/4">
         <div className="w-1/3 h-3 bg-white rounded-full" />
         <div className="w-full h-3 bg-white rounded-full" />

@@ -1,19 +1,9 @@
-import Link from 'next/link'
-import ResumeCardLoad from '@/components/server/main/ResumeCardLoad'
+import ResumeCardList from '@/components/client/main/ResumeCardList'
 
 export default function Home() {
   return (
-    <section className="flex flex-row flex-wrap justify-center w-full gap-6 p-4">
-      <ResumeCardLoad />
-      <ResumeCardLoad />
-      <ResumeCardLoad />
-      <ResumeCardLoad />
-      <ResumeCardLoad />
-      <ResumeCardLoad />
-      <ResumeCardLoad />
-      <ResumeCardLoad />
-      <ResumeCardLoad />
-      <ResumeCardLoad />
+    <section className="grid w-full grid-cols-2 gap-6 p-4 max-sm:grid-cols-1">
+      <ResumeCardList />
     </section>
   )
 }
