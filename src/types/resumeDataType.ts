@@ -38,7 +38,10 @@ export interface IResumeCategory {
 
 export interface IResumeCategoryDetail {
   title: string // 회사이름이나 프로젝트 이름
-  period: string // 기간
+  period: {
+    start: Date | null
+    end: Date | null
+  } // 기간
   content: {
     title: string // 세부 제목
     description: string // 내용
@@ -74,7 +77,10 @@ export const initialResumeTechStack: IResumeTechStack = {
 
 export const initialResumeCategoryDetail: IResumeCategoryDetail = {
   title: '',
-  period: '',
+  period: {
+    start: null,
+    end: null,
+  },
   content: {
     title: '',
     description: '',
