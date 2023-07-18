@@ -23,12 +23,12 @@ export default function CategoryDetails({ categoryIdx }: { categoryIdx: number }
                 type="text"
                 {...register(`categorys.${categoryIdx}.detail.${idx}.title`, { required: true })}
               />
-              <input
+              {/* <input
                 className="text-xs text-neutral-500"
                 placeholder="기간"
                 type="month"
                 {...register(`categorys.${categoryIdx}.detail.${idx}.period`)}
-              />
+              /> */}
               <DatePickerComponent startDateName="startDate" endDateName="endDate" />
               <button
                 type="button"
