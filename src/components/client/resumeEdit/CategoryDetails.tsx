@@ -29,7 +29,7 @@ export default function CategoryDetails({ categoryIdx }: { categoryIdx: number }
                 type="month"
                 {...register(`categorys.${categoryIdx}.detail.${idx}.period`)}
               /> */}
-              <DatePickerComponent startDateName="startDate" endDateName="endDate" />
+              <DatePickerComponent categoryIdx={categoryIdx} detailIdx={idx} />
               <button
                 type="button"
                 className="absolute text-xs md:bottom-2 md:left-2 w-fit text-neutral-400 hover:text-red-500 max-md:top-2 max-md:right-2"
