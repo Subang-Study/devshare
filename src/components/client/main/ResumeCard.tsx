@@ -38,7 +38,7 @@ export default function ResumeCard({ ResumeData }: IResumeCardProps) {
               {ResumeData.userInfo?.personal.phone}
             </Txt>
           </div>
-          <Btn shape="basic" className="w-full" onClick={() => route.push('/example')}>
+          <Btn shape="border" className="w-full" onClick={() => route.push('/example')}>
             더보기
           </Btn>
         </div>

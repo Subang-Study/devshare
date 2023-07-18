@@ -25,7 +25,9 @@ export default function ResumeCardList() {
       .catch((err) => console.error(err))
   }, [])
 
-  return data?.map((ele) => {
-    return <ResumeCard ResumeData={ele} key={ele.author} />
-  })
+  return (
+    <section className="grid w-full grid-cols-2 gap-6 max-sm:grid-cols-1">
+      {data ? data.map((ele) => <ResumeCard ResumeData={ele} key={ele.author} />) : <div />}
+    </section>
+  )
 }
