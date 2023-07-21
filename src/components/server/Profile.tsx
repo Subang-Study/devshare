@@ -1,8 +1,14 @@
-export default function Profile() {
+import { IResumeUserInfo } from '@/types/resumeDataType'
+
+interface IProfileProps {
+  profileData: IResumeUserInfo | undefined
+}
+
+export default function Profile({ profileData }: IProfileProps) {
   return (
     <div className="flex flex-col w-full">
-      <h1 className="text-[2rem] font-bold mt-4">Wonny</h1>
-      <p className="text-gray-600">8년 차, 데이터로 일하는 개발자 정원희입니다.</p>
+      <h1 className="text-[2rem] font-bold mt-4">{profileData?.name}</h1>
+      <p className="text-gray-600">{profileData?.sentense}</p>
       <div className="flex flex-row items-center justify-between w-full gap-4 mt-4 md:flex-wrap">
         <div className="w-1/4 min-w-[200px]">
           <div className="flex items-center justify-center w-full bg-blue-500 aspect-square">USERIMAGE</div>
