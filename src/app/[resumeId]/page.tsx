@@ -21,6 +21,7 @@ interface IResumeProps {
 export default async function Resume(props: IResumeProps) {
   const data = await getData(props.params.resumeId)
   const session = await getServerSession(authOptions)
+
   return (
     <>
       <Profile profileData={data.userInfo} />

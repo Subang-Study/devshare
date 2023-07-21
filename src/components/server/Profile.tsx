@@ -15,28 +15,18 @@ export default function Profile({ profileData }: IProfileProps) {
         </div>
         <div className="min-w-[400px] h-full text-gray-700 flex flex-col flex-auto">
           <div>
-            Email. <a href="mailto:wonny727@gmail.com">wonny727@gmail.com</a>
+            Email. <a href={profileData?.personal.email}>{profileData?.personal.email}</a>
           </div>
-          <div>Phone. 010-0000-0000</div>
-          <div>
-            Blog. <a href="https://wonny.space/">https://wonny.space/</a>
-          </div>
-          <div>
-            GitHub. <a href="https://github.com/wonny-log">https://github.com/wonny-log</a>
-          </div>
-          <div>
-            Portfolio. <a href="https://brunch.co.kr/@hee072794">https://brunch.co.kr/@hee072794</a>
-          </div>
+          <div>Phone. {profileData?.personal.phone}</div>
+          {profileData?.personal.channel.map((el) => {
+            return (
+              <div key={el.title}>
+                {el.title}. <a href={el.url}>{el.url}</a>
+              </div>
+            )
+          })}
         </div>
       </div>
     </div>
   )
 }
-
-// {list.map((x) => {
-//   return (
-//     <div>
-//       <span>Email</span> : <Link>wonny727@gmail.comkjlkjlkjlkjlkjlkjlkjlkjlkjlkjl</Link>
-//     </div>
-//   )
-// })}
