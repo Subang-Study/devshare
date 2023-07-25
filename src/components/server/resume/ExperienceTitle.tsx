@@ -7,18 +7,18 @@ interface ExperienceTitleProps {
 
 export default function ExperienceTitle({ title, description, period, content }: ExperienceTitleProps) {
   return (
-    <div>
-      <div className="flex items-center">
+    <div className="flex flex-row">
+      <div className="flex flex-col">
         <div className="min-w-[150px]">
           <h2 className="font-bold text-xl ">{title}</h2>
         </div>
         <div className="">
-          <p>{description}</p>
+          <h3 className="font-bold text-gray-400">{period}</h3>
         </div>
       </div>
-      <div className="flex items-center mt-2">
+      <div className="flex flex-col">
         <div className="min-w-[150px]">
-          <h3 className="font-bold text-gray-400">{period}</h3>
+          <p>{description}</p>
         </div>
         <div className="">
           <p>{content}</p>

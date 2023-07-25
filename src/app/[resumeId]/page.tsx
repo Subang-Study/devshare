@@ -1,9 +1,8 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import Profile from '@/components/server/Profile'
-import Introduce from '@/components/server/Introduce'
-import Skillset from '@/components/server/Skillset'
-import Experience from '@/components/server/Experience'
-import Study from '@/components/server/Study'
+import Profile from '@/components/server/resume/Profile'
+import Introduce from '@/components/server/resume/Introduce'
+import Skillset from '@/components/server/resume/Skillset'
+import Experience from '@/components/server/resume/Experience'
 import { IResumeData } from '@/types/resumeDataType'
 import { authOptions } from '@/pages/api/auth/[...nextauth]'
 import { getServerSession } from 'next-auth'
@@ -25,10 +24,9 @@ export default async function Resume(props: IResumeProps) {
   return (
     <>
       <Profile profileData={data.userInfo} />
-      <Introduce />
-      <Skillset />
+      <Introduce profileData={data.userInfo} />
+      <Skillset techData={data.techStack} />
       <Experience />
-      <Study />
     </>
   )
 }
