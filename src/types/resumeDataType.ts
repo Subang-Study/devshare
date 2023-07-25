@@ -1,4 +1,5 @@
 export interface IResumeData {
+  _id?: string
   author?: string
   userInfo?: IResumeUserInfo
   techStack?: IResumeTechStack[]

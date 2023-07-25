@@ -1,4 +1,3 @@
-/* eslint-disable react/require-default-props */
 import { k2d } from '@/app/font'
 import { HTMLAttributes } from 'react'
 
@@ -20,7 +19,7 @@ const COLOR_VARIANT = {
   grey: 'text-neutral-600',
 }
 
-export default function Txt({ typography, color, font, ...props }: ITxtProps) {
+export default function Txt({ typography, color, font = undefined, ...props }: ITxtProps) {
   return (
     <span className={`${font && k2d.className} ${TYPOGRAPHY_VARIANT[typography]} ${COLOR_VARIANT[color]}`} {...props} />
   )

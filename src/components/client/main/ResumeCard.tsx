@@ -1,3 +1,7 @@
+/* eslint-disable no-underscore-dangle */
+
+'use-client'
+
 import { IResumeData } from '@/types/resumeDataType'
 import { useRouter } from 'next/navigation'
 import Txt from '../ui/Txt'
@@ -38,7 +42,12 @@ export default function ResumeCard({ ResumeData }: IResumeCardProps) {
               {ResumeData.userInfo?.personal.phone}
             </Txt>
           </div>
-          <Btn shape="border" className="w-full" onClick={() => route.push('/example')}>
+          <Btn
+            shape="border"
+            colors="blueEmpty"
+            className="w-full p-2"
+            onClick={() => route.push(`/resume/${ResumeData._id}`)}
+          >
             더보기
           </Btn>
         </div>
