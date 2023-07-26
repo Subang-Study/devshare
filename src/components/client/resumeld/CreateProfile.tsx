@@ -9,8 +9,12 @@ import TechStackForm from '../resumeEdit/TechStackForm'
 import CategoryForm from '../resumeEdit/CategoryForm'
 import { IResumeData, initialResumeData } from '../../../types/resumeDataType'
 
-export default function CreateProfile() {
-  const method = useForm<IResumeData>({ defaultValues: initialResumeData })
+interface ICreateProfileProps {
+  defaultValue?: IResumeData
+}
+
+export default function CreateProfile({ defaultValue }: ICreateProfileProps) {
+  const method = useForm<IResumeData>({ defaultValues: defaultValue || initialResumeData })
   const onSubmit = async (data: unknown) => {
     const result = await axios.post('/api/resume/create', data)
     console.log(result)

@@ -2,14 +2,17 @@
 
 import { signIn } from 'next-auth/react'
 import { k2d } from '@/app/font'
+import { useSearchParams } from 'next/navigation'
 
 export default function GithubLoginBtn() {
+  const search = useSearchParams()
+  const callbackUrl = search?.get('callbackUrl')
   return (
     <button
       className={`${k2d.className} w-[300px] h-11 bg-[#24292f] rounded-md flex justify-center items-center gap-2 text-white font-semibold`}
       type="button"
       onClick={() => {
-        signIn('github', { callbackUrl: '/' })
+        signIn('github', { callbackUrl: callbackUrl || '/' })
       }}
     >
       <svg className="w-auto h-3/5" viewBox="0 0 98 98" xmlns="http://www.w3.org/2000/svg">
