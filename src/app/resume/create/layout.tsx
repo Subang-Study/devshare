@@ -5,6 +5,11 @@ interface IProps {
   children: ReactNode
 }
 
-export default async function layout({ children }: IProps) {
-  return <AuthorizedAccess>{children}</AuthorizedAccess>
+export default function layout({ children }: IProps) {
+  return (
+    <>
+      {/* @ts-expect-error Async Server Component */}
+      <AuthorizedAccess>{children}</AuthorizedAccess>
+    </>
+  )
 }

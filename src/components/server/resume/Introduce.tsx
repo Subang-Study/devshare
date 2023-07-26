@@ -8,7 +8,7 @@ interface IProfileProps {
 export default function Introduce({ profileData }: IProfileProps) {
   return (
     <div>
-      <Titlename title="Introduce" />
+      <Titlename>Introduce</Titlename>
       <div className="border border-gray-300 rounded-md p-4">
         <span>{profileData?.introduction}</span>
       </div>

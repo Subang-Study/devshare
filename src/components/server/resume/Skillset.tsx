@@ -9,7 +9,7 @@ interface IProfileProps {
 export default function Skillset({ techData }: IProfileProps) {
   return (
     <div>
-      <Titlename title="Techset" />
+      <Titlename>Techset</Titlename>
       {techData ? (
         techData.map((el) => <Skill key={el.title} title={el.title} description={el.description} />)
       ) : (
