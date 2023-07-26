@@ -27,12 +27,12 @@ export default function DatePickerComponent({ categoryIdx, detailIdx }: DatePick
             {...fieldProps}
             placeholderText="기간 선택"
             selectsRange
-            startDate={value[0]}
-            endDate={value[1]}
+            startDate={value[0] && new Date(value[0])}
+            endDate={value[1] && new Date(value[1])}
             dateFormat="yyyy-MM"
             onChange={onChange}
             locale="ko"
-            className="border-none bg-transparent w-full pr-4"
+            className="w-full pr-4 bg-transparent border-none"
             showMonthYearPicker
             showFullMonthYearPicker
             showTwoColumnMonthYearPicker

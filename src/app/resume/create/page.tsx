@@ -1,5 +1,3 @@
-'use client'
-
 /* eslint-disable import/extensions */
 /* eslint-disable import/order */
 /* eslint-disable import/no-extraneous-dependencies */
