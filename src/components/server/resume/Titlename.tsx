@@ -1,11 +1,13 @@
+import { ReactNode } from 'react'
+
 interface TitlenameProps {
-  title: string
+  children: ReactNode
 }
 
-export default function Titlename({ title }: TitlenameProps) {
+export default function Titlename({ children }: TitlenameProps) {
   return (
     <div className="border-b-2 border-black mb-4">
-      <h1 className="text-2xl font-semibold text-blue-600">{title}</h1>
+      <h1 className="text-2xl font-semibold text-blue-600">{children}</h1>
     </div>
   )
 }

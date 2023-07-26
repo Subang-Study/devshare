@@ -6,6 +6,11 @@ interface IProps {
   children: ReactNode
 }
 
-export default async function layout({ params, children }: IProps) {
-  return <AuthorizedAccess callbackPath={`/resume/${params.resumeId}`}>{children}</AuthorizedAccess>
+export default function layout({ params, children }: IProps) {
+  return (
+    <>
+      {/* @ts-expect-error Async Server Component */}
+      <AuthorizedAccess callbackPath={`/resume/${params.resumeId}`}>{children}</AuthorizedAccess>
+    </>
+  )
 }

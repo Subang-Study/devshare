@@ -2,7 +2,7 @@
 import Profile from '@/components/server/resume/Profile'
 import Introduce from '@/components/server/resume/Introduce'
 import Skillset from '@/components/server/resume/Skillset'
-import Experience from '@/components/server/resume/Experience'
+import Categories from '@/components/server/resume/Categories'
 import { IResumeData } from '@/types/resumeDataType'
 import { authOptions } from '@/pages/api/auth/[...nextauth]'
 import { getServerSession } from 'next-auth'
@@ -26,7 +26,7 @@ export default async function Resume(props: IResumeProps) {
       <Profile profileData={data.userInfo} />
       <Introduce profileData={data.userInfo} />
       <Skillset techData={data.techStack} />
-      <Experience />
+      <Categories categoryList={data.categorys} />
     </>
   )
 }
