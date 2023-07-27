@@ -3,7 +3,7 @@
 import { IResumeData, initialResumeCategoryDetail } from '@/types/resumeDataType'
 import { useFormContext, useFieldArray } from 'react-hook-form'
 import { RxPlusCircled } from 'react-icons/rx'
-import DatePickerComponent from '../ui/DatePickerComponent'
+import DatePickerComponent from './DatePickerComponent'
 
 export default function CategoryDetails({ categoryIdx }: { categoryIdx: number }) {
   const { register, control } = useFormContext<IResumeData>()

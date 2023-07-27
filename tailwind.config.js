@@ -6,6 +6,10 @@ module.exports = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
+    borderWidth: {
+      1: '1px',
+      2: '2px',
+    },
     extend: {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
@@ -14,5 +18,5 @@ module.exports = {
     },
   },
   // eslint-disable-next-line global-require
-  plugins: [require('tailwind-scrollbar-hide')],
+  plugins: [require('tailwind-scrollbar-hide'), require('./twPlugins/shadowBorder.js')],
 }

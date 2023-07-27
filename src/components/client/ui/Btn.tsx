@@ -4,7 +4,8 @@ import { ButtonHTMLAttributes } from 'react'
 
 const BTN_SHAPE = {
   basic: '',
-  border: 'shadow-[0_0_0_2px_inset]  text-blue-600 hover:shadow-blue-500 hover:text-blue-500',
+  border: 'shadow-border-2 text-blue-600 hover:shadow-blue-500 hover:text-blue-500',
+  'slim-border': 'shadow-border-1 text-blue-600 hover:shadow-blue-500 hover:text-blue-500',
 }
 
 const BTN_COLOR = {
@@ -15,8 +16,8 @@ const BTN_COLOR = {
 }
 
 interface IBtnProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  shape: 'basic' | 'border'
-  colors: 'blueFill' | 'blueEmpty' | 'red' | 'grey'
+  shape: keyof typeof BTN_SHAPE
+  colors: keyof typeof BTN_COLOR
 }
 
 export default function Btn({ shape, colors, className, children, ...props }: IBtnProps) {
