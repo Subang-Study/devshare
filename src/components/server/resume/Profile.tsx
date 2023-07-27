@@ -7,13 +7,15 @@ interface IProfileProps {
 export default function Profile({ profileData }: IProfileProps) {
   return (
     <div className="flex flex-col w-full">
-      <h1 className="text-[2rem] font-bold mt-4">{profileData?.name}</h1>
-      <p className="text-gray-600">{profileData?.sentense}</p>
-      <div className="flex flex-row items-center justify-between w-full gap-4 mt-4 md:flex-wrap">
+      <h1 className="text-[2rem] font-bold outline-none">{profileData?.name}</h1>
+      <p className="w-full text-gray-600 outline-none0">{profileData?.sentense}</p>
+      <div className="flex flex-row items-center justify-between w-full gap-4 mt-4 max-sm:flex-col">
         <div className="w-1/4 min-w-[200px]">
-          <div className="flex items-center justify-center w-full bg-blue-500 aspect-square">USERIMAGE</div>
+          <div className="relative flex items-center justify-center w-full border-2 border-blue-500 rounded-full aspect-square">
+            USERIMAGE
+          </div>
         </div>
-        <div className="min-w-[400px] h-full text-gray-700 flex flex-col flex-auto">
+        <div className="sm:min-w-[400px] h-full text-gray-700 flex flex-col flex-auto">
           <div>
             Email. <a href={profileData?.personal.email}>{profileData?.personal.email}</a>
           </div>

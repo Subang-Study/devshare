@@ -8,11 +8,15 @@ interface IProfileProps {
 
 export default function Categories({ categoryList }: IProfileProps) {
   return (
-    <div>
+    <div className="flex flex-col items-center w-full">
       {categoryList?.map((ele) => {
         return (
           <>
-            <Titlename>{ele.title}</Titlename>
+            <div className="flex flex-col w-full">
+              <div className="flex w-full flex-row justify-between items-center">
+                <Titlename>{ele.title}</Titlename>
+              </div>
+            </div>
             <CategoryDetails detailList={ele.detail} />
           </>
         )

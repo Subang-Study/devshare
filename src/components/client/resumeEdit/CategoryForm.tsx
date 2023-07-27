@@ -39,7 +39,7 @@ export default function CategoryForm() {
         )
       })}
       <hr className="w-full h-0.5 bg-neutral-300 border-none rounded-full" />
-      <Btn shape="border" className="w-3/4 h-10 my-4" onClick={() => append(initialResumeCategory)}>
+      <Btn shape="border" colors="blueEmpty" className="w-3/4 h-10 my-4" onClick={() => append(initialResumeCategory)}>
         카테고리 추가
       </Btn>
     </div>
