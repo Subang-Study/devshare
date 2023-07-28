@@ -23,10 +23,11 @@ interface IResumeProps {
 export default async function Resume(props: IResumeProps) {
   const data = await getData(props.searchParams.id)
   const session = await getServerSession(authOptions)
+  console.log(session?.user.id === data.author)
 
   return (
     <>
-      {session?.user.id !== data._id && <ResumeOwnerBtns resumeId={props.searchParams.id} />}
+      {session?.user.id === data.author && <ResumeOwnerBtns resumeId={props.searchParams.id} />}
       <Profile profileData={data.userInfo} />
       <Introduce profileData={data.userInfo} />
       <Skillset techData={data.techStack} />
