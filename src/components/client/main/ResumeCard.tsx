@@ -46,7 +46,7 @@ export default function ResumeCard({ ResumeData }: IResumeCardProps) {
             shape="border"
             colors="blueEmpty"
             className="w-full p-2"
-            onClick={() => route.push(`/resume/${ResumeData._id}`)}
+            onClick={() => route.push(`/resume?id=${ResumeData._id}`)}
           >
             더보기
           </Btn>
