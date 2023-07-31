@@ -15,7 +15,7 @@ export default function UserImageUploadButton() {
       setSelectedFile(file)
     }
     // 파일 업로드 로직 작성
-    // 업로드 성공 시 이미지 URL을 폼 데이터에 설정
+    // 업로드 성공 시 이미지 URL을 폼 데이터에 설정 하면됨
     // setValue('userInfo.userImage', imageUrl);
   }
 
