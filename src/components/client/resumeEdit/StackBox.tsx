@@ -12,7 +12,7 @@ interface IStackBoxProps {
 export default function StackBoxInput({ idx, remove }: IStackBoxProps) {
   const { register } = useFormContext<IResumeData>()
   return (
-    <div className="relative flex flex-col gap-1 p-3 w-36 aspect-square bg-neutral-200 rounded-xl">
+    <div className="relative flex flex-col flex-none gap-1 p-3 snap-center w-36 aspect-square bg-neutral-200 rounded-xl">
       <input
         type="text"
         className="w-4/5 px-1 bg-transparent rounded-lg focus:bg-neutral-200 focus:outline-none"

@@ -12,13 +12,20 @@ import Btn from '../ui/Btn'
 
 interface ICreateProfileProps {
   defaultValue?: IResumeData
+  mode: 'EDIT' | 'CREATE'
+  id?: string
 }
 
-export default function CreateProfile({ defaultValue = initialResumeData }: ICreateProfileProps) {
+export default function CreateProfile({ defaultValue = initialResumeData, mode, id }: ICreateProfileProps) {
   const method = useForm<IResumeData>({ defaultValues: defaultValue })
   const onSubmit = async (data: unknown) => {
-    const result = await axios.post('/api/resume/create', data)
-    console.log(result)
+    if (mode === 'EDIT') {
+      const result = await axios.put(`/api/resume/${id}`, data)
+      console.log(result)
+    } else {
+      const result = await axios.post('/api/resume/create', data)
+      console.log(result)
+    }
   }
 
   return (

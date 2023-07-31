@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import AuthorizedAccess from '@/utils/AuthorizedAccess'
 import CreateProfile from '@/components/client/resumeld/CreateProfile'
 import { IResumeData } from '@/types/resumeDataType'
@@ -7,7 +8,8 @@ const getDefaultValue = async (id: string) => {
   if (!res.ok) {
     throw new Error('Not Valid Id')
   }
-  const result = res.json()
+  const result = await res.json()
+  delete result._id
   return result as IResumeData
 }
 
@@ -30,7 +32,11 @@ export default async function EditResume({ searchParams }: IEditResume) {
   }
   return (
     <AuthorizedAccess callbackPath={`/resume/edit?id=${id}`}>
-      <CreateProfile defaultValue={defaultValue ?? undefined} />
+      <CreateProfile
+        defaultValue={defaultValue ?? undefined}
+        mode={defaultValue ? 'EDIT' : 'CREATE'}
+        id={defaultValue && id}
+      />
     </AuthorizedAccess>
   )
 }
