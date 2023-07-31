@@ -8,6 +8,7 @@ import { IResumeData } from '@/types/resumeDataType'
 import { authOptions } from '@/pages/api/auth/[...nextauth]'
 import { getServerSession } from 'next-auth'
 import ResumeOwnerBtns from '@/components/client/resume/ResumeOwnerBtns'
+import AuthorizedAccess from '@/utils/AuthorizedAccess'
 
 const getData = async (id: string) => {
   const res = await fetch(`http://localhost:3000/api/resume/${id}`, { method: 'GET', cache: 'no-store' })
@@ -26,12 +27,12 @@ export default async function Resume(props: IResumeProps) {
   console.log(session?.user.id === data.author)
 
   return (
-    <>
+    <AuthorizedAccess callbackPath={`/resume?id=${props.searchParams.id}`}>
       {session?.user.id === data.author && <ResumeOwnerBtns resumeId={props.searchParams.id} />}
       <Profile profileData={data.userInfo} />
       <Introduce profileData={data.userInfo} />
       <Skillset techData={data.techStack} />
       <Categories categoryList={data.categorys} />
-    </>
+    </AuthorizedAccess>
   )
 }

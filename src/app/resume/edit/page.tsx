@@ -1,3 +1,4 @@
+import AuthorizedAccess from '@/utils/AuthorizedAccess'
 import CreateProfile from '@/components/client/resumeld/CreateProfile'
 import { IResumeData } from '@/types/resumeDataType'
 
@@ -11,22 +12,25 @@ const getDefaultValue = async (id: string) => {
 }
 
 interface IEditResume {
+  param: { [key: string]: string }
   searchParams: { id: string }
 }
 
 export default async function EditResume({ searchParams }: IEditResume) {
   const { id } = searchParams
+  let defaultValue
   if (id) {
     try {
-      const defaultValue = await getDefaultValue(id)
-      if (defaultValue) {
-        return <CreateProfile defaultValue={defaultValue} />
-      }
+      defaultValue = await getDefaultValue(id)
     } catch (error) {
       if (error instanceof Error) {
         throw Error(error.message)
       }
     }
   }
-  return <CreateProfile />
+  return (
+    <AuthorizedAccess callbackPath={`/resume/edit?id=${id}`}>
+      <CreateProfile defaultValue={defaultValue ?? undefined} />
+    </AuthorizedAccess>
+  )
 }
