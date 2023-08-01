@@ -25,9 +25,12 @@ export default function UserMenu() {
       {isOpen && (
         <div className="absolute flex justify-center p-4 border shadow-lg rounded-lg right-0 top-[110%] w-max bg-white">
           {status === 'authenticated' ? (
-            <button type="button" onClick={() => signOut({ callbackUrl: '/' })}>
-              Logout
-            </button>
+            <div className="flex flex-col-reverse">
+              <button type="button" onClick={() => signOut({ callbackUrl: '/' })}>
+                Logout
+              </button>
+              <Link href={`/resume/edit?id=${data.user.id}`}>My resume</Link>
+            </div>
           ) : (
             <Link href="/auth">Sign Up</Link>
           )}
