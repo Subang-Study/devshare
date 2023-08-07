@@ -17,18 +17,33 @@ interface ICreateProfileProps {
   id?: string
 }
 
-export default function CreateProfile({ defaultValue = initialResumeData, mode, id }: ICreateProfileProps) {
+const getData = async (id: string) => {
+  const res = await axios.get<IResumeData>(`/api/resume/${id}`)
+  const result = res.data
+  return result
+}
+
+export default function CreateProfile({ mode, id }: ICreateProfileProps) {
   const router = useRouter()
-  const method = useForm<IResumeData>({ defaultValues: defaultValue })
+  const method = useForm<IResumeData>({
+    defaultValues: id
+      ? async () => {
+          const value = await getData(id)
+          return value
+        }
+      : initialResumeData,
+  })
+
   const onSubmit = async (data: unknown) => {
-    if (mode === 'EDIT') {
+    if (id) {
       const result = await axios.put(`/api/resume/${id}`, data)
       console.log(result)
+      router.push(`/resume?id=${id}`)
     } else {
       const result = await axios.post('/api/resume/create', data)
       console.log(result)
+      router.push(`/resume?id=${result.data.id}`)
     }
-    router.push(`/resume?id=${id}`)
   }
 
   return (

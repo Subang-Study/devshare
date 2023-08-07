@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import { connectDB } from '@/utils/database'
 import { ObjectId } from 'mongodb'
 import { NextApiRequest, NextApiResponse } from 'next'
@@ -32,11 +33,14 @@ export default async function getResume(req: NextApiRequest, res: NextApiRespons
     }
 
     //* POST
-  } else if (req.method === 'POST') {
+  } else if (req.method === 'PUT') {
     try {
-      await db.collection('resume').updateOne({ _id: new ObjectId(resumeId as string) }, { $set: { ...req.body } })
+      const updateValue = req.body
+      delete updateValue._id
+      await db.collection('resume').updateOne({ _id: new ObjectId(resumeId as string) }, { $set: { ...updateValue } })
       res.status(200)
     } catch (error) {
+      console.log(error)
       res.status(403).json('수정실패')
     }
     if (res.statusCode === 200) {
