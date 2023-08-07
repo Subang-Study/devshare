@@ -1,3 +1,4 @@
+import Txt from '@/components/client/ui/Txt'
 import { IResumeUserInfo } from '@/types/resumeDataType'
 
 interface IProfileProps {
@@ -16,10 +17,12 @@ export default function Profile({ profileData }: IProfileProps) {
           </div>
         </div>
         <div className="sm:min-w-[400px] h-full text-gray-700 flex flex-col flex-auto">
-          <div>
-            Email. <a href={profileData?.personal.email}>{profileData?.personal.email}</a>
-          </div>
-          <div>Phone. {profileData?.personal.phone}</div>
+          <Txt typography="span" color="grey">
+            Email. {profileData?.personal.email}
+          </Txt>
+          <Txt typography="span" color="grey">
+            Phone. {profileData?.personal.phone}
+          </Txt>
           {profileData?.personal.channel.map((el) => {
             return (
               <div key={el.title}>
