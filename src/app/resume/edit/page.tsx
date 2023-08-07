@@ -35,9 +35,13 @@ export default async function EditResume({ searchParams }: IEditResume) {
     }
   } else if (session?.user.id) {
     console.log(session.user.id)
-    const res = await getDefaultValue(session.user.id)
-    if (res) {
-      redirect(`/resume/edit?id=${session.user.id}`)
+    try {
+      const res = await getDefaultValue(session.user.id)
+      if (res) {
+        redirect(`/resume/edit?id=${session.user.id}`)
+      }
+    } catch (error) {
+      console.log('new resume')
     }
   }
   return (
