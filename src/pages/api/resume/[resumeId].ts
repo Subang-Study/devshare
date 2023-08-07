@@ -38,13 +38,10 @@ export default async function getResume(req: NextApiRequest, res: NextApiRespons
       const updateValue = req.body
       delete updateValue._id
       await db.collection('resume').updateOne({ _id: new ObjectId(resumeId as string) }, { $set: { ...updateValue } })
-      res.status(200)
+      res.status(200).json({ id: resumeId })
     } catch (error) {
       console.log(error)
       res.status(403).json('수정실패')
-    }
-    if (res.statusCode === 200) {
-      res.json('수정성공')
     }
   }
 }

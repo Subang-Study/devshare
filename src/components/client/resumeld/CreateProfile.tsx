@@ -37,8 +37,9 @@ export default function CreateProfile({ mode, id }: ICreateProfileProps) {
   const onSubmit = async (data: unknown) => {
     if (id) {
       const result = await axios.put(`/api/resume/${id}`, data)
-      console.log(result)
-      router.push(`/resume?id=${id}`)
+      if (result.status === 200) {
+        router.push(`/resume?id=${result.data.id}`)
+      }
     } else {
       const result = await axios.post('/api/resume/create', data)
       console.log(result)
