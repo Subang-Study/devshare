@@ -21,10 +21,11 @@ interface IResumeProps {
   searchParams: { id: string }
 }
 
+export const dynamic = 'force-dynamic'
+
 export default async function Resume(props: IResumeProps) {
   const data = await getData(props.searchParams.id)
   const session = await getServerSession(authOptions)
-  console.log(session?.user.id === data.author)
 
   return (
     <AuthorizedAccess callbackPath={`/resume?id=${props.searchParams.id}`}>

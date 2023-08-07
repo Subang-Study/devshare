@@ -5,6 +5,8 @@ import { NextApiRequest, NextApiResponse } from 'next'
 export default async function getResume(req: NextApiRequest, res: NextApiResponse) {
   const { resumeId } = req.query
   const db = (await connectDB).db('devshare')
+
+  // * GET요청
   if (req.method === 'GET') {
     try {
       const result = await db.collection('resume').findOne({ _id: new ObjectId(resumeId as string) })
@@ -17,6 +19,8 @@ export default async function getResume(req: NextApiRequest, res: NextApiRespons
         res.status(404).json({ message: err.message })
       }
     }
+
+    //* DELETE
   } else if (req.method === 'DELETE') {
     try {
       await db.collection('resume').deleteOne({ _id: new ObjectId(resumeId as string) })
@@ -26,7 +30,9 @@ export default async function getResume(req: NextApiRequest, res: NextApiRespons
     if (res.statusCode !== 500) {
       res.status(200).json('삭제성공')
     }
-  } else if (req.method === 'PUT') {
+
+    //* POST
+  } else if (req.method === 'POST') {
     try {
       await db.collection('resume').updateOne({ _id: new ObjectId(resumeId as string) }, { $set: { ...req.body } })
       res.status(200)
@@ -34,7 +40,7 @@ export default async function getResume(req: NextApiRequest, res: NextApiRespons
       res.status(403).json('수정실패')
     }
     if (res.statusCode === 200) {
-      res.json('수정완료')
+      res.json('수정성공')
     }
   }
 }

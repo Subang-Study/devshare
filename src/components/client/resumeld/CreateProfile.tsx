@@ -4,6 +4,7 @@
 
 import { useForm, FormProvider } from 'react-hook-form'
 import axios from 'axios'
+import { useRouter } from 'next/navigation'
 import UserInfoForm from './UserInfoForm'
 import TechStackForm from '../resumeEdit/TechStackForm'
 import CategoryForm from '../resumeEdit/CategoryForm'
@@ -17,6 +18,7 @@ interface ICreateProfileProps {
 }
 
 export default function CreateProfile({ defaultValue = initialResumeData, mode, id }: ICreateProfileProps) {
+  const router = useRouter()
   const method = useForm<IResumeData>({ defaultValues: defaultValue })
   const onSubmit = async (data: unknown) => {
     if (mode === 'EDIT') {
@@ -26,6 +28,7 @@ export default function CreateProfile({ defaultValue = initialResumeData, mode, 
       const result = await axios.post('/api/resume/create', data)
       console.log(result)
     }
+    router.push(`/resume?id=${id}`)
   }
 
   return (

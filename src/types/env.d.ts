@@ -1,5 +1,6 @@
 declare namespace NodeJS {
   interface ProcessEnv {
+    NEXT_PUBLIC_HOST: string
     MONGO_DB: string
     NEXTAUTH_URL: string
     NEXTAUTH_SECRET: string

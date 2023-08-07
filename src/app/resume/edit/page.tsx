@@ -18,6 +18,8 @@ interface IEditResume {
   searchParams: { id: string }
 }
 
+export const dynamic = 'force-dynamic'
+
 export default async function EditResume({ searchParams }: IEditResume) {
   const { id } = searchParams
   let defaultValue
