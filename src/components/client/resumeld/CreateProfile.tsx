@@ -4,6 +4,7 @@
 
 import { useForm, FormProvider } from 'react-hook-form'
 import axios from 'axios'
+import { useRouter } from 'next/navigation'
 import UserInfoForm from './UserInfoForm'
 import TechStackForm from '../resumeEdit/TechStackForm'
 import CategoryForm from '../resumeEdit/CategoryForm'
@@ -12,13 +13,38 @@ import Btn from '../ui/Btn'
 
 interface ICreateProfileProps {
   defaultValue?: IResumeData
+  mode: 'EDIT' | 'CREATE'
+  id?: string
 }
 
-export default function CreateProfile({ defaultValue = initialResumeData }: ICreateProfileProps) {
-  const method = useForm<IResumeData>({ defaultValues: defaultValue })
+const getData = async (id: string) => {
+  const res = await axios.get<IResumeData>(`/api/resume/${id}`)
+  const result = res.data
+  return result
+}
+
+export default function CreateProfile({ mode, id }: ICreateProfileProps) {
+  const router = useRouter()
+  const method = useForm<IResumeData>({
+    defaultValues: id
+      ? async () => {
+          const value = await getData(id)
+          return value
+        }
+      : initialResumeData,
+  })
+
   const onSubmit = async (data: unknown) => {
-    const result = await axios.post('/api/resume/create', data)
-    console.log(result)
+    if (id) {
+      const result = await axios.put(`/api/resume/${id}`, data)
+      if (result.status === 200) {
+        router.push(`/resume?id=${result.data.id}`)
+      }
+    } else {
+      const result = await axios.post('/api/resume/create', data)
+      console.log(result)
+      router.push(`/resume?id=${result.data.id}`)
+    }
   }
 
   return (

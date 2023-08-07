@@ -1,4 +1,5 @@
 import { IResumeCategory } from '@/types/resumeDataType'
+import { Fragment } from 'react'
 import CategoryDetails from './CategoryDetails'
 import Titlename from './Titlename'
 
@@ -11,14 +12,14 @@ export default function Categories({ categoryList }: IProfileProps) {
     <div className="flex flex-col items-center w-full">
       {categoryList?.map((ele) => {
         return (
-          <>
+          <Fragment key={ele.title}>
             <div className="flex flex-col w-full">
-              <div className="flex w-full flex-row justify-between items-center">
+              <div className="flex flex-row items-center justify-between w-full">
                 <Titlename>{ele.title}</Titlename>
               </div>
             </div>
             <CategoryDetails detailList={ele.detail} />
-          </>
+          </Fragment>
         )
       })}
     </div>
