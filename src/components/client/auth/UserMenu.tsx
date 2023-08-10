@@ -29,7 +29,7 @@ export default function UserMenu() {
               <button type="button" onClick={() => signOut({ callbackUrl: '/' })}>
                 Logout
               </button>
-              <Link href={`/resume/edit?id=${data.user.id}`}>My resume</Link>
+              <Link href={`/resume?id=${data.user.id}`}>My resume</Link>
             </div>
           ) : (
             <Link href="/auth">Sign Up</Link>

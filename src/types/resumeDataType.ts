@@ -1,13 +1,13 @@
 export interface IResumeData {
   _id?: string
   author?: string
-  userInfo?: IResumeUserInfo
+  userInfo: IResumeUserInfo
   techStack?: IResumeTechStack[]
   categorys?: IResumeCategory[]
 }
 
 export interface IResumeUserInfo {
-  userImage?: string
+  userImage?: string | File
   sentense: string // 나를 소개하는 한문장
   position: string
   name: string

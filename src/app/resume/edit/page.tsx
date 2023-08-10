@@ -8,8 +8,12 @@ import { redirect } from 'next/navigation'
 
 const getDefaultValue = async (id: string) => {
   const res = await fetch(`${process.env.NEXTAUTH_URL}api/resume/${id}`, { method: 'GET' })
-  if (!res.ok) {
-    throw new Error('Not Valid Id')
+  console.log(res)
+  if (res.status === 404) {
+    return
+  }
+  if (res.status === 401) {
+    throw new Error('Not Authorized')
   }
   const result = await res.json()
   delete result._id
@@ -26,23 +30,21 @@ export default async function EditResume({ searchParams }: IEditResume) {
   const session = await getServerSession(authOptions)
   let defaultValue
   if (id) {
-    try {
-      defaultValue = await getDefaultValue(id)
-    } catch (error) {
-      if (error instanceof Error) {
-        throw Error(error.message)
+    if (id === session?.user.id) {
+      try {
+        defaultValue = await getDefaultValue(id)
+      } catch (error) {
+        if (error instanceof Error) {
+          if (error.message === 'Not Authorized') {
+            redirect('/auth')
+          }
+        }
       }
+    } else {
+      redirect(`/resume?id=${id}`)
     }
-  } else if (session?.user.id) {
-    console.log(session.user.id)
-    try {
-      const res = await getDefaultValue(session.user.id)
-      if (res) {
-        redirect(`/resume/edit?id=${session.user.id}`)
-      }
-    } catch (error) {
-      console.log('new resume')
-    }
+  } else {
+    redirect(`/`)
   }
   return (
     <AuthorizedAccess callbackPath={`/resume/edit?id=${id}`}>
