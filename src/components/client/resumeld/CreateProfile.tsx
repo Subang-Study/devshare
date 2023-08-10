@@ -5,6 +5,7 @@
 import { useForm, FormProvider } from 'react-hook-form'
 import axios from 'axios'
 import { useRouter } from 'next/navigation'
+import { useSession } from 'next-auth/react'
 import UserInfoForm from './UserInfoForm'
 import TechStackForm from '../resumeEdit/TechStackForm'
 import CategoryForm from '../resumeEdit/CategoryForm'
@@ -25,6 +26,7 @@ const getData = async (id: string) => {
 
 export default function CreateProfile({ mode, id }: ICreateProfileProps) {
   const router = useRouter()
+  const session = useSession()
   const method = useForm<IResumeData>({
     defaultValues: id
       ? async () => {
@@ -34,14 +36,34 @@ export default function CreateProfile({ mode, id }: ICreateProfileProps) {
       : initialResumeData,
   })
 
-  const onSubmit = async (data: unknown) => {
-    if (id) {
-      const result = await axios.put(`/api/resume/${id}`, data)
+  const onSubmit = async (data: IResumeData) => {
+    const curData = { ...data }
+    const file = curData.userInfo.userImage
+    if (!!file && typeof file !== 'string') {
+      const res = await axios.get<never, { data: { fields: { [key: string]: string }; url: string } }>(
+        `/api/uploadImage/uploadUserImage?file=${session.data?.user.id}`,
+      )
+
+      const formData = new FormData()
+      Object.entries({ ...res.data.fields, file }).forEach(([key, value]) => {
+        formData.append(key, value as Blob)
+      })
+
+      const result = await axios.post(res.data.url, formData)
+
+      if (result.status === 204) {
+        console.log(result)
+        const url = `https://devshareimage.s3.ap-northeast-2.amazonaws.com/userImage/${session.data?.user.id}`
+        curData.userInfo.userImage = url
+      }
+    }
+    if (mode === 'EDIT') {
+      const result = await axios.put(`/api/resume/${id}`, curData)
       if (result.status === 200) {
         router.push(`/resume?id=${result.data.id}`)
       }
     } else {
-      const result = await axios.post('/api/resume/create', data)
+      const result = await axios.post('/api/resume/create', curData)
       console.log(result)
       router.push(`/resume?id=${result.data.id}`)
     }

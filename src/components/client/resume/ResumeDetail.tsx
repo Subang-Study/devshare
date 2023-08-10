@@ -8,6 +8,7 @@ import { IResumeData } from '@/types/resumeDataType'
 import axios from 'axios'
 import { Session } from 'next-auth'
 import { useEffect, useState } from 'react'
+import { useRouter } from 'next/navigation'
 import ResumeOwnerBtns from './ResumeOwnerBtns'
 
 interface IResumeDetailProps {
@@ -22,13 +23,18 @@ const getData = async (id: string) => {
 }
 
 export default function ResumeDetails({ session, id }: IResumeDetailProps) {
+  const router = useRouter()
   const [data, setData] = useState<IResumeData>()
 
   useEffect(() => {
-    getData(id).then((res) => {
-      setData(res)
-    })
-  })
+    getData(id)
+      .then((res) => {
+        setData(res)
+      })
+      .catch(() => {
+        router.push(`/resume/edit?id=${session?.user.id}`)
+      })
+  }, [id, router, session?.user.id])
 
   if (data) {
     return (
