@@ -38,13 +38,13 @@ export default function ResumeDetails({ session, id }: IResumeDetailProps) {
 
   if (data) {
     return (
-      <>
+      <div className="flex flex-col gap-3">
         {session?.user.id === data.author && <ResumeOwnerBtns resumeId={id} />}
         <Profile profileData={data.userInfo} />
         <Introduce profileData={data.userInfo} />
         <Skillset techData={data.techStack} />
         <Categories categoryList={data.categorys} />
-      </>
+      </div>
     )
   }
 }

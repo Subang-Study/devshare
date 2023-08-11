@@ -2,15 +2,22 @@ import { k2d } from '@/app/font'
 import { HTMLAttributes } from 'react'
 
 interface ITxtProps extends HTMLAttributes<HTMLSpanElement> {
+  className?: string
   typography: keyof typeof TYPOGRAPHY_VARIANT
+  textStyle?: keyof typeof TEXT_STYLE
   color: keyof typeof COLOR_VARIANT
   font?: 'k2d'
 }
 
 const TYPOGRAPHY_VARIANT = {
   title: 'text-3xl',
+  'mid-title': 'text-lg',
   span: 'text-base',
   p: 'text-sm',
+}
+
+const TEXT_STYLE = {
+  bold: 'font-bold',
 }
 
 const COLOR_VARIANT = {
@@ -20,8 +27,13 @@ const COLOR_VARIANT = {
   red: 'text-red-600',
 }
 
-export default function Txt({ typography, color, font = undefined, ...props }: ITxtProps) {
+export default function Txt({ className, typography, color, font = undefined, textStyle, ...props }: ITxtProps) {
   return (
-    <span className={`${font && k2d.className} ${TYPOGRAPHY_VARIANT[typography]} ${COLOR_VARIANT[color]}`} {...props} />
+    <span
+      className={`${className} ${font && k2d.className} ${TYPOGRAPHY_VARIANT[typography]} ${COLOR_VARIANT[color]} ${
+        textStyle && TEXT_STYLE[textStyle]
+      }`}
+      {...props}
+    />
   )
 }

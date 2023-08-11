@@ -19,9 +19,13 @@ interface ICreateProfileProps {
 }
 
 const getData = async (id: string) => {
-  const res = await axios.get<IResumeData>(`/api/resume/${id}`)
-  const result = res.data
-  return result
+  try {
+    const res = await axios.get<IResumeData>(`/api/resume/${id}`)
+    const result = res.data
+    return result
+  } catch (error) {
+    return initialResumeData
+  }
 }
 
 export default function CreateProfile({ mode, id }: ICreateProfileProps) {

@@ -1,9 +1,11 @@
+/* eslint-disable @next/next/no-img-element */
 /* eslint-disable no-underscore-dangle */
 
 'use-client'
 
 import { IResumeData } from '@/types/resumeDataType'
 import { useRouter } from 'next/navigation'
+import { FaUser } from 'react-icons/fa'
 import Txt from '../ui/Txt'
 import Btn from '../ui/Btn'
 
@@ -24,7 +26,13 @@ export default function ResumeCard({ ResumeData }: IResumeCardProps) {
         </Txt>
       </div>
       <div className="flex flex-row items-center justify-between w-full gap-4 p-2 h-3/4">
-        <div className="bg-white rounded-full h-4/5 aspect-square" />
+        <div className="flex items-center justify-center overflow-hidden border-2 border-blue-600 rounded-full h-4/5 aspect-square">
+          {ResumeData.userInfo.userImage ? (
+            <img src={ResumeData.userInfo.userImage as string} alt="userImage" />
+          ) : (
+            <FaUser className="w-4/5 -mb-[20%] text-blue-600 h-4/5" />
+          )}
+        </div>
         <div className="flex flex-col items-center justify-center flex-auto h-full gap-1">
           <div className="w-full">
             <Txt typography="p" color="grey">

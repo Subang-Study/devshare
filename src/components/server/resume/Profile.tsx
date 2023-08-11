@@ -1,5 +1,8 @@
 import Txt from '@/components/client/ui/Txt'
+import Link from 'next/link'
 import { IResumeUserInfo } from '@/types/resumeDataType'
+import { Fragment } from 'react'
+import { FaUser } from 'react-icons/fa'
 
 interface IProfileProps {
   profileData: IResumeUserInfo | undefined
@@ -7,32 +10,47 @@ interface IProfileProps {
 
 export default function Profile({ profileData }: IProfileProps) {
   return (
-    <div className="flex flex-col w-full">
-      <h1 className="text-[2rem] font-bold outline-none">{profileData?.name}</h1>
-      <p className="w-full text-gray-600 outline-none0">{profileData?.sentense}</p>
-      <div className="flex flex-row items-center justify-between w-full gap-4 mt-4 max-sm:flex-col">
+    <div className="flex flex-col w-full gap-3">
+      <div>
+        <h1 className="text-[2rem] font-bold outline-none">{profileData?.name}</h1>
+        <p className="w-full text-gray-600 outline-none0">{profileData?.sentense}</p>
+      </div>
+      <div className="flex flex-row items-center justify-start w-full gap-4 max-sm:flex-col">
         <div className="w-1/4 min-w-[200px]">
           <div className="relative flex items-center justify-center w-full overflow-hidden border-2 border-blue-500 rounded-full aspect-square">
-            {typeof profileData?.userImage === 'string' ? (
+            {profileData?.userImage && typeof profileData?.userImage === 'string' ? (
               // eslint-disable-next-line @next/next/no-img-element
               <img className="w-full h-full" src={profileData.userImage} alt="userImage" width={100} height={100} />
             ) : (
-              'USER IMAGE'
+              <FaUser className="w-4/5 -mb-[20%] text-blue-600 h-4/5" />
             )}
           </div>
         </div>
-        <div className="sm:min-w-[400px] h-full text-gray-700 flex flex-col flex-auto">
-          <Txt typography="span" color="grey">
-            Email. {profileData?.personal.email}
+        <div className="grid h-full grid-cols-3 text-gray-700">
+          <Txt typography="span" color="black">
+            Email.
           </Txt>
-          <Txt typography="span" color="grey">
-            Phone. {profileData?.personal.phone}
+          <Txt typography="span" color="grey" className="col-span-2">
+            {profileData?.personal.email}
           </Txt>
+
+          <Txt typography="span" color="black">
+            Phone.
+          </Txt>
+          <Txt typography="span" color="grey" className="col-span-2">
+            {profileData?.personal.phone}
+          </Txt>
+
           {profileData?.personal.channel.map((el) => {
             return (
-              <div key={el.title}>
-                {el.title}. <a href={el.url}>{el.url}</a>
-              </div>
+              <Fragment key={el.title}>
+                <Txt typography="span" color="black">
+                  {el.title}
+                </Txt>
+                <Link href={el.url} className="col-span-2">
+                  {el.url}
+                </Link>
+              </Fragment>
             )
           })}
         </div>
