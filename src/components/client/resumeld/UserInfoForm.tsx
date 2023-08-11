@@ -54,9 +54,16 @@ export default function UserInfoForm() {
           <input
             placeholder="email"
             type="text"
-            {...register('userInfo.personal.email', { required: true })}
+            {...register('userInfo.personal.email', {
+              required: '필수 입력칸입니다.',
+              pattern: {
+                value: /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i,
+                message: '이메일 형식을 맞춰주세요.',
+              },
+            })}
             className="col-span-2 outline-none"
           />
+          <InputError errors={errors} name="userInfo.personal.email" className="col-span-3" />
 
           <Txt typography="span" color="black">
             Phone
