@@ -21,7 +21,7 @@ export default async function getResume(req: NextApiRequest, res: NextApiRespons
       }
     }
 
-    //* DELETE
+    // * DELETE
   } else if (req.method === 'DELETE') {
     try {
       await db.collection('resume').deleteOne({ _id: new ObjectId(resumeId as string) })
@@ -32,7 +32,7 @@ export default async function getResume(req: NextApiRequest, res: NextApiRespons
       res.status(200).json('삭제성공')
     }
 
-    //* POST
+    // * PUT
   } else if (req.method === 'PUT') {
     try {
       const updateValue = req.body

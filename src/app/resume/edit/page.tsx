@@ -8,7 +8,6 @@ import { redirect } from 'next/navigation'
 
 const getDefaultValue = async (id: string) => {
   const res = await fetch(`${process.env.NEXTAUTH_URL}api/resume/${id}`, { method: 'GET' })
-  console.log(res)
   if (res.status === 404) {
     return
   }
