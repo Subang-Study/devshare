@@ -5,9 +5,14 @@ import { useFormContext, useFieldArray } from 'react-hook-form'
 import { k2d } from '@/app/font'
 import Btn from '../ui/Btn'
 import CategoryDetails from './CategoryDetails'
+import InputError from '../ui/InputError'
 
 export default function CategoryForm() {
-  const { register, control } = useFormContext<IResumeData>()
+  const {
+    register,
+    control,
+    formState: { errors },
+  } = useFormContext<IResumeData>()
   const { fields, append, remove } = useFieldArray<IResumeData>({
     control,
     name: 'categorys',
@@ -23,7 +28,9 @@ export default function CategoryForm() {
                 className={`${k2d.className} max-md:w-1/3 flex-1 text-3xl text-blue-600`}
                 placeholder="카테고리 이름"
                 type="text"
-                {...register(`categorys.${idx}.title`, { required: true })}
+                {...register(`categorys.${idx}.title`, {
+                  required: { value: true, message: '카테고리 이름을 작성해주세요.' },
+                })}
               />
               <button
                 type="button"
@@ -33,6 +40,7 @@ export default function CategoryForm() {
                 전체 삭제
               </button>
             </div>
+            <InputError errors={errors} name={`categorys.${idx}.title`} />
             <hr className="w-full h-0.5 bg-black border-none rounded-full" />
             <CategoryDetails categoryIdx={idx} />
           </div>

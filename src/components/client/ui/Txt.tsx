@@ -14,6 +14,7 @@ const TYPOGRAPHY_VARIANT = {
   'mid-title': 'text-lg',
   span: 'text-base',
   p: 'text-sm',
+  'small-p': 'text-xs',
 }
 
 const TEXT_STYLE = {

@@ -6,16 +6,17 @@ import Txt from './Txt'
 interface IInputErrorProps {
   errors: FieldErrors
   name: string
+  msg?: string
 }
 
-export default function InputError({ errors, name }: IInputErrorProps) {
+export default function InputError({ errors, name, msg }: IInputErrorProps) {
   return (
     <ErrorMessage
       errors={errors}
       name={name}
       render={({ message }) => (
-        <Txt color="red" typography="p" textStyle="bold" className="flex items-center">
-          <VscCircleFilled /> {message}
+        <Txt color="red" typography="small-p" className="flex items-center">
+          <VscCircleFilled /> {msg || message}
         </Txt>
       )}
     />

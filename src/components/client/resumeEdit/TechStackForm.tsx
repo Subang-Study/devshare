@@ -5,18 +5,28 @@ import { k2d } from '@/app/font'
 import { IResumeData, initialResumeTechStack } from '@/types/resumeDataType'
 import { RxPlusCircled } from 'react-icons/rx'
 import StackBoxInput from './StackBox'
+import InputError from '../ui/InputError'
 
 export default function TechStackForm() {
-  const { control } = useFormContext<IResumeData>()
+  const {
+    control,
+    formState: { errors },
+  } = useFormContext<IResumeData>()
   const { fields, append, remove } = useFieldArray<IResumeData>({
     control,
     name: 'techStack',
+    rules: {
+      validate: {
+        length: (value) => value.length > 0,
+      },
+    },
   })
 
   return (
     <div>
       <h3 className={`${k2d.className} text-blue-600 text-3xl`}>Tech Stack</h3>
       <hr className="w-full h-0.5 bg-black border-none rounded-full" />
+      {!fields.length && <InputError errors={errors} name="techStack" msg="기술 스택은 한가지 이상 작성해주세요." />}
       <div className="flex flex-row items-center gap-4 py-4 overflow-scroll snap-x snap-mandatory scrollbar-hide">
         {fields.map((field, idx) => {
           return <StackBoxInput key={field.id} {...{ idx, remove }} />
