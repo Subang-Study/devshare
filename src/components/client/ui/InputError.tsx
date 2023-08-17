@@ -10,6 +10,7 @@ interface IInputErrorProps {
 }
 
 export default function InputError({ errors, name, msg }: IInputErrorProps) {
+
   return (
     <ErrorMessage
       errors={errors}
