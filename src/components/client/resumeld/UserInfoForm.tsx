@@ -21,8 +21,8 @@ export default function UserInfoForm() {
     name: 'userInfo.personal.channel',
     rules: {
       maxLength: {
-        value: 5,
-        message: 'URL은 5개까지만 추가 가능합니다.',
+        value: 4,
+        message: 'URL은 4개까지만 추가 가능합니다.',
       },
     },
   })
@@ -47,8 +47,8 @@ export default function UserInfoForm() {
         <div className="w-1/4 aspect-square min-w-[200px]">
           <UserImageUploadButton />
         </div>
-        <div className="grid h-full grid-cols-3">
-          <Txt typography="span" color="black">
+        <div className="grid w-3/5 h-full grid-cols-3 py-8">
+          <Txt typography="span" color="black" className="w-full">
             Email
           </Txt>
           <input
@@ -61,7 +61,7 @@ export default function UserInfoForm() {
                 message: '이메일 형식을 맞춰주세요.',
               },
             })}
-            className="col-span-2 outline-none"
+            className="w-full col-span-2 outline-none"
           />
           <InputError errors={errors} name="userInfo.personal.email" className="col-span-3" />
 
@@ -100,7 +100,7 @@ export default function UserInfoForm() {
                 </Fragment>
               )
             })}
-            {watchChannelArray?.length < 5 && (
+            {watchChannelArray?.length < 4 && (
               <div className="flex justify-center col-span-3">
                 <button
                   type="button"

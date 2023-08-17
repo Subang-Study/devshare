@@ -12,7 +12,6 @@ interface IResumeProps {
 
 export default async function Resume(props: IResumeProps) {
   const session = await getServerSession(authOptions)
-  console.log(props.searchParams.id)
 
   return (
     <AuthorizedAccess callbackPath={`/resume?id=${props.searchParams.id}`}>
