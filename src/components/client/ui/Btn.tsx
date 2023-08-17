@@ -9,6 +9,7 @@ const BTN_SHAPE = {
 }
 
 const BTN_COLOR = {
+  basic: '',
   blueFill: 'bg-blue-600 text-white hover:bg-blue-500',
   blueEmpty: 'shadow-blue-600 text-blue-600 hover:shadow-blue-500 hover:text-blue-500',
   red: 'shadow-red-600 text-red-600 hover:shadow-red-400 hover:bg-red-400 hover:text-white',

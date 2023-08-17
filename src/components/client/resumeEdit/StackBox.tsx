@@ -3,6 +3,7 @@
 import { UseFieldArrayRemove, useFormContext } from 'react-hook-form'
 import { IResumeData } from '@/types/resumeDataType'
 import { RxCrossCircled } from 'react-icons/rx'
+import InputError from '../ui/InputError'
 
 interface IStackBoxProps {
   idx: number
@@ -10,13 +11,16 @@ interface IStackBoxProps {
 }
 
 export default function StackBoxInput({ idx, remove }: IStackBoxProps) {
-  const { register } = useFormContext<IResumeData>()
+  const {
+    register,
+    formState: { errors },
+  } = useFormContext<IResumeData>()
   return (
     <div className="relative flex flex-col flex-none gap-1 p-3 snap-center w-36 aspect-square bg-neutral-200 rounded-xl">
       <input
         type="text"
         className="w-4/5 px-1 bg-transparent rounded-lg focus:bg-neutral-200 focus:outline-none"
-        {...register(`techStack.${idx}.title`, { required: 'this is required' })}
+        {...register(`techStack.${idx}.title`, { required: true })}
         placeholder="기술 이름"
       />
       <textarea
@@ -24,6 +28,7 @@ export default function StackBoxInput({ idx, remove }: IStackBoxProps) {
         className="flex-1 w-full p-1 text-sm rounded-lg bg-neutral-200 text-neutral-600 focus:outline-none"
         {...register(`techStack.${idx}.description`)}
       />
+      <InputError errors={errors} name={`techStack.${idx}`} msg="칸을 전부 작성해주세요." />
       <button
         className="absolute w-6 bg-transparent rounded-full aspect-square top-1 right-1"
         type="button"
