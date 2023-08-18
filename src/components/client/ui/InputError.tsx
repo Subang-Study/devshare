@@ -7,16 +7,16 @@ interface IInputErrorProps {
   errors: FieldErrors
   name: string
   msg?: string
+  className: string
 }
 
-export default function InputError({ errors, name, msg }: IInputErrorProps) {
-
+export default function InputError({ errors, name, msg, className }: IInputErrorProps) {
   return (
     <ErrorMessage
       errors={errors}
       name={name}
       render={({ message }) => (
-        <Txt color="red" typography="small-p" className="flex items-center">
+        <Txt color="red" typography="small-p" className={`flex items-center ${className}`}>
           <VscCircleFilled /> {msg || message}
         </Txt>
       )}
