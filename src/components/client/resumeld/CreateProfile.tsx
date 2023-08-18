@@ -28,6 +28,8 @@ const getData = async (id: string) => {
   }
 }
 
+const reg = /[\{\}\[\]\/?.,;:|\)*~`!^\-_+<>@\#$%&\\\=\(\'\"]/gi
+
 export default function CreateProfile({ mode, id }: ICreateProfileProps) {
   const router = useRouter()
   const session = useSession()
@@ -42,10 +44,11 @@ export default function CreateProfile({ mode, id }: ICreateProfileProps) {
 
   const onSubmit = async (data: IResumeData) => {
     const curData = { ...data }
+    const curTime = new Date()
     const file = curData.userInfo.userImage
     if (!!file && typeof file !== 'string') {
       const res = await axios.get<never, { data: { fields: { [key: string]: string }; url: string } }>(
-        `/api/uploadImage/uploadUserImage?file=${session.data?.user.id}`,
+        `/api/uploadImage/uploadUserImage?file=${session.data?.user.id}${curTime.toJSON().replace(reg, '')}`,
       )
 
       const formData = new FormData()
@@ -57,7 +60,9 @@ export default function CreateProfile({ mode, id }: ICreateProfileProps) {
 
       if (result.status === 204) {
         console.log(result)
-        const url = `https://devshareimage.s3.ap-northeast-2.amazonaws.com/userImage/${session.data?.user.id}`
+        const url = `https://devshareimage.s3.ap-northeast-2.amazonaws.com/userImage/${session.data?.user.id}${curTime
+          .toJSON()
+          .replace(reg, '')}`
         curData.userInfo.userImage = url
       }
     }
