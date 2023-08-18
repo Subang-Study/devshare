@@ -5,6 +5,7 @@ import { useFormContext, useFieldArray } from 'react-hook-form'
 import { IResumeData } from '@/types/resumeDataType'
 import { k2d } from '@/app/font'
 import { Fragment } from 'react'
+import { FaMinus, FaPlus } from 'react-icons/fa'
 import InputError from '../ui/InputError'
 import Txt from '../ui/Txt'
 import UserImageUploadButton from './UserImageUploadButton'
@@ -36,13 +37,14 @@ export default function UserInfoForm() {
         {...register('userInfo.name', { required: '필수 작성 칸입니다' })}
         className="text-[2rem] font-bold outline-none "
       />
-      <InputError errors={errors} name="userInfo.name" />
+      <InputError errors={errors} name="userInfo.name" className="" />
       <input
         placeholder="한줄 소개"
         type="text"
-        {...register('userInfo.sentense', { required: true })}
+        {...register('userInfo.sentense', { required: '필수 작성 칸입니다' })}
         className="w-full text-gray-600 outline-none"
       />
+      <InputError errors={errors} name="userInfo.sentense" className="" />
       <div className="flex flex-row justify-start w-full gap-4 mt-4 max-sm:flex-col">
         <div className="w-1/4 aspect-square min-w-[200px]">
           <UserImageUploadButton />
@@ -71,9 +73,17 @@ export default function UserInfoForm() {
           <input
             placeholder="010-0000-0000"
             type="text"
-            {...register('userInfo.personal.phone', { required: true })}
+            {...register('userInfo.personal.phone', {
+              required: '필수 입력칸입니다.',
+              pattern: {
+                value: /^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/,
+                message: '형식을 맞춰주세요.',
+              },
+            })}
             className="col-span-2 outline-none"
           />
+          <InputError errors={errors} name="userInfo.personal.phone" className="col-span-3" />
+
           <div className="grid h-auto grid-flow-row grid-cols-3 col-span-3">
             {fields.map((field, idx) => {
               return (
@@ -94,7 +104,7 @@ export default function UserInfoForm() {
                       className="w-full outline-none"
                     />
                     <button className="absolute h-full right-1" onClick={() => remove(idx)} type="button">
-                      -
+                      <FaMinus style={{ color: 'rgb(37, 99, 235)' }} />
                     </button>
                   </div>
                 </Fragment>
@@ -110,21 +120,21 @@ export default function UserInfoForm() {
                     }
                   }}
                 >
-                  ++++
+                  <FaPlus style={{ color: 'rgb(37, 99, 235)' }} />
                 </button>
               </div>
             )}
           </div>
         </div>
       </div>
-
       <h3 className={`${k2d.className} text-3xl`}>Introduce</h3>
       <hr className="w-full h-0.5 bg-black border-none rounded-full" />
-      <div className="p-4 mt-4 border border-gray-300 rounded-md">
+      <div className="p-1 border border-gray-300 rounded-md">
+        <InputError errors={errors} name="userInfo.introduction" className="col-span-3" />
         <textarea
           rows={5}
           placeholder=""
-          {...register('userInfo.introduction', { required: true })}
+          {...register('userInfo.introduction', { required: '필수 작성 칸입니다' })}
           className="w-full gap-1 outline-none"
         />
       </div>
