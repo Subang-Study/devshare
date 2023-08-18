@@ -7,7 +7,7 @@ interface IInputErrorProps {
   errors: FieldErrors
   name: string
   msg?: string
-  className: string
+  className?: string
 }
 
 export default function InputError({ errors, name, msg, className }: IInputErrorProps) {
