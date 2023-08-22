@@ -45,7 +45,7 @@ export default function Profile({ profileData }: IProfileProps) {
             return (
               <Fragment key={el.title}>
                 <Txt typography="span" color="black">
-                  {el.title}
+                  {el.title}.
                 </Txt>
                 <Link href={el.url} className="col-span-2">
                   {el.url}
