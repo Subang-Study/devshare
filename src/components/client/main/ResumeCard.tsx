@@ -3,17 +3,20 @@
 
 'use-client'
 
-import { IResumeData } from '@/types/resumeDataType'
+import { IResumeData, IResumeUserInfo } from '@/types/resumeDataType'
 import { useRouter } from 'next/navigation'
 import { FaUser } from 'react-icons/fa'
+import { Fragment } from 'react'
+import Link from 'next/link'
 import Txt from '../ui/Txt'
 import Btn from '../ui/Btn'
 
 interface IResumeCardProps {
   ResumeData: IResumeData
+  profileData: IResumeUserInfo | undefined
 }
 
-export default function ResumeCard({ ResumeData }: IResumeCardProps) {
+export default function ResumeCard({ ResumeData, profileData }: IResumeCardProps) {
   const route = useRouter()
   return (
     <div className="flex flex-col justify-around w-full gap-2 p-4 shadow-xl aspect-video rounded-xl bg-neutral-100 min-w-[300px] border-2 border-blue-600">
@@ -49,6 +52,20 @@ export default function ResumeCard({ ResumeData }: IResumeCardProps) {
             <Txt typography="p" color="black">
               {ResumeData.userInfo?.personal.phone}
             </Txt>
+          </div>
+          <div className="w-full">
+            {profileData?.personal.channel.map((el) => {
+              return (
+                <Fragment key={el.title}>
+                  <Txt typography="p" color="black">
+                    {el.title}
+                  </Txt>
+                  <Link href={el.url} className="col-span-2">
+                    {el.url}
+                  </Link>
+                </Fragment>
+              )
+            })}
           </div>
           <Btn
             shape="border"
