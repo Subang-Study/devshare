@@ -1,25 +1,21 @@
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable no-underscore-dangle */
 
-'use-client'
-
-import { IResumeData, IResumeUserInfo } from '@/types/resumeDataType'
-import { useRouter } from 'next/navigation'
+import { IResumeData } from '@/types/resumeDataType'
 import { FaUser } from 'react-icons/fa'
-import { Fragment } from 'react'
 import Link from 'next/link'
 import Txt from '../ui/Txt'
-import Btn from '../ui/Btn'
 
 interface IResumeCardProps {
   ResumeData: IResumeData
-  profileData: IResumeUserInfo | undefined
 }
 
-export default function ResumeCard({ ResumeData, profileData }: IResumeCardProps) {
-  const route = useRouter()
+export default function ResumeCard({ ResumeData }: IResumeCardProps) {
   return (
-    <div className="flex flex-col justify-around w-full gap-2 p-4 shadow-xl aspect-video rounded-xl bg-neutral-100 min-w-[300px] border-2 border-blue-600">
+    <Link
+      href={`/resume?id=${ResumeData._id}`}
+      className="flex flex-col justify-around w-full gap-2 p-4 shadow-xl aspect-video rounded-xl bg-neutral-100 min-w-[300px] border-2 border-blue-600"
+    >
       <div className="flex flex-col w-full gap-2 h-1/4">
         <Txt typography="span" color="black">
           {ResumeData.userInfo?.name}
@@ -53,30 +49,20 @@ export default function ResumeCard({ ResumeData, profileData }: IResumeCardProps
               {ResumeData.userInfo?.personal.phone}
             </Txt>
           </div>
-          <div className="w-full">
-            {profileData?.personal.channel.map((el) => {
-              return (
-                <Fragment key={el.title}>
-                  <Txt typography="p" color="black">
-                    {el.title}
-                  </Txt>
-                  <Link href={el.url} className="col-span-2">
-                    {el.url}
-                  </Link>
-                </Fragment>
-              )
-            })}
-          </div>
-          <Btn
-            shape="border"
-            colors="blueEmpty"
-            className="w-full p-2"
-            onClick={() => route.push(`/resume?id=${ResumeData._id}`)}
-          >
-            더보기
-          </Btn>
+          {ResumeData?.userInfo.personal.channel.map((el) => {
+            return (
+              <div key={el.title} className="w-full">
+                <Txt typography="p" color="grey">
+                  {el.title}.{' '}
+                </Txt>
+                <Txt typography="p" color="black">
+                  {el.url}
+                </Txt>
+              </div>
+            )
+          })}
         </div>
       </div>
-    </div>
+    </Link>
   )
 }
