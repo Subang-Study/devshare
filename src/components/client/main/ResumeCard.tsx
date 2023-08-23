@@ -1,22 +1,21 @@
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable no-underscore-dangle */
 
-'use-client'
-
 import { IResumeData } from '@/types/resumeDataType'
-import { useRouter } from 'next/navigation'
 import { FaUser } from 'react-icons/fa'
+import Link from 'next/link'
 import Txt from '../ui/Txt'
-import Btn from '../ui/Btn'
 
 interface IResumeCardProps {
   ResumeData: IResumeData
 }
 
 export default function ResumeCard({ ResumeData }: IResumeCardProps) {
-  const route = useRouter()
   return (
-    <div className="flex flex-col justify-around w-full gap-2 p-4 shadow-xl aspect-video rounded-xl bg-neutral-100 min-w-[300px] border-2 border-blue-600 hover:border-blue-400">
+    <Link
+      href={`/resume?id=${ResumeData._id}`}
+      className="flex flex-col justify-around w-full gap-2 p-4 shadow-xl aspect-video rounded-xl bg-neutral-100 min-w-[300px] border-2 border-blue-600"
+    >
       <div className="flex flex-col w-full gap-2 h-1/4">
         <Txt typography="span" color="black">
           {ResumeData.userInfo?.name}
@@ -50,16 +49,20 @@ export default function ResumeCard({ ResumeData }: IResumeCardProps) {
               {ResumeData.userInfo?.personal.phone}
             </Txt>
           </div>
-          <Btn
-            shape="border"
-            colors="blueEmpty"
-            className="w-full p-2"
-            onClick={() => route.push(`/resume?id=${ResumeData._id}`)}
-          >
-            더보기
-          </Btn>
+          {ResumeData?.userInfo.personal.channel.map((el) => {
+            return (
+              <div key={el.title} className="w-full">
+                <Txt typography="p" color="grey">
+                  {el.title}.{' '}
+                </Txt>
+                <Txt typography="p" color="black">
+                  {el.url}
+                </Txt>
+              </div>
+            )
+          })}
         </div>
       </div>
-    </div>
+    </Link>
   )
 }
