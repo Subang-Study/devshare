@@ -34,8 +34,9 @@ export default function CategoryDetails({ categoryIdx }: { categoryIdx: number }
       {fields.map((field, idx) => {
         return (
           <div key={field.id} className="flex flex-wrap w-full">
-            <div className="relative flex flex-col max-md:w-full w-1/4 gap-1 p-1 text-xl md:border-r-2 border-blue-600 min-w-[200px]">
+            <div className="relative flex flex-col max-md:w-full w-1/4 gap-1 p-1 text-lg md:border-r-2 border-blue-600 min-w-[200px]">
               <input
+                className="text-lg"
                 placeholder="소속/프로젝트 명"
                 type="text"
                 {...register(`categorys.${categoryIdx}.detail.${idx}.title`, { required: '제목을 입력하세요.' })}
@@ -50,9 +51,9 @@ export default function CategoryDetails({ categoryIdx }: { categoryIdx: number }
                 이 항목 삭제
               </button>
             </div>
-            <div className="flex flex-col flex-1 gap-1 md:p-2 md:min-w-[504px]">
+            <div className="flex flex-col flex-1 gap-0.5 md:p-2 md:min-w-[504px]">
               <input
-                className="w-full p-2"
+                className="w-full text-lg"
                 placeholder="요약"
                 type="text"
                 {...register(`categorys.${categoryIdx}.detail.${idx}.content.title`, {

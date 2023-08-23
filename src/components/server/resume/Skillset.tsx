@@ -9,7 +9,7 @@ interface IProfileProps {
 export default function Skillset({ techData }: IProfileProps) {
   return (
     <div>
-      <Titlename>Techset</Titlename>
+      <Titlename>Skill Set</Titlename>
       <div className="flex flex-row flex-wrap items-center justify-start gap-4 p-4">
         {techData ? (
           techData.map((el) => <Skill key={el.title} title={el.title} description={el.description} />)

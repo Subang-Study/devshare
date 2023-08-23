@@ -1,6 +1,7 @@
 import './globals.css'
 import Header from '@/components/server/ui/Header'
 import Session from '@/utils/Session'
+import ReactQueryProvider from '@/utils/ReactQueryProvider'
 
 export const metadata = {
   title: 'Create Next App',
@@ -12,8 +13,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body>
         <Session>
-          <Header />
-          <div className="w-full max-w-4xl p-4 mx-auto">{children}</div>
+          <ReactQueryProvider>
+            <Header />
+            <div className="relative w-full max-w-4xl p-4 mx-auto">{children}</div>
+          </ReactQueryProvider>
         </Session>
       </body>
     </html>

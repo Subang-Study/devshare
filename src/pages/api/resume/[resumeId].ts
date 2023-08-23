@@ -12,12 +12,12 @@ export default async function getResume(req: NextApiRequest, res: NextApiRespons
     try {
       const result = await db.collection('resume').findOne({ _id: new ObjectId(resumeId as string) })
       if (result === null) {
-        throw Error('존재하지 않는 이력서입니다.')
+        throw new Error('존재하지 않는 데이터입니다')
       }
       res.status(200).json(result)
     } catch (err) {
       if (err instanceof Error) {
-        res.status(404).json({ message: err.message })
+        res.status(404).json(err.message)
       }
     }
 

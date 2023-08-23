@@ -4,11 +4,9 @@ import Categories from '@/components/server/resume/Categories'
 import Introduce from '@/components/server/resume/Introduce'
 import Profile from '@/components/server/resume/Profile'
 import Skillset from '@/components/server/resume/Skillset'
-import { IResumeData } from '@/types/resumeDataType'
-import axios from 'axios'
 import { Session } from 'next-auth'
-import { useEffect, useState } from 'react'
-import { useRouter } from 'next/navigation'
+import { useQuery } from '@tanstack/react-query'
+import { getPost } from '@/lib/api/post'
 import ResumeOwnerBtns from './ResumeOwnerBtns'
 
 interface IResumeDetailProps {
@@ -16,29 +14,15 @@ interface IResumeDetailProps {
   id: string
 }
 
-const getData = async (id: string) => {
-  const res = await axios.get<IResumeData>(`/api/resume/${id}`)
-  const result = res.data
-  return result
-}
-
 export default function ResumeDetails({ session, id }: IResumeDetailProps) {
-  const router = useRouter()
-  const [data, setData] = useState<IResumeData>()
+  const { data, isSuccess } = useQuery({
+    queryKey: ['post', id],
+    queryFn: () => getPost(id),
+  })
 
-  useEffect(() => {
-    getData(id)
-      .then((res) => {
-        setData(res)
-      })
-      .catch(() => {
-        router.push(`/resume/edit?id=${session?.user.id}`)
-      })
-  }, [id, router, session?.user.id])
-
-  if (data) {
+  if (isSuccess) {
     return (
-      <div className="flex flex-col gap-3">
+      <div className="relative flex flex-col gap-3">
         {session?.user.id === data.author && <ResumeOwnerBtns resumeId={id} />}
         <Profile profileData={data.userInfo} />
         <Introduce profileData={data.userInfo} />

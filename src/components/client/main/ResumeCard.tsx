@@ -16,7 +16,7 @@ interface IResumeCardProps {
 export default function ResumeCard({ ResumeData }: IResumeCardProps) {
   const route = useRouter()
   return (
-    <div className="flex flex-col justify-around w-full gap-2 p-4 shadow-xl aspect-video rounded-xl bg-neutral-100 min-w-[300px] border-2 border-blue-600">
+    <div className="flex flex-col justify-around w-full gap-2 p-4 shadow-xl aspect-video rounded-xl bg-neutral-100 min-w-[300px] border-2 border-blue-600 hover:border-blue-400">
       <div className="flex flex-col w-full gap-2 h-1/4">
         <Txt typography="span" color="black">
           {ResumeData.userInfo?.name}
