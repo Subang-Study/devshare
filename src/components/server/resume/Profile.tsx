@@ -12,8 +12,8 @@ export default function Profile({ profileData }: IProfileProps) {
   return (
     <div className="flex flex-col w-full gap-3">
       <div>
-        <h1 className="text-[2rem] font-bold outline-none">{profileData?.name}</h1>
-        <p className="w-full text-gray-600 outline-none0">{profileData?.sentense}</p>
+        <span className="text-3xl font-bold">{profileData?.name}</span>
+        <p className="w-full text-gray-600">{profileData?.sentense}</p>
       </div>
       <div className="flex flex-row items-center justify-start w-full gap-4 max-sm:flex-col">
         <div className="w-1/4 min-w-[200px]">

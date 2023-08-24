@@ -18,7 +18,7 @@ const TYPOGRAPHY_VARIANT = {
 }
 
 const TEXT_STYLE = {
-  bold: 'font-bold',
+  bold: 'font-semibold',
 }
 
 const COLOR_VARIANT = {

@@ -5,7 +5,7 @@
 import { useForm, FormProvider } from 'react-hook-form'
 import axios from 'axios'
 import { useRouter } from 'next/navigation'
-import { useSession } from 'next-auth/react'
+import { useQueryClient } from '@tanstack/react-query'
 import UserInfoForm from './UserInfoForm'
 import TechStackForm from '../resumeEdit/TechStackForm'
 import CategoryForm from '../resumeEdit/CategoryForm'
@@ -13,42 +13,26 @@ import { IResumeData, initialResumeData } from '../../../types/resumeDataType'
 import Btn from '../ui/Btn'
 
 interface ICreateProfileProps {
-  defaultValue?: IResumeData
-  mode: 'EDIT' | 'CREATE'
-  id?: string
+  id: string
 }
 
-const getData = async (id: string) => {
-  try {
-    const res = await axios.get<IResumeData>(`/api/resume/${id}`)
-    const result = res.data
-    return result
-  } catch (error) {
-    return initialResumeData
-  }
-}
-
+// eslint-disable-next-line no-useless-escape
 const reg = /[\{\}\[\]\/?.,;:|\)*~`!^\-_+<>@\#$%&\\\=\(\'\"]/gi
 
-export default function CreateProfile({ mode, id }: ICreateProfileProps) {
+export default function CreateProfile({ id }: ICreateProfileProps) {
   const router = useRouter()
-  const session = useSession()
-  const method = useForm<IResumeData>({
-    defaultValues: id
-      ? async () => {
-          const value = await getData(id)
-          return value
-        }
-      : initialResumeData,
-  })
+  const queryClient = useQueryClient()
+  const defaultValue = queryClient.getQueryData(['post', id])
+  const method = useForm<IResumeData>({ defaultValues: defaultValue ?? initialResumeData })
 
-  const onSubmit = async (data: IResumeData) => {
-    const curData = { ...data }
+  const onSubmit = async (form: IResumeData) => {
+    const curData = { ...form }
     const curTime = new Date()
+
     const file = curData.userInfo.userImage
     if (!!file && typeof file !== 'string') {
       const res = await axios.get<never, { data: { fields: { [key: string]: string }; url: string } }>(
-        `/api/uploadImage/uploadUserImage?file=${session.data?.user.id}${curTime.toJSON().replace(reg, '')}`,
+        `/api/uploadImage/uploadUserImage?file=${id}${curTime.toJSON().replace(reg, '')}`,
       )
 
       const formData = new FormData()
@@ -59,22 +43,22 @@ export default function CreateProfile({ mode, id }: ICreateProfileProps) {
       const result = await axios.post(res.data.url, formData)
 
       if (result.status === 204) {
-        console.log(result)
-        const url = `https://devshareimage.s3.ap-northeast-2.amazonaws.com/userImage/${session.data?.user.id}${curTime
+        const url = `https://devshareimage.s3.ap-northeast-2.amazonaws.com/userImage/${id}${curTime
           .toJSON()
           .replace(reg, '')}`
         curData.userInfo.userImage = url
       }
     }
-    if (mode === 'EDIT') {
+    if (defaultValue) {
       const result = await axios.put(`/api/resume/${id}`, curData)
       if (result.status === 200) {
         router.push(`/resume?id=${result.data.id}`)
       }
     } else {
       const result = await axios.post('/api/resume/create', curData)
-      console.log(result)
-      router.push(`/resume?id=${result.data.id}`)
+      if (result.status === 200) {
+        router.push(`/resume?id=${result.data.id}`)
+      }
     }
   }
 
@@ -84,9 +68,20 @@ export default function CreateProfile({ mode, id }: ICreateProfileProps) {
         <UserInfoForm />
         <TechStackForm />
         <CategoryForm />
-        <Btn type="submit" shape="basic" colors="blueFill" className="w-1/4 p-2">
-          저장
-        </Btn>
+        <div className="flex flex-row justify-end w-full gap-4">
+          <Btn
+            type="button"
+            shape="border"
+            colors="blueEmpty"
+            className="w-1/4 p-2"
+            onClick={() => router.replace(`/resume?id=${id}`)}
+          >
+            취소
+          </Btn>
+          <Btn type="submit" shape="basic" colors="blueFill" className="w-1/4 p-2">
+            저장
+          </Btn>
+        </div>
       </form>
     </FormProvider>
   )
