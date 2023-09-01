@@ -51,7 +51,7 @@ export default function UserInfoForm() {
         <div className="w-1/4 aspect-square min-w-[200px]">
           <UserImageUploadButton />
         </div>
-        <div className="max-md:w-4/5 grid w-3/5 h-full grid-cols-3 py-8">
+        <div className="grid w-3/5 h-full grid-cols-3 max-md:w-4/5">
           <Txt typography="span" color="black" className="w-full">
             Email
           </Txt>
@@ -65,7 +65,7 @@ export default function UserInfoForm() {
                 message: '이메일 형식을 맞춰주세요.',
               },
             })}
-            className="text-base text-neutral-600 w-full col-span-2 outline-none"
+            className="w-full col-span-2 text-base outline-none text-neutral-600"
           />
           <InputError errors={errors} name="userInfo.personal.email" className="col-span-3" />
 
@@ -82,7 +82,7 @@ export default function UserInfoForm() {
                 message: '형식을 맞춰주세요.',
               },
             })}
-            className="text-base text-neutral-600 w-full col-span-2 outline-none"
+            className="w-full col-span-2 text-base outline-none text-neutral-600"
           />
           <InputError errors={errors} name="userInfo.personal.phone" className="col-span-3" />
 
@@ -95,7 +95,7 @@ export default function UserInfoForm() {
                       placeholder="ex)깃허브"
                       type="text"
                       {...register(`userInfo.personal.channel.${idx}.title`)}
-                      className="text-black text-base w-full outline-none"
+                      className="w-full text-base text-black outline-none"
                     />
                   </div>
                   <div className="relative col-span-2">
@@ -103,7 +103,7 @@ export default function UserInfoForm() {
                       placeholder="url"
                       type="text"
                       {...register(`userInfo.personal.channel.${idx}.url`)}
-                      className="text-base text-neutral-600 w-full col-span-2 outline-none"
+                      className="w-full col-span-2 text-base outline-none text-neutral-600"
                     />
                     <button className="absolute h-full" onClick={() => remove(idx)} type="button">
                       <FaMinus style={{ color: 'rgb(37, 99, 235)' }} />

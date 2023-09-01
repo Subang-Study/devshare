@@ -34,7 +34,7 @@ export default function Profile({ profileData }: IProfileProps) {
             )}
           </div>
         </div>
-        <div className="max-md:w-4/5 grid w-3/5 h-full grid-cols-3 py-8">
+        <div className="grid w-3/5 h-full grid-cols-3 max-md:w-4/5 ">
           <Txt typography="span" color="black">
             Email.
           </Txt>
@@ -55,7 +55,7 @@ export default function Profile({ profileData }: IProfileProps) {
                 <Txt typography="span" color="black">
                   {el.title}.
                 </Txt>
-                <Link href={el.url} className="text-base text-neutral-600 w-full col-span-2">
+                <Link href={el.url} className="w-full col-span-2 text-base text-neutral-600 line-clamp-1">
                   {el.url.replace(/(http(s)?:\/\/)/gi, '')}
                 </Link>
               </Fragment>
