@@ -2,8 +2,8 @@
 
 /* eslint-disable import/extensions */
 import { useFormContext, useFieldArray } from 'react-hook-form'
+import Titlename from '@/components/server/resume/Titlename'
 import { IResumeData } from '@/types/resumeDataType'
-import { k2d } from '@/app/font'
 import { Fragment } from 'react'
 import { FaMinus, FaPlus } from 'react-icons/fa'
 import InputError from '../ui/InputError'
@@ -31,25 +31,27 @@ export default function UserInfoForm() {
 
   return (
     <>
-      <input
-        placeholder="Name"
-        type="text"
-        {...register('userInfo.name', { required: '필수 작성 칸입니다' })}
-        className="text-[2rem] font-bold outline-none "
-      />
-      <InputError errors={errors} name="userInfo.name" className="" />
-      <input
-        placeholder="한줄 소개"
-        type="text"
-        {...register('userInfo.sentense', { required: '필수 작성 칸입니다' })}
-        className="w-full text-gray-600 outline-none"
-      />
-      <InputError errors={errors} name="userInfo.sentense" className="" />
-      <div className="flex flex-row justify-start w-full gap-4 mt-4 max-sm:flex-col">
+      <div>
+        <input
+          placeholder="Name"
+          type="text"
+          {...register('userInfo.name', { required: '필수 작성 칸입니다' })}
+          className="text-3xl font-bold outline-none "
+        />
+        <InputError errors={errors} name="userInfo.name" className="" />
+        <input
+          placeholder="한줄 소개"
+          type="text"
+          {...register('userInfo.sentense', { required: '필수 작성 칸입니다' })}
+          className="w-full text-gray-600 outline-none"
+        />
+        <InputError errors={errors} name="userInfo.sentense" className="" />
+      </div>
+      <div className="flex flex-row items-center justify-start w-full gap-4 max-sm:flex-col">
         <div className="w-1/4 aspect-square min-w-[200px]">
           <UserImageUploadButton />
         </div>
-        <div className="grid w-3/5 h-full grid-cols-3 py-8">
+        <div className="max-md:w-4/5 grid w-3/5 h-full grid-cols-3 py-8">
           <Txt typography="span" color="black" className="w-full">
             Email
           </Txt>
@@ -63,7 +65,7 @@ export default function UserInfoForm() {
                 message: '이메일 형식을 맞춰주세요.',
               },
             })}
-            className="w-full col-span-2 outline-none"
+            className="text-base text-neutral-600 w-full col-span-2 outline-none"
           />
           <InputError errors={errors} name="userInfo.personal.email" className="col-span-3" />
 
@@ -80,7 +82,7 @@ export default function UserInfoForm() {
                 message: '형식을 맞춰주세요.',
               },
             })}
-            className="col-span-2 outline-none"
+            className="text-base text-neutral-600 w-full col-span-2 outline-none"
           />
           <InputError errors={errors} name="userInfo.personal.phone" className="col-span-3" />
 
@@ -93,7 +95,7 @@ export default function UserInfoForm() {
                       placeholder="ex)깃허브"
                       type="text"
                       {...register(`userInfo.personal.channel.${idx}.title`)}
-                      className="w-full outline-none"
+                      className="text-black text-base w-full outline-none"
                     />
                   </div>
                   <div className="relative col-span-2">
@@ -101,9 +103,9 @@ export default function UserInfoForm() {
                       placeholder="url"
                       type="text"
                       {...register(`userInfo.personal.channel.${idx}.url`)}
-                      className="w-full outline-none"
+                      className="text-base text-neutral-600 w-full col-span-2 outline-none"
                     />
-                    <button className="absolute h-full right-1" onClick={() => remove(idx)} type="button">
+                    <button className="absolute h-full" onClick={() => remove(idx)} type="button">
                       <FaMinus style={{ color: 'rgb(37, 99, 235)' }} />
                     </button>
                   </div>
@@ -127,8 +129,7 @@ export default function UserInfoForm() {
           </div>
         </div>
       </div>
-      <h3 className={`${k2d.className} text-3xl`}>Introduce</h3>
-      <hr className="w-full h-0.5 bg-black border-none rounded-full" />
+      <Titlename>Introduce</Titlename>
       <div className="p-1 border border-gray-300 rounded-md">
         <InputError errors={errors} name="userInfo.introduction" className="col-span-3" />
         <textarea

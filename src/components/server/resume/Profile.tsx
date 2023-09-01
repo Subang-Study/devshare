@@ -17,7 +17,7 @@ export default function Profile({ profileData }: IProfileProps) {
         <p className="w-full text-gray-600">{profileData?.sentense}</p>
       </div>
       <div className="flex flex-row items-center justify-start w-full gap-4 max-sm:flex-col">
-        <div className="w-1/4 min-w-[200px]">
+        <div className="w-1/4 aspect-square min-w-[200px]">
           <div className="relative flex items-center justify-center w-full overflow-hidden border-2 border-blue-500 rounded-full aspect-square">
             {profileData?.userImage && typeof profileData?.userImage === 'string' ? (
               // eslint-disable-next-line @next/next/no-img-element
@@ -34,7 +34,7 @@ export default function Profile({ profileData }: IProfileProps) {
             )}
           </div>
         </div>
-        <div className="grid h-full grid-cols-3 text-gray-700">
+        <div className="max-md:w-4/5 grid w-3/5 h-full grid-cols-3 py-8">
           <Txt typography="span" color="black">
             Email.
           </Txt>
@@ -55,7 +55,7 @@ export default function Profile({ profileData }: IProfileProps) {
                 <Txt typography="span" color="black">
                   {el.title}.
                 </Txt>
-                <Link href={el.url} className="col-span-2">
+                <Link href={el.url} className="text-base text-neutral-600 w-full col-span-2">
                   {el.url.replace(/(http(s)?:\/\/)/gi, '')}
                 </Link>
               </Fragment>
