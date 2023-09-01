@@ -16,10 +16,10 @@ export default function StackBoxInput({ idx, remove }: IStackBoxProps) {
     formState: { errors },
   } = useFormContext<IResumeData>()
   return (
-    <div className="relative flex flex-col flex-none gap-1 p-3 snap-center w-36 aspect-square bg-neutral-200 rounded-xl">
+    <div className="relative flex flex-col flex-none w-32 p-2 snap-start aspect-square bg-neutral-200 rounded-xl">
       <input
         type="text"
-        className="w-4/5 px-1 bg-transparent rounded-lg focus:bg-neutral-200 focus:outline-none"
+        className="w-4/5 px-1 text-lg bg-transparent rounded-lg focus:bg-neutral-200 focus:outline-none"
         {...register(`techStack.${idx}.title`, { required: true })}
         placeholder="기술 이름"
       />

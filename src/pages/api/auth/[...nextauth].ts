@@ -27,12 +27,7 @@ export const authOptions: AuthOptions = {
       session.user.id = user.id
       return session
     },
-    async jwt({ token, user }) {
-      token.user = user.id
-      return token
-    },
   },
-  jwt: {},
   session: {
     strategy: 'database',
     maxAge: 60 * 60 * 24 * 7,

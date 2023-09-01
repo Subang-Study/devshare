@@ -8,12 +8,12 @@ interface ICategoryDetailsProps {
 
 export default function CategoryDetails({ detailList }: ICategoryDetailsProps) {
   return (
-    <div className="flex flex-col items-center w-full gap-3 p-4">
+    <div className="flex flex-col items-center w-full gap-3 p-2">
       {detailList.map((el) => {
         return (
           <div className="flex flex-wrap w-full" key={el.title}>
-            <div className="relative flex flex-col max-md:w-full w-1/4 gap-1 p-1 text-xl md:border-r-2 border-blue-600 min-w-[200px]">
-              <Txt color="black" typography="mid-title" textStyle="bold">
+            <div className="relative flex flex-col max-md:w-full w-1/4 gap-1 text-xl md:border-r-2 border-blue-600 min-w-[200px]">
+              <Txt color="black" typography="mid-title">
                 {el.title}
               </Txt>
               <CategoryPeriod period={el.period} />
