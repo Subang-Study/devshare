@@ -25,7 +25,7 @@ export default function CategoryForm() {
           <div key={field.id} className="flex flex-col w-full">
             <div className="flex flex-row items-center justify-between w-full">
               <input
-                className={`${k2d.className} max-md:w-1/3 flex-1 text-3xl text-blue-600`}
+                className={`${k2d.className} max-md:w-1/3 flex-1 text-3xl text-blue-600 outline-none`}
                 placeholder="카테고리 이름"
                 type="text"
                 {...register(`categorys.${idx}.title`, {

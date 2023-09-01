@@ -9,7 +9,7 @@ export default async function Logo() {
   const session = await getServerSession(authOptions)
 
   return (
-    <div className={`${k2d.className} flex items-center justify-center gap-0.5 h-12`}>
+    <div className={`${k2d.className} flex items-center justify-center gap-0.5 h-12 text-2xl`}>
       <Link href="/" className="flex items-center h-full">
         <svg className="w-auto h-4/5" viewBox="0 0 44 51" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path
@@ -17,10 +17,10 @@ export default async function Logo() {
             fill="#000"
           />
         </svg>
+        Dev
       </Link>
 
-      <Link href="/" className="text-[1.5rem] font-medium">
-        Dev
+      <Link href={session ? `/resume?id=${session?.user.id}` : '/'} className="text-2xl font-medium">
         <span className="inline font-medium text-blue-600">{'{'}</span>
         {session ? ` ${session.user.login} ` : ' Share '}
         <span className="inline font-medium text-blue-600">{'}'}</span>

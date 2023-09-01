@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { IResumeUserInfo } from '@/types/resumeDataType'
 import { Fragment } from 'react'
 import { FaUser } from 'react-icons/fa'
+import Image from 'next/image'
 
 interface IProfileProps {
   profileData: IResumeUserInfo | undefined
@@ -20,7 +21,14 @@ export default function Profile({ profileData }: IProfileProps) {
           <div className="relative flex items-center justify-center w-full overflow-hidden border-2 border-blue-500 rounded-full aspect-square">
             {profileData?.userImage && typeof profileData?.userImage === 'string' ? (
               // eslint-disable-next-line @next/next/no-img-element
-              <img className="w-full h-full" src={profileData.userImage} alt="userImage" width={100} height={100} />
+              <Image
+                className="object-cover w-full h-full"
+                src={profileData.userImage}
+                alt="userImage"
+                fill
+                priority
+                sizes="100%"
+              />
             ) : (
               <FaUser className="w-4/5 -mb-[20%] text-blue-600 h-4/5" />
             )}
@@ -48,7 +56,7 @@ export default function Profile({ profileData }: IProfileProps) {
                   {el.title}.
                 </Txt>
                 <Link href={el.url} className="text-base text-neutral-600 w-full col-span-2">
-                  {el.url}
+                  {el.url.replace(/(http(s)?:\/\/)/gi, '')}
                 </Link>
               </Fragment>
             )

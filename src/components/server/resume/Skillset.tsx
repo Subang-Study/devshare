@@ -10,7 +10,7 @@ export default function Skillset({ techData }: IProfileProps) {
   return (
     <div>
       <Titlename>Skill Set</Titlename>
-      <div className="flex flex-row flex-wrap items-center justify-start gap-4 p-4">
+      <div className="flex flex-row items-center gap-4 pt-4 overflow-scroll snap-x snap-mandatory scrollbar-hide">
         {techData ? (
           techData.map((el) => <Skill key={el.title} title={el.title} description={el.description} />)
         ) : (

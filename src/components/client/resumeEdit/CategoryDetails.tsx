@@ -23,7 +23,7 @@ export default function CategoryDetails({ categoryIdx }: { categoryIdx: number }
   })
 
   return (
-    <div className="flex flex-col items-center w-full gap-3 p-4">
+    <div className="flex flex-col items-center w-full gap-3 p-2">
       {!fields.length && (
         <InputError
           errors={errors}
@@ -33,10 +33,10 @@ export default function CategoryDetails({ categoryIdx }: { categoryIdx: number }
       )}
       {fields.map((field, idx) => {
         return (
-          <div key={field.id} className="flex flex-wrap w-full">
-            <div className="relative flex flex-col max-md:w-full w-1/4 gap-1 p-1 text-lg md:border-r-2 border-blue-600 min-w-[200px]">
+          <div key={field.id} className="flex flex-row w-full max-md:flex-col">
+            <div className="relative flex flex-col max-md:w-full w-1/4 gap-1 text-lg md:border-r-2 border-blue-600 min-w-[200px]">
               <input
-                className="text-lg"
+                className="text-lg outline-none"
                 placeholder="소속/프로젝트 명"
                 type="text"
                 {...register(`categorys.${categoryIdx}.detail.${idx}.title`, { required: '제목을 입력하세요.' })}
@@ -53,7 +53,7 @@ export default function CategoryDetails({ categoryIdx }: { categoryIdx: number }
             </div>
             <div className="flex flex-col flex-1 gap-0.5 md:p-2 md:min-w-[504px]">
               <input
-                className="w-full text-lg"
+                className="w-full text-base outline-none"
                 placeholder="요약"
                 type="text"
                 {...register(`categorys.${categoryIdx}.detail.${idx}.content.title`, {
@@ -63,7 +63,7 @@ export default function CategoryDetails({ categoryIdx }: { categoryIdx: number }
               <InputError errors={errors} name={`categorys.${categoryIdx}.detail.${idx}.content.title`} />
               <hr className="w-full h-[1px] bg-neutral-300 border-none rounded-full" />
               <textarea
-                className="w-full p-2 text-sm"
+                className="w-full text-sm outline-none"
                 placeholder="세부 설명"
                 rows={8}
                 {...register(`categorys.${categoryIdx}.detail.${idx}.content.description`, {

@@ -1,9 +1,9 @@
 'use client'
 
 import { useFieldArray, useFormContext } from 'react-hook-form'
-import { k2d } from '@/app/font'
 import { IResumeData, initialResumeTechStack } from '@/types/resumeDataType'
 import { RxPlusCircled } from 'react-icons/rx'
+import Txt from '../ui/Txt'
 import StackBoxInput from './StackBox'
 import InputError from '../ui/InputError'
 
@@ -24,7 +24,9 @@ export default function TechStackForm() {
 
   return (
     <div>
-      <h3 className={`${k2d.className} text-blue-600 text-3xl`}>Tech Stack</h3>
+      <Txt color="blue" typography="title" font="k2d">
+        Tech Stack
+      </Txt>
       <hr className="w-full h-0.5 bg-black border-none rounded-full" />
       {!fields.length && <InputError errors={errors} name="techStack" msg="기술 스택은 한가지 이상 작성해주세요." />}
       <div className="flex flex-row items-center gap-4 py-4 overflow-scroll snap-x snap-mandatory scrollbar-hide">

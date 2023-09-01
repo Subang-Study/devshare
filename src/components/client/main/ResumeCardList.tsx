@@ -29,7 +29,7 @@ export default function ResumeCardList() {
 
   return (
     <section className="grid w-full grid-cols-2 gap-6 max-sm:grid-cols-1">
-      {data ? data.map((ele) => <ResumeCard ResumeData={ele} key={ele._id} />) : <div />}
+      {data && data.map((ele) => <ResumeCard ResumeData={ele} key={ele._id} />)}
     </section>
   )
 }
