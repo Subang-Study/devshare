@@ -64,7 +64,7 @@ export default function CreateProfile({ id }: ICreateProfileProps) {
 
   return (
     <FormProvider {...method}>
-      <form onSubmit={method.handleSubmit(onSubmit)} className="flex flex-col w-full">
+      <form onSubmit={method.handleSubmit(onSubmit)} className="flex flex-col w-full  gap-3">
         <UserInfoForm />
         <TechStackForm />
         <CategoryForm />
