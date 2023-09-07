@@ -2,20 +2,22 @@ import { IResumeCategoryDetail } from '@/types/resumeDataType'
 import Txt from '@/components/client/ui/Txt'
 
 const dateFormatter = (period: (Date | null)[]) => {
-  const result = period.map((ele) => {
+  const periodArray: string[] = period.map((ele) => {
     if (ele) {
-      const date = new Date(ele).toLocaleDateString().slice(0, -3)
-      return date
+      const curDate = new Date(ele)
+      const year = curDate.getFullYear()
+      const month = curDate.getMonth()
+      return `${year}. ${month}.`
     }
     return ''
   })
-  return result
+  return periodArray
 }
 
 export default function CategoryPeriod({ period }: Pick<IResumeCategoryDetail, 'period'>) {
   return (
-    <Txt color="grey" typography="p">
-      {dateFormatter(period).join('~')}
+    <Txt color="grey" typography="detail">
+      {dateFormatter(period).join(' ~ ')}
     </Txt>
   )
 }

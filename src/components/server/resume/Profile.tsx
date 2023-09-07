@@ -35,24 +35,24 @@ export default function Profile({ profileData }: IProfileProps) {
           </div>
         </div>
         <div className="grid w-3/5 h-full grid-cols-3 max-md:w-4/5 ">
-          <Txt typography="span" color="black">
+          <Txt typography="basic" color="black">
             Email.
           </Txt>
-          <Txt typography="span" color="grey" className="col-span-2">
+          <Txt typography="basic" color="grey" className="col-span-2">
             {profileData?.personal.email}
           </Txt>
 
-          <Txt typography="span" color="black">
+          <Txt typography="basic" color="black">
             Phone.
           </Txt>
-          <Txt typography="span" color="grey" className="col-span-2">
+          <Txt typography="basic" color="grey" className="col-span-2">
             {profileData?.personal.phone}
           </Txt>
 
           {profileData?.personal.channel.map((el) => {
             return (
               <Fragment key={el.title}>
-                <Txt typography="span" color="black">
+                <Txt typography="basic" color="black">
                   {el.title}.
                 </Txt>
                 <Link href={el.url} className="w-full col-span-2 text-base text-neutral-600 line-clamp-1">

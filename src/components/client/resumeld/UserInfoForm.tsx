@@ -8,6 +8,7 @@ import { Fragment } from 'react'
 import { FaMinus, FaPlus } from 'react-icons/fa'
 import InputError from '../ui/InputError'
 import Txt from '../ui/Txt'
+import Input from '../ui/Input'
 import UserImageUploadButton from './UserImageUploadButton'
 
 export default function UserInfoForm() {
@@ -32,18 +33,22 @@ export default function UserInfoForm() {
   return (
     <>
       <div>
-        <input
+        <Input
+          fontSize="title"
+          color="black"
+          textStyle="bold"
           placeholder="Name"
           type="text"
           {...register('userInfo.name', { required: '필수 작성 칸입니다' })}
-          className="text-3xl font-bold outline-none "
         />
         <InputError errors={errors} name="userInfo.name" className="" />
-        <input
+        <Input
+          fontSize="basic"
+          color="grey"
           placeholder="한줄 소개"
           type="text"
           {...register('userInfo.sentense', { required: '필수 작성 칸입니다' })}
-          className="w-full text-gray-600 outline-none"
+          className="w-full"
         />
         <InputError errors={errors} name="userInfo.sentense" className="" />
       </div>
@@ -52,12 +57,14 @@ export default function UserInfoForm() {
           <UserImageUploadButton />
         </div>
         <div className="grid w-3/5 h-full grid-cols-3 max-md:w-4/5">
-          <Txt typography="span" color="black" className="w-full">
+          <Txt typography="basic" color="black" className="w-full">
             Email
           </Txt>
-          <input
+          <Input
+            fontSize="basic"
+            color="grey"
             placeholder="email"
-            type="text"
+            type="email"
             {...register('userInfo.personal.email', {
               required: '필수 입력칸입니다.',
               pattern: {
@@ -65,16 +72,18 @@ export default function UserInfoForm() {
                 message: '이메일 형식을 맞춰주세요.',
               },
             })}
-            className="w-full col-span-2 text-base outline-none text-neutral-600"
+            className="w-full col-span-2"
           />
           <InputError errors={errors} name="userInfo.personal.email" className="col-span-3" />
 
-          <Txt typography="span" color="black">
+          <Txt typography="basic" color="black">
             Phone
           </Txt>
-          <input
+          <Input
+            fontSize="basic"
+            color="grey"
             placeholder="010-0000-0000"
-            type="text"
+            type="tel"
             {...register('userInfo.personal.phone', {
               required: '필수 입력칸입니다.',
               pattern: {
@@ -82,7 +91,7 @@ export default function UserInfoForm() {
                 message: '형식을 맞춰주세요.',
               },
             })}
-            className="w-full col-span-2 text-base outline-none text-neutral-600"
+            className="w-full col-span-2"
           />
           <InputError errors={errors} name="userInfo.personal.phone" className="col-span-3" />
 
@@ -91,19 +100,23 @@ export default function UserInfoForm() {
               return (
                 <Fragment key={field.id}>
                   <div>
-                    <input
+                    <Input
+                      fontSize="basic"
+                      color="black"
                       placeholder="ex)깃허브"
                       type="text"
                       {...register(`userInfo.personal.channel.${idx}.title`)}
-                      className="w-full text-base text-black outline-none"
+                      className="w-full"
                     />
                   </div>
                   <div className="relative col-span-2">
-                    <input
+                    <Input
+                      fontSize="basic"
+                      color="grey"
                       placeholder="url"
-                      type="text"
+                      type="url"
                       {...register(`userInfo.personal.channel.${idx}.url`)}
-                      className="w-full col-span-2 text-base outline-none text-neutral-600"
+                      className="w-full col-span-2"
                     />
                     <button className="absolute h-full" onClick={() => remove(idx)} type="button">
                       <FaMinus style={{ color: 'rgb(37, 99, 235)' }} />
