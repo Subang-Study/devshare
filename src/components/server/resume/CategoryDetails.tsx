@@ -19,7 +19,7 @@ export default function CategoryDetails({ detailList }: ICategoryDetailsProps) {
               <CategoryPeriod period={el.period} />
             </div>
             <div className="flex flex-col flex-1 gap-1 md:p-2 md:min-w-[504px]">
-              <Txt color="black" typography="span">
+              <Txt color="black" typography="basic">
                 {el.content.title}
               </Txt>
               <hr className="w-full h-[1px] bg-neutral-300 border-none rounded-full" />

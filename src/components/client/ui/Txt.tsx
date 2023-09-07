@@ -12,9 +12,9 @@ interface ITxtProps extends HTMLAttributes<HTMLSpanElement> {
 const TYPOGRAPHY_VARIANT = {
   title: 'text-3xl',
   'mid-title': 'text-lg',
-  span: 'text-base',
-  p: 'text-sm',
-  'small-p': 'text-xs',
+  basic: 'text-base',
+  detail: 'text-sm',
+  error: 'text-xs',
 }
 
 const TEXT_STYLE = {
