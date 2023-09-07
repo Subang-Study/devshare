@@ -13,8 +13,12 @@ export default function Profile({ profileData }: IProfileProps) {
   return (
     <div className="flex flex-col w-full gap-3">
       <div>
-        <span className="text-3xl font-bold">{profileData?.name}</span>
-        <p className="w-full text-gray-600">{profileData?.sentense}</p>
+        <Txt fontSize="title" color="black" textStyle="bold">
+          {profileData?.name}
+        </Txt>
+        <Txt fontSize="basic" color="black" textStyle="bold" className="line-clamp-1">
+          {profileData?.sentense}
+        </Txt>
       </div>
       <div className="flex flex-row items-center justify-start w-full gap-4 max-sm:flex-col">
         <div className="w-1/4 aspect-square min-w-[200px]">
@@ -35,24 +39,24 @@ export default function Profile({ profileData }: IProfileProps) {
           </div>
         </div>
         <div className="grid w-3/5 h-full grid-cols-3 max-md:w-4/5 ">
-          <Txt typography="basic" color="black">
+          <Txt fontSize="basic" color="black">
             Email.
           </Txt>
-          <Txt typography="basic" color="grey" className="col-span-2">
+          <Txt fontSize="basic" color="grey" className="col-span-2">
             {profileData?.personal.email}
           </Txt>
 
-          <Txt typography="basic" color="black">
+          <Txt fontSize="basic" color="black">
             Phone.
           </Txt>
-          <Txt typography="basic" color="grey" className="col-span-2">
+          <Txt fontSize="basic" color="grey" className="col-span-2">
             {profileData?.personal.phone}
           </Txt>
 
           {profileData?.personal.channel.map((el) => {
             return (
               <Fragment key={el.title}>
-                <Txt typography="basic" color="black">
+                <Txt fontSize="basic" color="black">
                   {el.title}.
                 </Txt>
                 <Link href={el.url} className="w-full col-span-2 text-base text-neutral-600 line-clamp-1">

@@ -16,7 +16,7 @@ const dateFormatter = (period: (Date | null)[]) => {
 
 export default function CategoryPeriod({ period }: Pick<IResumeCategoryDetail, 'period'>) {
   return (
-    <Txt color="grey" typography="detail">
+    <Txt color="grey" fontSize="detail">
       {dateFormatter(period).join(' ~ ')}
     </Txt>
   )

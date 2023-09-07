@@ -57,7 +57,7 @@ export default function UserInfoForm() {
           <UserImageUploadButton />
         </div>
         <div className="grid w-3/5 h-full grid-cols-3 max-md:w-4/5">
-          <Txt typography="basic" color="black" className="w-full">
+          <Txt fontSize="basic" color="black" className="w-full">
             Email
           </Txt>
           <Input
@@ -76,7 +76,7 @@ export default function UserInfoForm() {
           />
           <InputError errors={errors} name="userInfo.personal.email" className="col-span-3" />
 
-          <Txt typography="basic" color="black">
+          <Txt fontSize="basic" color="black">
             Phone
           </Txt>
           <Input
