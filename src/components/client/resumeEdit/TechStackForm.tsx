@@ -24,7 +24,7 @@ export default function TechStackForm() {
 
   return (
     <div>
-      <Txt color="blue" typography="title" font="k2d">
+      <Txt color="blue" fontSize="title" font="k2d">
         Tech Stack
       </Txt>
       <hr className="w-full h-0.5 bg-black border-none rounded-full" />

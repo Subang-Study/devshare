@@ -3,13 +3,13 @@ import { HTMLAttributes } from 'react'
 
 interface ITxtProps extends HTMLAttributes<HTMLSpanElement> {
   className?: string
-  typography: keyof typeof TYPOGRAPHY_VARIANT
+  fontSize: keyof typeof FONTSIZE_VARIANT
   textStyle?: keyof typeof TEXT_STYLE
   color: keyof typeof COLOR_VARIANT
   font?: 'k2d'
 }
 
-const TYPOGRAPHY_VARIANT = {
+const FONTSIZE_VARIANT = {
   title: 'text-3xl',
   'mid-title': 'text-lg',
   basic: 'text-base',
@@ -18,7 +18,8 @@ const TYPOGRAPHY_VARIANT = {
 }
 
 const TEXT_STYLE = {
-  bold: 'font-semibold',
+  semiBold: 'font-semibold',
+  bold: 'font-bold',
 }
 
 const COLOR_VARIANT = {
@@ -28,10 +29,10 @@ const COLOR_VARIANT = {
   red: 'text-red-600',
 }
 
-export default function Txt({ className, typography, color, font = undefined, textStyle, ...props }: ITxtProps) {
+export default function Txt({ className, fontSize, color, font = undefined, textStyle, ...props }: ITxtProps) {
   return (
     <span
-      className={`${className} ${font && k2d.className} ${TYPOGRAPHY_VARIANT[typography]} ${COLOR_VARIANT[color]} ${
+      className={`${className} ${font && k2d.className} ${FONTSIZE_VARIANT[fontSize]} ${COLOR_VARIANT[color]} ${
         textStyle && TEXT_STYLE[textStyle]
       }`}
       {...props}

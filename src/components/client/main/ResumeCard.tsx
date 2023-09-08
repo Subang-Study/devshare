@@ -19,10 +19,10 @@ export default function ResumeCard({ ResumeData }: IResumeCardProps) {
       prefetch={false}
     >
       <div className="flex flex-col w-full h-1/4">
-        <Txt typography="basic" color="black">
+        <Txt fontSize="basic" color="black">
           {ResumeData.userInfo?.name}
         </Txt>
-        <Txt typography="detail" color="grey" className="line-clamp-1 text-ellipsis">
+        <Txt fontSize="detail" color="grey" className="line-clamp-1 text-ellipsis">
           {ResumeData.userInfo?.sentense}
         </Txt>
       </div>
@@ -43,28 +43,28 @@ export default function ResumeCard({ ResumeData }: IResumeCardProps) {
         </div>
         <div className="flex flex-col items-center justify-center w-7/12 h-full gap-1">
           <div className="w-full truncate line-clamp-1">
-            <Txt typography="detail" color="grey">
+            <Txt fontSize="detail" color="grey">
               Email.{' '}
             </Txt>
-            <Txt typography="detail" color="black">
+            <Txt fontSize="detail" color="black">
               {ResumeData.userInfo?.personal.email}
             </Txt>
           </div>
           <div className="w-full truncate line-clamp-1">
-            <Txt typography="detail" color="grey">
+            <Txt fontSize="detail" color="grey">
               Phone.{' '}
             </Txt>
-            <Txt typography="detail" color="black">
+            <Txt fontSize="detail" color="black">
               {ResumeData.userInfo?.personal.phone}
             </Txt>
           </div>
           {ResumeData?.userInfo.personal.channel.slice(0, 2).map((el) => {
             return (
               <div key={el.title} className="w-full truncate line-clamp-1">
-                <Txt typography="detail" color="grey">
+                <Txt fontSize="detail" color="grey">
                   {el.title}.{' '}
                 </Txt>
-                <Txt typography="detail" color="black">
+                <Txt fontSize="detail" color="black">
                   {el.url.replace(/(http(s)?:\/\/)/gi, '')}
                 </Txt>
               </div>

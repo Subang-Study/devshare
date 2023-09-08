@@ -8,7 +8,7 @@ interface TitlenameProps {
 export default function Titlename({ children }: TitlenameProps) {
   return (
     <div className="w-full border-b-2 border-black">
-      <Txt color="blue" typography="title" font="k2d">
+      <Txt color="blue" fontSize="title" font="k2d">
         {children}
       </Txt>
     </div>

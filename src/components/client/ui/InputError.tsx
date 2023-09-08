@@ -16,7 +16,7 @@ export default function InputError({ errors, name, msg, className }: IInputError
       errors={errors}
       name={name}
       render={({ message }) => (
-        <Txt color="red" typography="error" className={`flex items-center ${className}`}>
+        <Txt color="red" fontSize="error" className={`flex items-center ${className}`}>
           <VscCircleFilled /> {msg || message}
         </Txt>
       )}
