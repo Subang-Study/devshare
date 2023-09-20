@@ -61,6 +61,7 @@ export default function CreateProfile({ id }: ICreateProfileProps) {
     <ResumeEditor method={method} onSubmit={onSubmit}>
       <ResumeEditor.Category.Sort direction="vertical" gap="gap-3">
         <ResumeEditor.UserProfile />
+
         <ResumeEditor.Category defaultTitle="Introduction">
           <ResumeEditor.Category.Sort direction="none">
             <InputError errors={method.formState.errors} name="userInfo.introduction" className="col-span-3" />

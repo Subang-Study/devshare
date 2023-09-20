@@ -95,17 +95,17 @@ const CategoryArray = ({ name, categoryIdx = 0, gap, direction, padding, childre
       {fields.map((field, idx) => {
         if (fields.length === 1) {
           return cloneElement(child, {
-            ...{ key: field.id, categoryIdx: name && categoryIdx, append, idx, ...child.props },
+            ...{ key: field.id, categoryIdx, append, idx, ...child.props },
           })
         }
         if (idx === fields.length - 1) {
           return cloneElement(child, {
-            ...{ key: field.id, categoryIdx: name && categoryIdx, append, remove, idx, ...child.props },
+            ...{ key: field.id, categoryIdx, append, remove, idx, ...child.props },
           })
         }
 
         return cloneElement(child, {
-          ...{ key: field.id, categoryIdx: name && categoryIdx, remove, idx, ...child.props },
+          ...{ key: field.id, categoryIdx, remove, idx, ...child.props },
         })
       })}
     </Sorting>

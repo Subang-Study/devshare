@@ -60,7 +60,7 @@ const CategoryDetails = ({ append, remove, categoryIdx, idx }: ICategoryDetailPr
     formState: { errors },
   } = useFormContext<IResumeData>()
 
-  if (categoryIdx && idx) {
+  if (typeof categoryIdx === 'number' && typeof idx === 'number') {
     return (
       <>
         <div className="flex flex-row w-full max-md:flex-col">
