@@ -1,21 +1,73 @@
-'use client'
-
-/* eslint-disable import/extensions */
-import { useFormContext, useFieldArray } from 'react-hook-form'
-import Titlename from '@/components/server/resume/Titlename'
+import { useFieldArray, useFormContext, Controller } from 'react-hook-form'
 import { IResumeData } from '@/types/resumeDataType'
-import { Fragment } from 'react'
+import Input from '@/components/client/ui/Input'
+import InputError from '@/components/client/ui/InputError'
+import Txt from '@/components/client/ui/Txt'
 import { FaMinus, FaPlus } from 'react-icons/fa'
-import InputError from '../ui/InputError'
-import Txt from '../ui/Txt'
-import Input from '../ui/Input'
-import UserImageUploadButton from './UserImageUploadButton'
+import { phoneReg, emailReg } from '@/lib/constants/regex'
+import React, { useState, useRef, ChangeEvent, Fragment } from 'react'
+import { IoCamera } from 'react-icons/io5'
+import { PiUserCircleThin } from 'react-icons/pi'
 
-export default function UserInfoForm() {
+const UserImageUploadButton = () => {
+  const { control } = useFormContext<IResumeData>()
+  const [file, setFile] = useState<File | undefined>()
+  const fileInputRef = useRef<HTMLInputElement>(null)
+
+  const handleImageUpload = async (e: ChangeEvent<HTMLInputElement>, onChange: (url: File) => void) => {
+    const curFile = e.target.files?.[0]
+    if (curFile) {
+      setFile(curFile)
+      onChange(curFile)
+    }
+  }
+
+  const handleClickImage = () => {
+    fileInputRef.current?.click()
+  }
+
+  return (
+    <Controller
+      control={control}
+      name="userInfo.userImage"
+      render={({ field: { value, onChange } }) => (
+        <div className="relative flex items-center justify-center w-full border-2 border-blue-500 rounded-full aspect-square">
+          {value ? (
+            // eslint-disable-next-line @next/next/no-img-element, jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions
+            <img
+              className="w-full h-full rounded-full"
+              src={typeof value === 'string' ? value : URL.createObjectURL(file as File)}
+              alt="userImage"
+              onClick={handleClickImage}
+            />
+          ) : (
+            <PiUserCircleThin className="w-full h-full text-blue-500" />
+          )}
+          <input
+            id="imageUpload"
+            type="file"
+            accept="image/*"
+            onChange={(e) => handleImageUpload(e, onChange)}
+            className="hidden"
+            ref={fileInputRef}
+          />
+          <button
+            className="absolute flex items-center justify-center w-8 bg-white border-2 border-white rounded-full shadow-border shadow-blue-500 aspect-square bottom-4 right-4"
+            type="button"
+            onClick={handleClickImage}
+          >
+            <IoCamera className="w-4/5 text-blue-600 h-4/5 hover:text-blue-500" />
+          </button>
+        </div>
+      )}
+    />
+  )
+}
+
+const UserProfileInput = () => {
   const {
     register,
     control,
-    watch,
     formState: { errors },
   } = useFormContext<IResumeData>()
   const { fields, append, remove } = useFieldArray({
@@ -28,10 +80,9 @@ export default function UserInfoForm() {
       },
     },
   })
-  const watchChannelArray = watch('userInfo.personal.channel')
 
   return (
-    <>
+    <div className="flex flex-col gap-3">
       <div>
         <Input
           fontSize="title"
@@ -68,7 +119,7 @@ export default function UserInfoForm() {
             {...register('userInfo.personal.email', {
               required: '필수 입력칸입니다.',
               pattern: {
-                value: /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i,
+                value: emailReg,
                 message: '이메일 형식을 맞춰주세요.',
               },
             })}
@@ -87,7 +138,7 @@ export default function UserInfoForm() {
             {...register('userInfo.personal.phone', {
               required: '필수 입력칸입니다.',
               pattern: {
-                value: /^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/,
+                value: phoneReg,
                 message: '형식을 맞춰주세요.',
               },
             })}
@@ -125,12 +176,12 @@ export default function UserInfoForm() {
                 </Fragment>
               )
             })}
-            {watchChannelArray?.length < 4 && (
+            {fields.length < 4 && (
               <div className="flex justify-center col-span-3">
                 <button
                   type="button"
                   onClick={() => {
-                    if (watchChannelArray.length < 5) {
+                    if (fields.length < 5) {
                       append({ title: '', url: '' })
                     }
                   }}
@@ -142,16 +193,8 @@ export default function UserInfoForm() {
           </div>
         </div>
       </div>
-      <Titlename>Introduce</Titlename>
-      <div className="p-1 border border-gray-300 rounded-md">
-        <InputError errors={errors} name="userInfo.introduction" className="col-span-3" />
-        <textarea
-          rows={5}
-          placeholder=""
-          {...register('userInfo.introduction', { required: '필수 작성 칸입니다' })}
-          className="w-full gap-1 outline-none"
-        />
-      </div>
-    </>
+    </div>
   )
 }
+
+export { UserProfileInput }

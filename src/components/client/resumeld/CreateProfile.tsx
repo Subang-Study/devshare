@@ -1,23 +1,19 @@
 'use client'
 
-/* eslint-disable react/no-array-index-key */
-
-import { useForm, FormProvider } from 'react-hook-form'
+import { useForm } from 'react-hook-form'
 import axios from 'axios'
 import { useRouter } from 'next/navigation'
 import { useQueryClient } from '@tanstack/react-query'
-import UserInfoForm from './UserInfoForm'
-import TechStackForm from '../resumeEdit/TechStackForm'
-import CategoryForm from '../resumeEdit/CategoryForm'
-import { IResumeData, initialResumeData } from '../../../types/resumeDataType'
-import Btn from '../ui/Btn'
+import ResumeEditor from '@/components/Editor/ResumeEditor'
+import InputError from '@/components/client/ui/InputError'
+import { specialCharacterReg } from '@/lib/constants/regex'
+import { IResumeData, initialResumeData } from '@/types/resumeDataType'
+import SkillInput from '@/components/Editor/Skill'
+import CategoryDetails from '@/components/Editor/CategoryDetails'
 
 interface ICreateProfileProps {
   id: string
 }
-
-// eslint-disable-next-line no-useless-escape
-const reg = /[\{\}\[\]\/?.,;:|\)*~`!^\-_+<>@\#$%&\\\=\(\'\"]/gi
 
 export default function CreateProfile({ id }: ICreateProfileProps) {
   const router = useRouter()
@@ -32,7 +28,7 @@ export default function CreateProfile({ id }: ICreateProfileProps) {
     const file = curData.userInfo.userImage
     if (!!file && typeof file !== 'string') {
       const res = await axios.get<never, { data: { fields: { [key: string]: string }; url: string } }>(
-        `/api/uploadImage/uploadUserImage?file=${id}${curTime.toJSON().replace(reg, '')}`,
+        `/api/uploadImage/uploadUserImage?file=${id}${curTime.toJSON().replace(specialCharacterReg, '')}`,
       )
 
       const formData = new FormData()
@@ -43,10 +39,9 @@ export default function CreateProfile({ id }: ICreateProfileProps) {
       const result = await axios.post(res.data.url, formData)
 
       if (result.status === 204) {
-        const url = `https://devshareimage.s3.ap-northeast-2.amazonaws.com/userImage/${id}${curTime
+        curData.userInfo.userImage = `https://devshareimage.s3.ap-northeast-2.amazonaws.com/userImage/${id}${curTime
           .toJSON()
-          .replace(reg, '')}`
-        curData.userInfo.userImage = url
+          .replace(specialCharacterReg, '')}`
       }
     }
     if (defaultValue) {
@@ -63,26 +58,38 @@ export default function CreateProfile({ id }: ICreateProfileProps) {
   }
 
   return (
-    <FormProvider {...method}>
-      <form onSubmit={method.handleSubmit(onSubmit)} className="flex flex-col w-full  gap-3">
-        <UserInfoForm />
-        <TechStackForm />
-        <CategoryForm />
-        <div className="flex flex-row justify-end w-full gap-4">
-          <Btn
-            type="button"
-            shape="border"
-            colors="blueEmpty"
-            className="w-1/4 p-2"
-            onClick={() => router.replace(`/resume?id=${id}`)}
-          >
-            취소
-          </Btn>
-          <Btn type="submit" shape="basic" colors="blueFill" className="w-1/4 p-2">
-            저장
-          </Btn>
-        </div>
-      </form>
-    </FormProvider>
+    <ResumeEditor method={method} onSubmit={onSubmit}>
+      <ResumeEditor.Category.Sort direction="vertical" gap="gap-3">
+        <ResumeEditor.UserProfile />
+
+        <ResumeEditor.Category defaultTitle="Introduction">
+          <ResumeEditor.Category.Sort direction="none">
+            <InputError errors={method.formState.errors} name="userInfo.introduction" className="col-span-3" />
+            <textarea
+              rows={5}
+              placeholder=""
+              {...method.register('userInfo.introduction', { required: '필수 작성 칸입니다' })}
+              className="w-full gap-1 outline-none"
+            />
+          </ResumeEditor.Category.Sort>
+        </ResumeEditor.Category>
+
+        <ResumeEditor.Category defaultTitle="Skill Set">
+          <ResumeEditor.Category.CategoryArray direction="horizontal" gap="gap-4" padding="0/4" name="techStack">
+            <SkillInput />
+          </ResumeEditor.Category.CategoryArray>
+        </ResumeEditor.Category>
+
+        <ResumeEditor.Category.CategoryArray direction="vertical" name="categorys">
+          <ResumeEditor.Category>
+            <ResumeEditor.Category.CategoryArray direction="vertical" gap="gap-4" padding="2/4">
+              <CategoryDetails />
+            </ResumeEditor.Category.CategoryArray>
+          </ResumeEditor.Category>
+        </ResumeEditor.Category.CategoryArray>
+
+        <ResumeEditor.EditorBtn id={id} />
+      </ResumeEditor.Category.Sort>
+    </ResumeEditor>
   )
 }
