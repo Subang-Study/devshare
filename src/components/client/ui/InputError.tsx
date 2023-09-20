@@ -1,11 +1,12 @@
 import { ErrorMessage } from '@hookform/error-message'
-import { FieldErrors } from 'react-hook-form'
+import { FieldErrors, FieldPath } from 'react-hook-form'
 import { VscCircleFilled } from 'react-icons/vsc'
+import { IResumeData } from '@/types/resumeDataType'
 import Txt from './Txt'
 
 interface IInputErrorProps {
   errors: FieldErrors
-  name: string
+  name: FieldPath<IResumeData>
   msg?: string
   className?: string
 }
