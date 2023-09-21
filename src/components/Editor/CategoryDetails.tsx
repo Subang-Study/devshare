@@ -4,8 +4,8 @@ import { IResumeData, initialResumeCategoryDetail } from '@/types/resumeDataType
 import { UseFieldArrayAppend, UseFieldArrayRemove, useFormContext, Controller } from 'react-hook-form'
 import { RxPlusCircled } from 'react-icons/rx'
 import DatePicker, { registerLocale } from 'react-datepicker'
-import Input from '../client/ui/Input'
-import InputError from '../client/ui/InputError'
+import Input from '../ui/Input'
+import InputError from '../ui/InputError'
 import 'react-datepicker/dist/react-datepicker.css'
 // eslint-disable-next-line import/no-extraneous-dependencies, import/order
 import ko from 'date-fns/locale/ko'

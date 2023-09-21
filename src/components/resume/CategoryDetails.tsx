@@ -1,5 +1,5 @@
 import { IResumeCategoryDetail } from '@/types/resumeDataType'
-import Txt from '@/components/client/ui/Txt'
+import Txt from '@/components/ui/Txt'
 
 const dateFormatter = (period: (Date | null)[]) => {
   const periodArray: string[] = period.map((ele) => {

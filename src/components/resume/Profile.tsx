@@ -1,4 +1,4 @@
-import Txt from '@/components/client/ui/Txt'
+import Txt from '@/components/ui/Txt'
 import Link from 'next/link'
 import { IResumeUserInfo } from '@/types/resumeDataType'
 import { Fragment } from 'react'

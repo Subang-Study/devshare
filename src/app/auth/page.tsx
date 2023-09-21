@@ -1,6 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import Logo from '@/components/client/ui/Logo'
-import GithubLoginBtn from '@/components/client/auth/GithubLoginBtn'
+import Logo from '@/components/ui/Logo'
+import GithubLoginBtn from '@/components/auth/GithubLoginBtn'
 
 export default function Login() {
   return (

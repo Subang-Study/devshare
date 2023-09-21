@@ -1,4 +1,4 @@
-import Txt from '@/components/client/ui/Txt'
+import Txt from '@/components/ui/Txt'
 
 type SkillProps = {
   title: string

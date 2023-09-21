@@ -1,6 +1,6 @@
 'use client'
 
-import Btn from '@/components/client/ui/Btn'
+import Btn from '@/components/ui/Btn'
 import { VscTrash, VscEdit } from 'react-icons/vsc'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'

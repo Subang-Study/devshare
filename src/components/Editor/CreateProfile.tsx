@@ -4,12 +4,12 @@ import { useForm } from 'react-hook-form'
 import axios from 'axios'
 import { useRouter } from 'next/navigation'
 import { useQueryClient } from '@tanstack/react-query'
-import ResumeEditor from '@/components/Editor/ResumeEditor'
-import InputError from '@/components/client/ui/InputError'
+import ResumeEditor from '@/components/editor/ResumeEditor'
 import { specialCharacterReg } from '@/lib/constants/regex'
 import { IResumeData, initialResumeData } from '@/types/resumeDataType'
-import SkillInput from '@/components/Editor/Skill'
-import CategoryDetails from '@/components/Editor/CategoryDetails'
+import SkillInput from '@/components/editor/Skill'
+import CategoryDetails from '@/components/editor/CategoryDetails'
+import InputError from '../ui/InputError'
 
 interface ICreateProfileProps {
   id: string
@@ -63,7 +63,7 @@ export default function CreateProfile({ id }: ICreateProfileProps) {
         <ResumeEditor.UserProfile />
 
         <ResumeEditor.Category defaultTitle="Introduction">
-          <ResumeEditor.Category.Sort direction="none">
+          <ResumeEditor.Category.Sort direction="none" padding="1">
             <InputError errors={method.formState.errors} name="userInfo.introduction" className="col-span-3" />
             <textarea
               rows={5}
@@ -75,7 +75,7 @@ export default function CreateProfile({ id }: ICreateProfileProps) {
         </ResumeEditor.Category>
 
         <ResumeEditor.Category defaultTitle="Skill Set">
-          <ResumeEditor.Category.CategoryArray direction="horizontal" gap="gap-4" padding="0/4" name="techStack">
+          <ResumeEditor.Category.CategoryArray direction="horizontal" gap="gap-4" padding="2/4" name="techStack">
             <SkillInput />
           </ResumeEditor.Category.CategoryArray>
         </ResumeEditor.Category>

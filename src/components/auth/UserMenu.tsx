@@ -1,6 +1,6 @@
 'use client'
 
-import useOutSideClick from '@/hooks/useOuterClick'
+import useOutSideClick from '@/lib/hooks/useOuterClick'
 import { useRef, useState } from 'react'
 import { useSession, signOut } from 'next-auth/react'
 import Link from 'next/link'

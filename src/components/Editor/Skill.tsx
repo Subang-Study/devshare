@@ -3,8 +3,8 @@
 import { UseFieldArrayAppend, UseFieldArrayRemove, useFormContext } from 'react-hook-form'
 import { initialResumeTechStack, IResumeData } from '@/types/resumeDataType'
 import { RxCrossCircled, RxPlusCircled } from 'react-icons/rx'
-import Input from '../client/ui/Input'
-import InputError from '../client/ui/InputError'
+import Input from '../ui/Input'
+import InputError from '../ui/InputError'
 
 interface IStackBoxProps {
   append?: UseFieldArrayAppend<IResumeData>

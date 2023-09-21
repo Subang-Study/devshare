@@ -1,5 +1,5 @@
 import './globals.css'
-import Header from '@/components/server/ui/Header'
+import Header from '@/components/ui/Header'
 import Session from '@/utils/Session'
 import ReactQueryProvider from '@/utils/ReactQueryProvider'
 

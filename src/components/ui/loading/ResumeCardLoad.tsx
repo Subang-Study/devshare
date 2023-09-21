@@ -1,4 +1,4 @@
-export default function ResumeCardLoad() {
+const ResumeCardLoad = () => {
   return (
     <div className="flex flex-col justify-around w-full gap-2 p-4 shadow-xl aspect-video rounded-xl bg-neutral-200 animate-pulse min-w-[300px]">
       <div className="flex flex-col w-full gap-2 h-1/4">
@@ -17,3 +17,22 @@ export default function ResumeCardLoad() {
     </div>
   )
 }
+
+const ResumeCardListLoader = () => {
+  return (
+    <section className="grid w-full grid-cols-2 gap-6 max-sm:grid-cols-1">
+      <ResumeCardLoad />
+      <ResumeCardLoad />
+      <ResumeCardLoad />
+      <ResumeCardLoad />
+      <ResumeCardLoad />
+      <ResumeCardLoad />
+      <ResumeCardLoad />
+      <ResumeCardLoad />
+      <ResumeCardLoad />
+      <ResumeCardLoad />
+    </section>
+  )
+}
+
+export default ResumeCardListLoader

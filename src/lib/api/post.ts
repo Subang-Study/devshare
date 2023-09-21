@@ -8,3 +8,9 @@ export const getPost = async (id: string) => {
   }
   return Promise.reject(new Error(''))
 }
+
+export const request = async <T>(url: string, config?: RequestInit): Promise<T> => {
+  const response = await fetch(url, config)
+  const result = await response.json()
+  return result
+}

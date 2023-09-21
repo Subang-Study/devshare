@@ -4,9 +4,9 @@ import { FormProvider, UseFormReturn } from 'react-hook-form'
 import { IResumeData } from '@/types/resumeDataType'
 import { useRouter } from 'next/navigation'
 import { ReactNode } from 'react'
-import { UserProfileInput } from '@/components/Editor/UserProfileInputs'
-import { CategoryEditor } from '@/components/Editor/CategoryEditor'
-import Btn from '../client/ui/Btn'
+import { UserProfileInput } from '@/components/editor/UserProfileInputs'
+import { CategoryEditor } from '@/components/editor/CategoryEditor'
+import Btn from '../ui/Btn'
 
 interface IProps {
   method: UseFormReturn<IResumeData>

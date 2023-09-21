@@ -1,13 +1,13 @@
 'use client'
 
-import Txt from '@/components/client/ui/Txt'
-import Input from '@/components/client/ui/Input'
-import Sorting, { ISortingProps } from '@/components/client/ui/Sorting'
+import Txt from '@/components/ui/Txt'
+import Input from '@/components/ui/Input'
+import Sorting, { ISortingProps } from '@/components/ui/Sorting'
 import { Children, ReactElement, cloneElement } from 'react'
-import InputError from '@/components/client/ui/InputError'
+import InputError from '@/components/ui/InputError'
 import { FieldArrayPath, useFieldArray, UseFieldArrayAppend, useFormContext } from 'react-hook-form'
 import { initialResumeCategory, IResumeData } from '@/types/resumeDataType'
-import Btn from '../client/ui/Btn'
+import Btn from '../ui/Btn'
 
 interface ICategoryTitleProps {
   defaultTitle?: string
