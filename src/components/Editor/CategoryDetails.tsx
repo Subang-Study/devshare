@@ -35,7 +35,7 @@ const DatePickerComponent = ({ categoryIdx, detailIdx }: DatePickerComponentProp
             dateFormat="yyyy-MM"
             onChange={onChange}
             locale="ko"
-            className="w-full pr-4 bg-transparent border-none"
+            className="w-full pr-4 bg-transparent border-none dark:text-neutral-300"
             showMonthYearPicker
             showFullMonthYearPicker
             showTwoColumnMonthYearPicker
@@ -96,9 +96,9 @@ const CategoryDetails = ({ append, remove, categoryIdx, idx }: ICategoryDetailPr
               })}
             />
             <InputError errors={errors} name={`categorys.${categoryIdx}.detail.${idx}.content.title`} />
-            <hr className="w-full h-[1px] bg-neutral-300 border-none rounded-full" />
+            <hr className="w-full h-[1px] bg-neutral-300 border-none rounded-full dark:bg-neutral-500" />
             <textarea
-              className="w-full text-sm outline-none"
+              className="w-full text-sm bg-transparent outline-none dark:text-neutral-300"
               placeholder="세부 설명"
               rows={8}
               {...register(`categorys.${categoryIdx}.detail.${idx}.content.description`, {

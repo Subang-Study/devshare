@@ -59,7 +59,10 @@ export default function Profile({ profileData }: IProfileProps) {
                 <Txt fontSize="basic" color="black">
                   {el.title}.
                 </Txt>
-                <Link href={el.url} className="w-full col-span-2 text-base text-neutral-600 line-clamp-1">
+                <Link
+                  href={el.url}
+                  className="w-full col-span-2 text-base text-neutral-600 line-clamp-1 dark:text-neutral-300"
+                >
                   {el.url.replace(/(http(s)?:\/\/)/gi, '')}
                 </Link>
               </Fragment>

@@ -21,18 +21,18 @@ export default function SkillInput({ idx, remove, append }: IStackBoxProps) {
   if (typeof idx === 'number') {
     return (
       <>
-        <div className="relative flex flex-col flex-none w-32 p-2 snap-start aspect-square bg-neutral-200 rounded-xl">
+        <div className="relative flex flex-col flex-none w-32 p-2 snap-start aspect-square bg-neutral-200 rounded-xl dark:bg-neutral-600">
           <Input
             color="black"
             fontSize="mid-title"
             type="text"
-            className="w-4/5 px-1 bg-transparent rounded-lg focus:bg-neutral-200"
+            className="w-4/5 px-1 bg-transparent rounded-lg "
             {...register(`techStack.${idx}.title`, { required: true })}
             placeholder="기술 이름"
           />
           <textarea
             placeholder="기술 설명"
-            className="flex-1 w-full p-1 text-sm rounded-lg bg-neutral-200 text-neutral-600 focus:outline-none"
+            className="flex-1 w-full p-1 text-sm bg-transparent rounded-lg text-neutral-600 dark:text-neutral-300 focus:outline-none"
             {...register(`techStack.${idx}.description`)}
           />
           <InputError errors={errors} name={`techStack.${idx}`} msg="칸을 전부 작성해주세요." />
@@ -47,15 +47,13 @@ export default function SkillInput({ idx, remove, append }: IStackBoxProps) {
           )}
         </div>
         {append && (
-          <div className="flex items-center justify-center flex-none w-32 p-2 snap-start aspect-square bg-neutral-200 rounded-xl">
-            <button
-              type="button"
-              className="flex justify-center w-10 rounded-full aspect-square"
-              onClick={() => append(initialResumeTechStack)}
-            >
-              <RxPlusCircled className="w-full h-full text-blue-600 stroke-0 hover:text-blue-500" />
-            </button>
-          </div>
+          <button
+            type="button"
+            className="flex justify-center items-center w-32 flex-none snap-start aspect-square bg-neutral-200 rounded-xl dark:bg-neutral-600"
+            onClick={() => append(initialResumeTechStack)}
+          >
+            <RxPlusCircled className="w-2/5 h-2/5 text-blue-600 stroke-0 hover:text-blue-500" />
+          </button>
         )}
       </>
     )

@@ -27,7 +27,7 @@ export default function ResumeOwnerBtns({ resumeId }: IResumeOwnerBtnsProps) {
   }
 
   return (
-    <div className="absolute top-0 flex flex-row gap-1 p-1 bg-white right-px w-fit">
+    <div className="absolute top-0 flex flex-row gap-1 p-1 bg-white right-px w-fit dark:bg-neutral-700">
       <Link href={`/resume/edit?id=${resumeId}`}>
         <Btn shape="slim-border" colors="grey" className="flex flex-row items-center px-1 py-0.5 text-sm">
           <VscEdit />
