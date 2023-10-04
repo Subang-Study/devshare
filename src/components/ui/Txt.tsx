@@ -11,6 +11,7 @@ interface ITxtProps extends HTMLAttributes<HTMLSpanElement> {
 
 const FONTSIZE_VARIANT = {
   title: 'text-3xl',
+  logo: 'text-2xl',
   'mid-title': 'text-lg',
   basic: 'text-base',
   detail: 'text-sm',
@@ -24,8 +25,8 @@ const TEXT_STYLE = {
 
 const COLOR_VARIANT = {
   blue: 'text-blue-600',
-  black: 'text-black',
-  grey: 'text-neutral-600',
+  black: 'text-black dark:text-white',
+  grey: 'text-neutral-600 dark:text-neutral-300',
   red: 'text-red-600',
 }
 

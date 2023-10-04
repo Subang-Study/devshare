@@ -1,11 +1,11 @@
-import { useFieldArray, useFormContext, Controller } from 'react-hook-form'
+import { Controller, useFieldArray, useFormContext } from 'react-hook-form'
 import { IResumeData } from '@/types/resumeDataType'
 import Input from '@/components/ui/Input'
 import InputError from '@/components/ui/InputError'
 import Txt from '@/components/ui/Txt'
 import { FaMinus, FaPlus } from 'react-icons/fa'
-import { phoneReg, emailReg } from '@/lib/constants/regex'
-import React, { useState, useRef, ChangeEvent, Fragment } from 'react'
+import { emailReg, phoneReg } from '@/lib/constants/regex'
+import React, { ChangeEvent, Fragment, useRef, useState } from 'react'
 import { IoCamera } from 'react-icons/io5'
 import { PiUserCircleThin } from 'react-icons/pi'
 
@@ -52,7 +52,7 @@ const UserImageUploadButton = () => {
             ref={fileInputRef}
           />
           <button
-            className="absolute flex items-center justify-center w-8 bg-white border-2 border-white rounded-full shadow-border shadow-blue-500 aspect-square bottom-4 right-4"
+            className="absolute flex items-center justify-center w-8 bg-white border-2 border-white rounded-full dark:border-neutral-700 dark:bg-neutral-700 shadow-border shadow-blue-500 aspect-square bottom-4 right-4"
             type="button"
             onClick={handleClickImage}
           >
@@ -82,7 +82,7 @@ const UserProfileInput = () => {
   })
 
   return (
-    <div className="flex flex-col gap-3">
+    <div className="flex flex-col w-full gap-3">
       <div>
         <Input
           fontSize="title"
@@ -197,4 +197,4 @@ const UserProfileInput = () => {
   )
 }
 
-export { UserProfileInput }
+export default UserProfileInput

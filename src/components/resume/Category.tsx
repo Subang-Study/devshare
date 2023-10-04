@@ -10,7 +10,7 @@ interface ICategoryProps {
 const Category = ({ title, children }: ICategoryProps) => {
   return (
     <div>
-      <div className="w-full border-b-2 border-black">
+      <div className="w-full border-b-2 border-black dark:border-neutral-500">
         <Txt color="blue" fontSize="title" font="k2d">
           {title}
         </Txt>

@@ -4,8 +4,8 @@ import { FormProvider, UseFormReturn } from 'react-hook-form'
 import { IResumeData } from '@/types/resumeDataType'
 import { useRouter } from 'next/navigation'
 import { ReactNode } from 'react'
-import { UserProfileInput } from '@/components/editor/UserProfileInputs'
-import { CategoryEditor } from '@/components/editor/CategoryEditor'
+import UserProfileInput from '@/components/editor/UserProfileInputs'
+import CategoryEditor from '@/components/editor/CategoryEditor'
 import Btn from '../ui/Btn'
 
 interface IProps {
@@ -13,6 +13,7 @@ interface IProps {
   onSubmit: (data: IResumeData) => void
   children: ReactNode
 }
+
 const ResumeEditor = ({ onSubmit, method, children }: IProps) => {
   return (
     <FormProvider {...method}>

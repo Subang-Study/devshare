@@ -23,8 +23,8 @@ const TEXT_STYLE = {
 
 const COLOR_VARIANT = {
   blue: 'text-blue-600',
-  black: 'text-black',
-  grey: 'text-neutral-600',
+  black: 'text-black dark:text-white',
+  grey: 'text-neutral-600 dark:text-neutral-400',
   red: 'text-red-600',
 }
 
@@ -36,7 +36,7 @@ const Input = forwardRef(function Input(
     <input
       className={`${font && k2d.className} ${FONT_SIZE[fontSize]} ${textStyle && TEXT_STYLE[textStyle]} ${
         COLOR_VARIANT[color]
-      } outline-none ${className}`}
+      } outline-none bg-transparent ${className}`}
       ref={ref}
       {...props}
     />

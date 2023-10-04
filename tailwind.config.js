@@ -1,5 +1,6 @@
-/** @type {import('tailwindcss').Config} */
+/** @type {import("tailwindcss").Config} */
 module.exports = {
+  darkMode: 'class',
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
@@ -18,5 +19,9 @@ module.exports = {
     },
   },
   // eslint-disable-next-line global-require
-  plugins: [require('tailwind-scrollbar-hide'), require('./twPlugins/shadowBorder.js')],
+  plugins: [
+    require('tailwind-scrollbar-hide'),
+    require('./twPlugins/shadowBorder.js'),
+    require('./twPlugins/scrollbar.js'),
+  ],
 }

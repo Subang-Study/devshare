@@ -3,7 +3,7 @@
 import Txt from '@/components/ui/Txt'
 import Input from '@/components/ui/Input'
 import Sorting, { ISortingProps } from '@/components/ui/Sorting'
-import { Children, ReactElement, cloneElement } from 'react'
+import { Children, cloneElement, ReactElement } from 'react'
 import InputError from '@/components/ui/InputError'
 import { FieldArrayPath, useFieldArray, UseFieldArrayAppend, useFormContext } from 'react-hook-form'
 import { initialResumeCategory, IResumeData } from '@/types/resumeDataType'
@@ -27,43 +27,43 @@ const CategoryEditor = ({ defaultTitle, append, remove, idx = 0, children }: ICa
 
   return (
     <div className="w-full">
-      {defaultTitle ? (
-        <div className="w-full border-b-2 border-black">
+      <div className="w-full border-b-2 border-black dark:border-neutral-500">
+        {defaultTitle ? (
           <Txt color="blue" fontSize="title" font="k2d">
             {defaultTitle}
           </Txt>
-        </div>
-      ) : (
-        <div className="w-full border-b-2 border-black">
-          <div className="flex flex-row items-center justify-between w-full">
-            <Input
-              fontSize="title"
-              color="blue"
-              font="k2d"
-              className="flex-1 max-md:w-1/3"
-              placeholder="카테고리 이름"
-              type="text"
-              {...register(`categorys.${idx}.title`, {
-                required: { value: true, message: '카테고리 이름을 작성해주세요.' },
-              })}
-            />
-            {remove && (
-              <button
-                type="button"
-                onClick={() => remove(idx)}
-                className="text-xs w-fit text-neutral-400 hover:text-red-500"
-              >
-                전체 삭제
-              </button>
-            )}
-          </div>
-          <InputError errors={errors} name={`categorys.${idx}.title`} />
-        </div>
-      )}
+        ) : (
+          <>
+            <div className="flex flex-row items-center justify-between w-full">
+              <Input
+                fontSize="title"
+                color="blue"
+                font="k2d"
+                className="flex-1 max-md:w-1/3"
+                placeholder="카테고리 이름"
+                type="text"
+                {...register(`categorys.${idx}.title`, {
+                  required: { value: true, message: '카테고리 이름을 작성해주세요.' },
+                })}
+              />
+              {remove && (
+                <button
+                  type="button"
+                  onClick={() => remove(idx)}
+                  className="text-xs w-fit text-neutral-400 hover:text-red-500"
+                >
+                  전체 삭제
+                </button>
+              )}
+            </div>
+            <InputError errors={errors} name={`categorys.${idx}.title`} />
+          </>
+        )}
+      </div>
       {child ? cloneElement(child, { ...{ ...child.props, categoryIdx: idx } }) : children}
       {append && (
         <>
-          <hr className="w-full h-0.5 bg-black border-none rounded-full" />
+          <hr className="w-full h-0.5 bg-black border-none rounded-full dark:bg-neutral-500" />
           <div className="flex justify-center py-2">
             <Btn colors="blueEmpty" shape="border" className="w-4/5 p-2" onClick={() => append(initialResumeCategory)}>
               카테고리 추가
@@ -115,4 +115,4 @@ const CategoryArray = ({ name, categoryIdx = 0, gap, direction, padding, childre
 CategoryEditor.Sort = Sorting
 CategoryEditor.CategoryArray = CategoryArray
 
-export { CategoryEditor }
+export default CategoryEditor

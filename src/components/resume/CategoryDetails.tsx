@@ -33,8 +33,8 @@ export default function CategoryDetails({ detailData }: ICategoryDetailsProps) {
         <Txt color="black" fontSize="basic">
           {detailData.content.title}
         </Txt>
-        <hr className="w-full h-[1px] bg-neutral-300 border-none rounded-full" />
-        <p className="text-sm">{detailData.content.description}</p>
+        <hr className="w-full h-[1px] bg-neutral-300 dark:bg-neutral-500 border-none rounded-full" />
+        <p className="text-sm text-white">{detailData.content.description}</p>
       </div>
     </div>
   )

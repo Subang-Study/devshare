@@ -69,7 +69,7 @@ export default function CreateProfile({ id }: ICreateProfileProps) {
               rows={5}
               placeholder=""
               {...method.register('userInfo.introduction', { required: '필수 작성 칸입니다' })}
-              className="w-full gap-1 outline-none"
+              className="w-full gap-1 bg-transparent outline-none dark:text-white"
             />
           </ResumeEditor.Category.Sort>
         </ResumeEditor.Category>

@@ -9,7 +9,7 @@ export interface ISortingProps extends HtmlHTMLAttributes<HTMLDivElement> {
 
 const DIRECTIONS = {
   vertical: 'flex flex-col items-center w-full',
-  horizontal: 'flex flex-row items-center overflow-scroll snap-x snap-mandatory scrollbar-hide',
+  horizontal: 'flex flex-row items-center snap-x snap-mandatory overflow-x-overlay custom-scroll',
   none: 'border border-gray-300 rounded-md',
 }
 
