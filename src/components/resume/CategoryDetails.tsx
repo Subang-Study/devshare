@@ -34,7 +34,7 @@ export default function CategoryDetails({ detailData }: ICategoryDetailsProps) {
           {detailData.content.title}
         </Txt>
         <hr className="w-full h-[1px] bg-neutral-300 dark:bg-neutral-500 border-none rounded-full" />
-        <p className="text-sm text-white">{detailData.content.description}</p>
+        <pre className="text-sm dark:text-white">{detailData.content.description}</pre>
       </div>
     </div>
   )

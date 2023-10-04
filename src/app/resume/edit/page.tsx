@@ -1,12 +1,11 @@
 /* eslint-disable no-underscore-dangle */
 import AuthorizedAccess from '@/utils/AuthorizedAccess'
-import CreateProfile from '@/components/editor/CreateProfile'
+import CreateProfile from '@/components/resumeEditor/CreateProfile'
 import { getServerSession } from 'next-auth'
 import { authOptions } from '@/pages/api/auth/[...nextauth]'
 import { redirect } from 'next/navigation'
 
 interface IEditResume {
-  param: { [key: string]: string }
   searchParams: { id: string }
 }
 
