@@ -12,6 +12,11 @@
 /.next/
 /out/
 
+# example
+/src/app/example
+/src/app/example/
+/src/app/example/page.tsx
+
 # production
 /build
 
@@ -25,6 +30,7 @@ yarn-debug.log*
 yarn-error.log*
 
 # local env files
+.env
 .env*.local
 
 # vercel
@@ -33,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# IDE
+/.idea
