@@ -6,7 +6,6 @@ import { authOptions } from '@/pages/api/auth/[...nextauth]'
 import { redirect } from 'next/navigation'
 
 interface IEditResume {
-  param: { [key: string]: string }
   searchParams: { id: string }
 }
 
