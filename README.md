@@ -39,7 +39,7 @@
 ## 배포
 
 - **배포 Url :** [DevShare](https://devshare-delta.vercel.app/)
-- **Figma Url :** [figma]([https://devshare-delta.vercel.app/](https://www.figma.com/file/X37NgSJ5zdD1kya1M5QxGw/Untitled?type=design&node-id=0%3A1&mode=design&t=dtWlGVQHE3LVO2eC-1)https://www.figma.com/file/X37NgSJ5zdD1kya1M5QxGw/Untitled?type=design&node-id=0%3A1&mode=design&t=dtWlGVQHE3LVO2eC-1)
+- **Figma Url :** [figma](https://www.figma.com/file/X37NgSJ5zdD1kya1M5QxGw/Untitled?type=design&node-id=0%3A1&mode=design&t=dtWlGVQHE3LVO2eC-1)
 
 ## 설치 및 실행
 
