@@ -43,10 +43,23 @@
 
 | 로그인 | 메인 |
 | ![로그인](https://github.com/Subang-Study/devshare/assets/115862267/7f1795fd-8c80-480f-a81f-c43e2d9884b4)
+![메인](https://github.com/Subang-Study/devshare/assets/115862267/6cd3e60a-f755-4ac6-8c0c-96eac6dbc33d)
+![이력서 상세보기](https://github.com/Subang-Study/devshare/assets/115862267/4a9d1533-e916-427c-bb99-42490e1c471c)
+![이력서 수정및작성](https://github.com/Subang-Study/devshare/assets/115862267/aec2a146-a432-479e-b25b-0305035bb748)
+![다크모드](https://github.com/Subang-Study/devshare/assets/115862267/42f12b04-2e5d-4bcc-a1d3-7328457d59fa)
+
+
+
+ 
  | :---: |
 |  |  |
 | 이력서 보기 | 이력서 작성 |
 |  |  |
+
+
+
+
+
 
 ![화면 1](screenshots/screenshot1.png)
 ![화면 2](screenshots/screenshot2.png)
