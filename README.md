@@ -60,17 +60,17 @@
  5. ```clone받은 폴더```에 ```.env.local``` 파일 생성 후 아래 내용 작성
  	```javascript
     	NEXT_PUBLIC_HOST=http://localhost:3000
-    	MONGO_DB="Mongodb Atlas access주소"
+    	MONGO_DB="Your Mongodb Atlas Access Url"
     	NEXTAUTH_URL=http://localhost:3000
-    	NEXTAUTH_SECRET="Your Secret"
-    	GITHUB_ID="Github client ID"
-    	GITHUB_SECRET="Github client Secret"
+    	NEXTAUTH_SECRET="Your Next-Auth Secret"
+    	GITHUB_ID="Your Github client ID"
+    	GITHUB_SECRET="Your Github client Secret"
     	AWS_S3_USERIMAGE_BUCKETNAME="Your S3 Bucket Name"
     	AWS_S3_USERIMAGE_KEY="Your S3 Bucket Access Key"
     	AWS_S3_USERIMAGE_SECRET="Your S3 Bucket Secret Key"
     ```
 
- 6. 최상위 디렉토리에서 아래 커맨드 입력
+ 6. 의존성 라이브러리 설치 후 개발 서버 시작
  	```shell
     	> npm i
     	> npm run dev
