@@ -41,6 +41,11 @@
 
 ## 📷 화면 예시
 
+|로그인|메인|
+|:---:|:---:|
+|<img width="390" alt="메인" src="https://github.com/Subang-Study/devshare/assets/115862267/6cd3e60a-f755-4ac6-8c0c-96eac6dbc33d.gif"/>|<img width="390" alt="로그인" src="https://github.com/Subang-Study/devshare/assets/115862267/7f1795fd-8c80-480f-a81f-c43e2d9884b4"/>|
+
+
 | 로그인 | 메인 |
 | ![로그인](https://github.com/Subang-Study/devshare/assets/115862267/7f1795fd-8c80-480f-a81f-c43e2d9884b4)
 ![메인](https://github.com/Subang-Study/devshare/assets/115862267/6cd3e60a-f755-4ac6-8c0c-96eac6dbc33d)
