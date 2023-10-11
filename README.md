@@ -43,7 +43,7 @@
 
 |로그인|메인|
 |:---:|:---:|
-|<img width="390" alt="메인" src="https://github.com/Subang-Study/devshare/assets/115862267/6cd3e60a-f755-4ac6-8c0c-96eac6dbc33d.gif"/>|<img width="390" alt="로그인" src="https://github.com/Subang-Study/devshare/assets/115862267/7f1795fd-8c80-480f-a81f-c43e2d9884b4"/>|
+|<img width="390" alt="로그인" src="https://github.com/Subang-Study/devshare/assets/115862267/7f1795fd-8c80-480f-a81f-c43e2d9884b4"/>|<img width="390" alt="메인" src="https://github.com/Subang-Study/devshare/assets/115862267/6cd3e60a-f755-4ac6-8c0c-96eac6dbc33d.gif"/>|
 |**이력서상세**|**이력서 수정및작성**|
 |<img width="390" alt="이력서상세" src="https://github.com/Subang-Study/devshare/assets/115862267/4a9d1533-e916-427c-bb99-42490e1c471c"/>|<img width="390" alt="이력서 수정및작성" src="https://github.com/Subang-Study/devshare/assets/115862267/aec2a146-a432-479e-b25b-0305035bb748.gif"/>|
 |**다크모드**|
@@ -53,4 +53,27 @@
 
 ## 설치 및 실행
 
-프로젝트를 로컬 환경에서 실행하는 방법에 대한 단계를 제공하세요.
+### 로컬 실행 방법
+
+ 1. 본 repogitory clone한 뒤
+ 2. Mongodb Atlas 계정 생성
+ 3. Github App을 통해 client ID, client Secret 발급
+ 4. Amazon S3 Bucket 생성 및 키 발급
+ 5. ```clone받은 폴더```에 ```.env.local``` 파일 생성 후 아래 내용 작성
+ 	```javascript
+    	NEXT_PUBLIC_HOST=http://localhost:3000
+    	MONGO_DB="Mongodb Atlas access주소"
+    	NEXTAUTH_URL=http://localhost:3000
+    	NEXTAUTH_SECRET="Your Secret"
+    	GITHUB_ID="Github client ID"
+    	GITHUB_SECRET="Github client Secret"
+    	AWS_S3_USERIMAGE_BUCKETNAME="Your S3 Bucket Name"
+    	AWS_S3_USERIMAGE_KEY="Your S3 Bucket Access Key"
+    	AWS_S3_USERIMAGE_SECRET="Your S3 Bucket Secret Key"
+    ```
+
+ 6. 최상위 디렉토리에서 아래 커맨드 입력
+ 	```shell
+    	> npm i
+    	> npm run dev
+    ```
