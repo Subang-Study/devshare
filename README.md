@@ -67,9 +67,7 @@
 |**다크모드**|
 |<img width="390" alt="다크모드" src="https://github.com/Subang-Study/devshare/assets/115862267/42f12b04-2e5d-4bcc-a1d3-7328457d59fa.gif"/>|
 
-## 설치 및 실행
-
-### 로컬 실행 방법
+## 🖥️ 설치 및 실행
 
  1. 본 repogitory clone한 뒤
  2. Mongodb Atlas 계정 생성
