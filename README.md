@@ -44,7 +44,7 @@
 
 - form데이터 관리 및 유효성 검사 좀더 손쉽게 구현하고 데이터 변화에 따른 리렌더링 횟수 감소
 - Compound component와 같은 디자인 패턴도 적용해 여러 형태의 폼을 조합해서 구성가능하게 하는 등 컴포넌트의 확장성과 재사용성을 고려해 설계함
-- 클래스 텀포넌트에 비해 함수 컴포넌트와 훅을 사용하여 코드가 간결해지고 가독성이 향상 되었음
+- 함수 컴포넌트와 훅을 사용하여 코드가 간결해지고 가독성이 향상 되었음
 
 <p><img src="https://img.shields.io/badge/React%20Query-FF4154?style=for-the-badge&logo=react-query&logoColor=white" alt="React Query"> <img src="https://img.shields.io/badge/Recoil-764ABC?style=for-the-badge&logo=recoil&logoColor=white" alt="Recoil"></p>
 
