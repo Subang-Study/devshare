@@ -41,13 +41,11 @@
 
 |로그인|메인|
 |:---:|:---:|
-|<img width="390" alt="로그인" src="https://github.com/Subang-Study/devshare/assets/115862267/aa79440a-9e21-499f-9762-dba4169b1a5b"/>|<img width="390" alt="메인" src="https://github.com/Subang-Study/devshare/assets/115862267/6cd3e60a-f755-4ac6-8c0c-96eac6dbc33d.gif"/>|
+|<img width="390" alt="로그인" src="https://github.com/Subang-Study/devshare/assets/115862267/aa79440a-9e21-499f-9762-dba4169b1a5b.gif"/>|<img width="390" alt="메인" src="https://github.com/Subang-Study/devshare/assets/115862267/6cd3e60a-f755-4ac6-8c0c-96eac6dbc33d.gif"/>|
 |**이력서상세**|**이력서 수정및작성**|
-|<img width="390" alt="이력서상세" src="https://github.com/Subang-Study/devshare/assets/115862267/4a9d1533-e916-427c-bb99-42490e1c471c"/>|<img width="390" alt="이력서 수정및작성" src="https://github.com/Subang-Study/devshare/assets/115862267/aec2a146-a432-479e-b25b-0305035bb748.gif"/>|
+|<img width="390" alt="이력서상세" src="https://github.com/Subang-Study/devshare/assets/115862267/4a9d1533-e916-427c-bb99-42490e1c471c.gif"/>|<img width="390" alt="이력서 수정및작성" src="https://github.com/Subang-Study/devshare/assets/115862267/aec2a146-a432-479e-b25b-0305035bb748.gif"/>|
 |**다크모드**|
-|<img width="390" alt="다크모드" src="https://github.com/Subang-Study/devshare/assets/115862267/42f12b04-2e5d-4bcc-a1d3-7328457d59fa"/>|
-
-
+|<img width="390" alt="다크모드" src="https://github.com/Subang-Study/devshare/assets/115862267/42f12b04-2e5d-4bcc-a1d3-7328457d59fa.gif"/>|
 
 ## 설치 및 실행
 
