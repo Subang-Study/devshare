@@ -37,6 +37,17 @@
 - 디자인 패턴을 적용시킴으로써 코드의 유지보수성을 향상시키고 개발과 유지보수 과정에서 오류를 줄이며, 확장성을 고려하여 사용 하게 되었습니다.
 - React form을 도입한 이유는 웹에서 사용자와의 상호작용을 강화하고 데이터 입력 및 관리를 효과적으로 수행하기 위해서 사용 하였습니다.
 
+<p><img src="https://img.shields.io/badge/React%20Query-FF4154?style=for-the-badge&logo=react-query&logoColor=white" alt="React Query"> <img src="https://img.shields.io/badge/Recoil-764ABC?style=for-the-badge&logo=recoil&logoColor=white" alt="Recoil"></p>
+
+- React-Query를 이용한 api요청 관련 상태관리와 캐시된 데이터를 통해 좀 더 빠른 로딩을 구현
+- Recoil을 통한 다크모드와 같은 클라이언트의 상태를 독립적으로 관리할 수 있게 구현
+- React-Query와 Recoil을 함께 이용해서 서버 상태와 어플리케이션 상태를 분리가능하게 구현
+
+<img src="https://img.shields.io/badge/Tailwind%20CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS">
+
+ - tailwindcss의 plugin 기능을 통해 커스텀 유틸리티 클래스를 확장
+ - 다크모드 구현
+
 ## 📷 화면 예시
 
 |로그인|메인|
