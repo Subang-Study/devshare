@@ -33,9 +33,11 @@
 
 ## 📍 Pin Point
 
-- Next.js는 서버사이드 렌더링과 클라이언트사이드 렌더링을 지원하여 빠르고 SEO 친화적인 웹 애플리케이션을 쉽게 개발하기 위해 선택했습니다.
-- 디자인 패턴을 적용시킴으로써 코드의 유지보수성을 향상시키고 개발과 유지보수 과정에서 오류를 줄이며, 확장성을 고려하여 사용 하게 되었습니다.
-- React form을 도입한 이유는 웹에서 사용자와의 상호작용을 강화하고 데이터 입력 및 관리를 효과적으로 수행하기 위해서 사용 하였습니다.
+<p><img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white" alt="Next.js">
+<img src="https://img.shields.io/badge/Next%20Auth-000000?style=for-the-badge&logo=next-auth&logoColor=white" alt="Next-Auth"></p>
+
+- 클라이언트의 로그인상태에 따라 달라지는 UI나 로직을 서버사이드렌더링을 이용해 백엔드에서 처리하는 방식으로 클라이언트에서 불필요한 코드를 줄일 수 있었음
+- Next.js를 이용해 api서버를 손쉽게 구성할 수 있었음
 
 <img src="https://img.shields.io/badge/React%20Hook%20Form-EB4034?style=for-the-badge&logo=react-hook-form&logoColor=white" alt="React Hook Form">
 
