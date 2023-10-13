@@ -37,6 +37,11 @@
 - 디자인 패턴을 적용시킴으로써 코드의 유지보수성을 향상시키고 개발과 유지보수 과정에서 오류를 줄이며, 확장성을 고려하여 사용 하게 되었습니다.
 - React form을 도입한 이유는 웹에서 사용자와의 상호작용을 강화하고 데이터 입력 및 관리를 효과적으로 수행하기 위해서 사용 하였습니다.
 
+<img src="https://img.shields.io/badge/React%20Hook%20Form-EB4034?style=for-the-badge&logo=react-hook-form&logoColor=white" alt="React Hook Form">
+
+- form데이터 관리 및 유효성 검사 좀더 손쉽게 구현하고 데이터 변화에 따른 리렌더링 횟수 감소
+- Compound component와 같은 디자인 패턴도 적용해 여러 형태의 폼을 조합해서 구성가능하게 하는 등 컴포넌트의 확장성과 재사용성을 고려해 설계함
+
 <p><img src="https://img.shields.io/badge/React%20Query-FF4154?style=for-the-badge&logo=react-query&logoColor=white" alt="React Query"> <img src="https://img.shields.io/badge/Recoil-764ABC?style=for-the-badge&logo=recoil&logoColor=white" alt="Recoil"></p>
 
 - React-Query를 이용한 api요청 관련 상태관리와 캐시된 데이터를 통해 좀 더 빠른 로딩을 구현
