@@ -38,6 +38,7 @@
 
 - 클라이언트의 로그인상태에 따라 달라지는 UI나 로직을 서버사이드렌더링을 이용해 백엔드에서 처리하는 방식으로 클라이언트에서 불필요한 코드를 줄일 수 있었음
 - Next.js를 이용해 api서버를 손쉽게 구성할 수 있었음
+- 서버사이드 랜더링을 지원하여 초기 페이지 로딩 속도를 향상시킬수 있었음
 
 <img src="https://img.shields.io/badge/React%20Hook%20Form-EB4034?style=for-the-badge&logo=react-hook-form&logoColor=white" alt="React Hook Form">
 
