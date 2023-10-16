@@ -1,6 +1,6 @@
 ![DevShare](https://github.com/Subang-Study/devshare/assets/48327655/da373c16-6092-487f-80e0-d53cfc406b22)
 
-## Project introduction 
+## 📪Project introduction 
  | **📌 배포 URL** | [DevShare](https://devshare-delta.vercel.app/) | **Figma URL** | [DevShare Figma](https://www.figma.com/file/X37NgSJ5zdD1kya1M5QxGw/Untitled?type=design&node-id=0%3A1&mode=design&t=dtWlGVQHE3LVO2eC-1) |
  | :---: | :---: | :---: | :---: |
 
