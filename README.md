@@ -1,12 +1,12 @@
 ![DevShare](https://github.com/Subang-Study/devshare/assets/48327655/da373c16-6092-487f-80e0-d53cfc406b22)
 
-## 프로젝트 소개 
+## Project introduction 
  | **📌 배포 URL** | [DevShare](https://devshare-delta.vercel.app/) | **Figma URL** | [DevShare Figma](https://www.figma.com/file/X37NgSJ5zdD1kya1M5QxGw/Untitled?type=design&node-id=0%3A1&mode=design&t=dtWlGVQHE3LVO2eC-1) |
  | :---: | :---: | :---: | :---: |
 
 - "DEVSHARE"은 개발자들을 위한 온라인 플랫폼으로, 이력서를 공유하고 채용정보를 확인하며 개발자들의 커뮤니티를 형성하는 서비스입니다.
 
-## 동기
+## 💡Development motivation
 - next.js를 사용하여 프로젝트를 하고자 했던 이유는, 프론트엔드 개발자로서, 웹페이지를 만들고 데이터를 다루는 데 백엔드 전문 지식 없이도 간단하게 할 수 있는 방법을 찾고자 했기 때문입니다.
 - 또한 신속한 개발과 테스트 사이클이 가능하여 next.js를 겸험 할 수 있다고 판단되어 프로젝트를 진행 하게 되었습니다.
 
@@ -59,7 +59,7 @@
  - tailwindcss의 plugin 기능을 통해 커스텀 유틸리티 클래스를 확장
  - 다크모드 구현
 
-## 📷 화면 예시
+## 📷 Screen example
 
 |로그인|메인|
 |:---:|:---:|
@@ -69,7 +69,7 @@
 |**다크모드**|
 |<img width="390" alt="다크모드" src="https://github.com/Subang-Study/devshare/assets/115862267/42f12b04-2e5d-4bcc-a1d3-7328457d59fa.gif"/>|
 
-## 🖥️ 설치 및 실행
+## 🖥️ Install and run
 
  1. 본 repogitory clone한 뒤
  2. Mongodb Atlas 계정 생성
