@@ -7,14 +7,15 @@
 
 
 > ### 💡 Development motivation
-> - 프로젝트를 시작하게 된 동기는 다양한 기능과 개발 경험을 쌓고자 했기 때문이었습니다. 초기에는 어떤 기술 스택을 선택할지 고민했고, 그 고민 끝에 Next.js를 선택하게 되었습니다. 그 이유는 Next.js가 빠른 개발과 다양한 기술을 적용 하여 경험을 쌓을 수 있는 환경을 제공하기 때문입니다. 
+> - 프로젝트를 시작하게 된 동기는 다양한 기능과 개발 경험을 쌓고자 했기 때문이었습니다. 초기에는 어떤 기술 스택을 선택할지 고민했고, 그 고민 끝에 Next.js를 선택하게 되었습니다. 그 이유는 Next.js가 빠른 개발과 다양한 기술을 적용 하여 경험을 쌓을 수 있는 환경을 제공하기 때문입니다.
+> - 또한 이전에 React프로젝트들에서 Recoil이나 React-Query등 여러 상태관리 라이브러리들을 써봤지만 Next.js의 SSR환경에선 어떤식으로 적용이 되는지 그에 따른 장단점은 무엇인지 확인해보고 싶었습니다.
 
 > ### Role
 > | 구교석 | 신창용 |
 > | :---: | :---: |
 > | <img alt="구교석" src="https://avatars.githubusercontent.com/josephgs-koo" width="250"> | <img alt="신창용" src="https://avatars.githubusercontent.com/SHINCHANGYOUNG" width="250"> |
 > | [@josephgs-koo](https://github.com/josephgs-koo) | [@SHINCHANGYOUNG](https://github.com/SHINCHANGYOUNG) |
-> | <ul><li><p align="left">Next.js Api 서버 구성</p></li><li><p align="left">Next-Auth를 이용한 Github login 구현</p></li><li><p align="left">React-Hook-form을 이용한 form데이터 관리 및<br /> 확장성을 고려한 컴포넌트 설계</p></li><li><p align="left">Recoil을 이용해 다크모드등의 클라이언트 상태 관리</p></li><li><p align="left">Tailwindcss 커스텀 플러그인 제작</p></li></ul> | <ul><li><p align="left">이력서 작성 페이지 레이아웃</p></li></ul> |
+> | <ul><li><p align="left">Next.js Api 서버 구현 및 Github Oauth</p></li><li><p align="left">React-Hook-form을 이용한 form데이터 관리 및<br /> 확장성을 고려한 컴포넌트 설계</p></li><li><p align="left">Recoil을 이용해 다크모드등의 클라이언트 상태 관리</p></li><li><p align="left">Tailwindcss 커스텀 플러그인 제작</p></li></ul> | <ul><li><p align="left">이력서 작성 페이지 레이아웃</p></li></ul> |
 
 <br />
 
