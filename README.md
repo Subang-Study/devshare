@@ -1,17 +1,27 @@
 ![DevShare](https://github.com/Subang-Study/devshare/assets/48327655/da373c16-6092-487f-80e0-d53cfc406b22)
 
-## 📪 Project introduction 
+# 📪 Project introduction 
+ "DEVSHARE"은 개발자들을 위한 온라인 플랫폼으로, 이력서를 공유하고 채용정보를 확인하며 개발자들의 커뮤니티를 형성하는 서비스입니다.
  | **📌 배포 URL** | [DevShare](https://devshare-delta.vercel.app/) | **Figma URL** | [DevShare Figma](https://www.figma.com/file/X37NgSJ5zdD1kya1M5QxGw/Untitled?type=design&node-id=0%3A1&mode=design&t=dtWlGVQHE3LVO2eC-1) |
  | :---: | :---: | :---: | :---: |
 
-- "DEVSHARE"은 개발자들을 위한 온라인 플랫폼으로, 이력서를 공유하고 채용정보를 확인하며 개발자들의 커뮤니티를 형성하는 서비스입니다.
 
-## 💡Development motivation
-- next.js를 사용하여 프로젝트를 하고자 했던 이유는, 프론트엔드 개발자로서, 웹페이지를 만들고 데이터를 다루는 데 백엔드 전문 지식 없이도 간단하게 할 수 있는 방법을 찾고자 했기 때문입니다.
-- 또한 신속한 개발과 테스트 사이클이 가능하여 next.js를 겸험 할 수 있다고 판단되어 프로젝트를 진행 하게 되었습니다.
+> ### 💡 Development motivation
+> - next.js를 사용하여 프로젝트를 하고자 했던 이유는, 프론트엔드 개발자로서, 웹페이지를 만들고 데이터를 다루는 데 백엔드 전문 지식 없이도 간단하게 할 수 있는 방법을 찾고자 했기 때문입니다.
+> - 또한 신속한 개발과 테스트 사이클이 가능하여 next.js를 겸험 할 수 있다고 판단되어 프로젝트를 진행 하게 되었습니다.
+> ### Role
+> | 구교석 | 신창용 |
+> | :---: | :---: |
+> | <img alt="구교석" src="https://avatars.githubusercontent.com/josephgs-koo" width="250"> | <img alt="신창용" src="https://avatars.githubusercontent.com/SHINCHANGYOUNG" width="250"> |
+> | [@josephgs-koo](https://github.com/josephgs-koo) | [@SHINCHANGYOUNG](https://github.com/SHINCHANGYOUNG) |
+> | <ul><li><p align="left">Next.js Api 서버 구성</p></li><li><p align="left">Next-Auth를 이용한 Github login 구현</p></li><li><p align="left">React-Hook-form을 이용한 form데이터 관리 및<br /> 확장성을 고려한 컴포넌트 설계</p></li><li><p align="left">Recoil을 이용해 다크모드등의 클라이언트 상태 관리</p></li><li><p align="left">Tailwindcss 커스텀 플러그인 제작</p></li></ul> | <ul><li><p align=""></p></li></ul> |
 
-## ⚙️ Skills
-**Frontend** : <p>
+<br />
+
+
+# ⚙️ Skills
+### Frontend
+<p>
 <img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white" alt="Next.js">
 <img src="https://img.shields.io/badge/React%20Query-FF4154?style=for-the-badge&logo=react-query&logoColor=white" alt="React Query">
 <img src="https://img.shields.io/badge/Recoil-764ABC?style=for-the-badge&logo=recoil&logoColor=white" alt="Recoil">
@@ -21,19 +31,25 @@
 <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript">
 </p>
 
-**Backend** : <p>
+### Backend
+<p>
 <img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white" alt="Next.js">
 <img src="https://img.shields.io/badge/Next%20Auth-000000?style=for-the-badge&logo=next-auth&logoColor=white" alt="Next-Auth">
 <img src="https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB">
 <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript">
 </p>
 
-**Deploy** : <p>
+### Deploy
+<p>
 <img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Vercel">
 <img src="https://img.shields.io/badge/Amazon%20S3-569A31?style=for-the-badge&logo=amazon-s3&logoColor=white" alt="Amazon S3">
 </p>
 
-## 📍 Pin Point
+
+<br />
+
+
+# 📍 Pin Point
 
 <p><img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white" alt="Next.js">
 <img src="https://img.shields.io/badge/Next%20Auth-000000?style=for-the-badge&logo=next-auth&logoColor=white" alt="Next-Auth"></p>
@@ -59,7 +75,10 @@
  - tailwindcss의 plugin 기능을 통해 커스텀 유틸리티 클래스를 확장
  - 다크모드 구현
 
-## 📷 Screen example
+<br />
+
+
+# 📷 Screen example
 
 |로그인|메인|
 |:---:|:---:|
@@ -69,7 +88,10 @@
 |**다크모드**|
 |<img width="390" alt="다크모드" src="https://github.com/Subang-Study/devshare/assets/115862267/42f12b04-2e5d-4bcc-a1d3-7328457d59fa.gif"/>|
 
-## 🖥️ Install and run
+<br />
+
+
+# 🖥️ Install and run
 
  1. 본 repogitory clone한 뒤
  2. Mongodb Atlas 계정 생성
