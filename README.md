@@ -1,7 +1,7 @@
 ![DevShare](https://github.com/Subang-Study/devshare/assets/48327655/da373c16-6092-487f-80e0-d53cfc406b22)
 
 # 📪 Project introduction 
- "DEVSHARE"은 개발자들을 위한 온라인 플랫폼으로, 이력서를 공유하고 채용정보를 확인하며 개발자들의 커뮤니티를 형성하는 서비스입니다.
+ ### "DEVSHARE"은 개발자들을 위한 온라인 플랫폼으로, 이력서를 공유하고 개발자들의 커뮤니티를 형성하는 서비스입니다.
  | **📌 배포 URL** | [DevShare](https://devshare-delta.vercel.app/) | **Figma URL** | [DevShare Figma](https://www.figma.com/file/X37NgSJ5zdD1kya1M5QxGw/Untitled?type=design&node-id=0%3A1&mode=design&t=dtWlGVQHE3LVO2eC-1) |
  | :---: | :---: | :---: | :---: |
 
