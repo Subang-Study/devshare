@@ -4,6 +4,7 @@ import Session from '@/utils/Session'
 import ReactQueryProvider from '@/utils/ReactQueryProvider'
 import RecoilProvider from '@/utils/RecoilProvider'
 import ThemeControl from '@/utils/ThemeControl'
+import Toast from '@/components/ui/Toast'
 
 export const metadata = {
   title: 'DevShare',
@@ -20,6 +21,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <ReactQueryProvider>
               <Header />
               <div className="relative w-full max-w-4xl p-4 mx-auto">{children}</div>
+              <Toast />
             </ReactQueryProvider>
           </Session>
         </RecoilProvider>

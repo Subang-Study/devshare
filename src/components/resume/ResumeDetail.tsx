@@ -6,24 +6,26 @@ import Skill from '@/components/resume/Skill'
 import CategoryDetails from '@/components/resume/CategoryDetails'
 import { Session } from 'next-auth'
 import { useQuery } from '@tanstack/react-query'
-import { getPost } from '@/lib/api/post'
-import ResumeOwnerBtns from './ResumeOwnerBtns'
+import { getResume } from '@/lib/api/apis'
+import { IResumeData } from '@/types/resumeDataType'
 
 interface IResumeDetailProps {
   session: Session | null
   id: string
+  initialData: IResumeData
 }
 
-export default function ResumeDetails({ session, id }: IResumeDetailProps) {
+export default function ResumeDetails({ session, id, initialData }: IResumeDetailProps) {
   const { data, isSuccess } = useQuery({
     queryKey: ['post', id],
-    queryFn: () => getPost(id),
+    queryFn: () => getResume(id),
+    initialData,
+    retry: false,
   })
 
   if (isSuccess) {
     return (
-      <div className="relative flex flex-col gap-3">
-        {session?.user.id === data.author && <ResumeOwnerBtns resumeId={id} />}
+      <>
         <Profile profileData={data.userInfo} />
         {/* 자기소개 */}
         <Category title="Introduce">
@@ -51,7 +53,7 @@ export default function ResumeDetails({ session, id }: IResumeDetailProps) {
             </Category>
           )
         })}
-      </div>
+      </>
     )
   }
 }

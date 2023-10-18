@@ -1,3 +1,4 @@
+import { errors } from '@/lib/api/errors'
 import { connectDB } from '@/utils/database'
 import { NextApiRequest, NextApiResponse } from 'next'
 
@@ -14,7 +15,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       res.status(200).json(result)
     } catch (err) {
       if (err instanceof Error) {
-        res.status(404).json(err.message)
+        res.status(404).json(errors[404])
       }
     }
   }

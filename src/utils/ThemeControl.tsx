@@ -1,11 +1,11 @@
 'use client'
 
-import { appStateSelector } from '@/store/appState'
+import { darkmodeSelector } from '@/store/appState'
 import { useEffect } from 'react'
 import { useRecoilState } from 'recoil'
 
 const ThemeControl = () => {
-  const [isDark, setIsDark] = useRecoilState(appStateSelector('darkmode'))
+  const [isDark, setIsDark] = useRecoilState(darkmodeSelector)
 
   useEffect(() => {
     if (localStorage.getItem('darkmode')) {

@@ -1,4 +1,5 @@
 /* eslint-disable no-underscore-dangle */
+import { errors } from '@/lib/api/errors'
 import { connectDB } from '@/utils/database'
 import { ObjectId } from 'mongodb'
 import { NextApiRequest, NextApiResponse } from 'next'
@@ -17,7 +18,7 @@ export default async function getResume(req: NextApiRequest, res: NextApiRespons
       res.status(200).json(result)
     } catch (err) {
       if (err instanceof Error) {
-        res.status(404).json(err.message)
+        res.status(404).json(errors[404])
       }
     }
 
@@ -26,7 +27,7 @@ export default async function getResume(req: NextApiRequest, res: NextApiRespons
     try {
       await db.collection('resume').deleteOne({ _id: new ObjectId(resumeId as string) })
     } catch (err) {
-      res.status(500).json('삭제실패')
+      res.status(403).json(errors[403])
     }
     if (res.statusCode !== 500) {
       res.status(200).json('삭제성공')
@@ -35,13 +36,13 @@ export default async function getResume(req: NextApiRequest, res: NextApiRespons
     // * PUT
   } else if (req.method === 'PUT') {
     try {
-      const updateValue = req.body
+      const updateValue = JSON.parse(req.body)
       delete updateValue._id
       await db.collection('resume').updateOne({ _id: new ObjectId(resumeId as string) }, { $set: { ...updateValue } })
-      res.status(200).json({ id: resumeId })
+      res.status(307).redirect(`${process.env.NEXT_PUBLIC_HOST}/resume?id=${resumeId}`)
     } catch (error) {
       console.log(error)
-      res.status(403).json('수정실패')
+      res.status(403).json(errors[403])
     }
   }
 }
