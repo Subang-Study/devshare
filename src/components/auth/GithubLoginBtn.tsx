@@ -7,13 +7,15 @@ import { useSearchParams } from 'next/navigation'
 export default function GithubLoginBtn() {
   const search = useSearchParams()
   const callbackUrl = search?.get('callbackUrl')
+  const onLogin = (e: React.MouseEvent<HTMLElement>) => {
+    e.stopPropagation()
+    signIn('github', { callbackUrl: callbackUrl || '/' })
+  }
   return (
     <button
       className={`${k2d.className} w-[300px] h-11 bg-[#24292f] rounded-md flex justify-center items-center gap-2 text-white font-semibold`}
       type="button"
-      onClick={() => {
-        signIn('github', { callbackUrl: callbackUrl || '/' })
-      }}
+      onClick={onLogin}
     >
       <svg className="w-auto h-3/5" viewBox="0 0 98 98" xmlns="http://www.w3.org/2000/svg">
         <path

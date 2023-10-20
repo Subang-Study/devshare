@@ -53,7 +53,7 @@ export default function UserMenu() {
               </Link>
             </div>
           ) : (
-            <Link href="/auth">
+            <Link href={`/auth?callbackUrl=${path}`}>
               <Txt fontSize="basic" color="black">
                 Sign in
               </Txt>

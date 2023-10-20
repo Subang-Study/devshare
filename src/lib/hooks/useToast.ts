@@ -8,8 +8,9 @@ const useToast = () => {
 
   useEffect(() => {
     if (toast.visible) {
-      setTimeout(() => resetToast(), 1500)
+      setTimeout(() => resetToast(), 3000)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [toast.visible])
 
   return { toast, setToast }

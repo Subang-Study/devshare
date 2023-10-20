@@ -13,7 +13,7 @@ export default async function getResume(req: NextApiRequest, res: NextApiRespons
     try {
       const result = await db.collection('resume').findOne({ _id: new ObjectId(resumeId as string) })
       if (result === null) {
-        throw new Error('존재하지 않는 데이터입니다')
+        throw Error('존재하지 않는 데이터입니다.')
       }
       res.status(200).json(result)
     } catch (err) {
@@ -39,7 +39,7 @@ export default async function getResume(req: NextApiRequest, res: NextApiRespons
       const updateValue = JSON.parse(req.body)
       delete updateValue._id
       await db.collection('resume').updateOne({ _id: new ObjectId(resumeId as string) }, { $set: { ...updateValue } })
-      res.status(307).redirect(`${process.env.NEXT_PUBLIC_HOST}/resume?id=${resumeId}`)
+      res.status(307).redirect(`${process.env.NEXT_PUBLIC_HOST}/resume/${resumeId}`)
     } catch (error) {
       console.log(error)
       res.status(403).json(errors[403])

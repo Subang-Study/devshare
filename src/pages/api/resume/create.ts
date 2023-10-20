@@ -12,7 +12,7 @@ const create = async (req: NextApiRequest, res: NextApiResponse) => {
     try {
       const db = (await connectDB).db('devshare')
       const value = await db.collection('resume').insertOne({ _id: new ObjectId(session?.user.id), ...val })
-      res.status(307).redirect(`${process.env.NEXT_PUBLIC_HOST}/resume?id=${value.insertedId}`)
+      res.status(307).redirect(`${process.env.NEXT_PUBLIC_HOST}/resume/${value.insertedId}`)
     } catch (err) {
       console.log(err)
       res.status(403).json(errors[403])

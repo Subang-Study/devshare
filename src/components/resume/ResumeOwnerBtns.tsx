@@ -19,8 +19,8 @@ export default function ResumeOwnerBtns({ resumeId }: IResumeOwnerBtnsProps) {
   const { setToast } = useToast()
   const { mutate } = useMutation({
     mutationFn: deleteResume,
-    onSuccess: (data: string) => {
-      queryClient.removeQueries({ queryKey: ['post', resumeId] })
+    onSuccess: () => {
+      queryClient.clear()
       router.push('/')
     },
     onError: (e) => {

@@ -12,7 +12,7 @@ const Toast = () => {
       <div
         className={` mx-auto  w-full h-12 max-w-[400px] bg-red-200 border-1 border-red-400 rounded-lg flex justify-between items-center p-4`}
       >
-        <Txt fontSize="detail" color="black">
+        <Txt fontSize="detail" color="red">
           {toast.detail}
         </Txt>
       </div>

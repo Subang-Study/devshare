@@ -20,20 +20,20 @@ export default function CreateProfile({ id }: ICreateProfileProps) {
   const router = useRouter()
   const { setToast } = useToast()
   const queryClient = useQueryClient()
-  const defaultValue = queryClient.getQueryData(['post', id])
-  const method = useForm<IResumeData>({ defaultValues: defaultValue ?? initialResumeData })
+  const data = queryClient.getQueryData(['post', id])
+  const method = useForm<IResumeData>({ defaultValues: data ?? initialResumeData })
   const { mutate } = useMutation({
     mutationFn: async (form: IResumeData) => {
       const curData = await getPresignedUrl(id, form)
 
-      if (defaultValue) {
+      if (form.author) {
         const result = await editResume(id, curData)
         return result
       }
       const result = await addResume(curData)
       return result
     },
-    onSuccess: (data) => data && router.push(data),
+    onSuccess: (resData) => resData && router.push(resData),
     onError: (e) => {
       if (e instanceof ApiError) {
         setToast({

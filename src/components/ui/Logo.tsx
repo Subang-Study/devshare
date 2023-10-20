@@ -23,7 +23,7 @@ export default async function Logo() {
         </Txt>
       </Link>
 
-      <Link href={session ? `/resume?id=${session?.user.id}` : '/'}>
+      <Link href={session ? `/resume/${session?.user.id}` : '/'}>
         <Txt color="blue" fontSize="logo">
           {'{'}
         </Txt>
