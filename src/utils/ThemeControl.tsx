@@ -1,6 +1,6 @@
 'use client'
 
-import { darkmodeSelector } from '@/store/appState'
+import { darkmodeSelector } from '@/store/darkmode'
 import { useEffect } from 'react'
 import { useRecoilState } from 'recoil'
 

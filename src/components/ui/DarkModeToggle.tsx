@@ -1,7 +1,7 @@
 'use client'
 
 import useToast from '@/lib/hooks/useToast'
-import { darkmodeSelector } from '@/store/appState'
+import { darkmodeSelector } from '@/store/darkmode'
 import { useRecoilState } from 'recoil'
 
 const DarkModeToggle = () => {

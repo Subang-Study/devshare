@@ -2,7 +2,7 @@
 
 import Txt from '@/components/ui/Txt'
 import { useRecoilValue } from 'recoil'
-import { toastSelector } from '@/store/appState'
+import { toastSelector } from '@/store/toast'
 
 const Toast = () => {
   const toast = useRecoilValue(toastSelector)

@@ -1,4 +1,4 @@
-import { toastSelector } from '@/store/appState'
+import { toastSelector } from '@/store/toast'
 import { useEffect } from 'react'
 import { useRecoilState, useResetRecoilState } from 'recoil'
 
