@@ -7,9 +7,11 @@ import Link from 'next/link'
 import { PiUserCircle } from 'react-icons/pi'
 import Txt from '@/components/ui/Txt'
 import DarkModeToggle from '@/components/ui/DarkModeToggle'
+import { usePathname } from 'next/navigation'
 
 export default function UserMenu() {
   const menuRef = useRef(null)
+  const path = usePathname()
   const [isOpen, setIsOpen] = useState<boolean>(false)
   const { data, status } = useSession()
   const setIsOpenStateReverse = () => setIsOpen((prev) => !prev)
@@ -44,7 +46,7 @@ export default function UserMenu() {
                   Log out
                 </Txt>
               </button>
-              <Link href={`/resume?id=${data.user.id}`}>
+              <Link href={`/resume/${data.user.id}`}>
                 <Txt fontSize="basic" color="black">
                   My resume
                 </Txt>

@@ -5,13 +5,19 @@ import ReactQueryProvider from '@/utils/ReactQueryProvider'
 import RecoilProvider from '@/utils/RecoilProvider'
 import ThemeControl from '@/utils/ThemeControl'
 import Toast from '@/components/ui/Toast'
+import { ReactNode } from 'react'
 
 export const metadata = {
   title: 'DevShare',
   description: 'Sharing your Dev Profile',
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+interface IRootLayoutProps {
+  children: ReactNode
+  authModal: ReactNode
+}
+
+export default function RootLayout({ children, authModal }: IRootLayoutProps) {
   return (
     <html lang="en">
       <body className="dark:bg-neutral-700">
@@ -20,7 +26,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Session>
             <ReactQueryProvider>
               <Header />
-              <div className="relative w-full max-w-4xl p-4 mx-auto">{children}</div>
+              <div className="relative w-full max-w-4xl p-4 mx-auto">
+                {children}
+                {authModal}
+              </div>
               <Toast />
             </ReactQueryProvider>
           </Session>
