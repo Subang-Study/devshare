@@ -1,16 +1,9 @@
 import Link from 'next/link'
-import { K2D } from 'next/font/google'
-import { getServerSession } from 'next-auth'
-import { authOptions } from '@/app/api/auth/[...nextauth]/route'
 import Txt from './Txt'
 
-const k2d = K2D({ weight: '500', subsets: ['latin'] })
-
-export default async function Logo() {
-  const session = await getServerSession(authOptions)
-
+export default async function DefaultLogo() {
   return (
-    <div className={`${k2d.className} flex items-center justify-center gap-0.5 h-12 text-2xl`}>
+    <div className="flex items-center justify-center gap-0.5 h-12 text-2xl">
       <Link href="/" className="flex items-center h-full">
         <svg className="w-auto h-4/5" viewBox="0 0 44 51" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path
@@ -18,20 +11,17 @@ export default async function Logo() {
             className="fill-black dark:fill-white"
           />
         </svg>
-        <Txt color="black" fontSize="logo">
+        <Txt color="black" fontSize="logo" font="k2d">
           Dev
         </Txt>
-      </Link>
-
-      <Link href={session ? `/resume/${session?.user.id}` : '/'}>
-        <Txt color="blue" fontSize="logo">
-          {'{'}
+        <Txt color="blue" fontSize="logo" font="k2d">
+          {'{ '}
         </Txt>
-        <Txt fontSize="logo" color="black">
-          {session ? ` ${session.user.login} ` : ' Share '}
+        <Txt fontSize="logo" color="black" font="k2d">
+          Share
         </Txt>
-        <Txt color="blue" fontSize="logo">
-          {'}'}
+        <Txt color="blue" fontSize="logo" font="k2d">
+          {' }'}
         </Txt>
       </Link>
     </div>

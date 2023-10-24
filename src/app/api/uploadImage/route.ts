@@ -1,7 +1,9 @@
 import aws from 'aws-sdk'
-import { NextApiRequest, NextApiResponse } from 'next'
+import { NextRequest, NextResponse } from 'next/server'
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+export async function GET(req: NextRequest) {
+  const imageName = req.nextUrl.searchParams.get('file')
+
   aws.config.update({
     accessKeyId: process.env.AWS_S3_USERIMAGE_KEY,
     secretAccessKey: process.env.AWS_S3_USERIMAGE_SECRET,
@@ -12,10 +14,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   const s3 = new aws.S3()
   const url = await s3.createPresignedPost({
     Bucket: process.env.AWS_S3_USERIMAGE_BUCKETNAME,
-    Fields: { key: `userImage/${req.query.file}` },
+    Fields: { key: `userImage/${imageName}` },
     Expires: 60,
     Conditions: [['content-length-range', 0, 5 * 1024 * 1024]],
   })
 
-  res.status(200).json(url)
+  return NextResponse.json(url, { status: 200 })
 }

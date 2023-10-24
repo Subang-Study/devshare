@@ -4,26 +4,39 @@ import Category from '@/components/resume/Category'
 import Profile from '@/components/resume/Profile'
 import Skill from '@/components/resume/Skill'
 import CategoryDetails from '@/components/resume/CategoryDetails'
-import { Session } from 'next-auth'
 import { useQuery } from '@tanstack/react-query'
-import { getPost } from '@/lib/api/post'
-import ResumeOwnerBtns from './ResumeOwnerBtns'
+import { getResume } from '@/lib/api/apis'
+import { useRouter } from 'next/navigation'
+import useToast from '@/lib/hooks/useToast'
+import ResumeLoading from '../ui/loading/ResumeLoading'
 
 interface IResumeDetailProps {
-  session: Session | null
   id: string
 }
 
-export default function ResumeDetails({ session, id }: IResumeDetailProps) {
-  const { data, isSuccess } = useQuery({
+export default function ResumeDetails({ id }: IResumeDetailProps) {
+  const router = useRouter()
+  const { setToast } = useToast()
+  const { data, isSuccess, isLoading } = useQuery({
     queryKey: ['post', id],
-    queryFn: () => getPost(id),
+    queryFn: () => getResume(id),
+    onError: () => {
+      setToast({
+        visible: true,
+        detail: '작성된 이력서가 없습니다. 새로 작성해주세요.',
+      })
+      router.push(`/resume/edit?id=${id}`)
+    },
+    retry: false,
   })
 
-  if (isSuccess) {
+  if (isLoading) {
+    return <ResumeLoading />
+  }
+
+  if (isSuccess && !(data instanceof Response)) {
     return (
-      <div className="relative flex flex-col gap-3">
-        {session?.user.id === data.author && <ResumeOwnerBtns resumeId={id} />}
+      <>
         <Profile profileData={data.userInfo} />
         {/* 자기소개 */}
         <Category title="Introduce">
@@ -51,7 +64,7 @@ export default function ResumeDetails({ session, id }: IResumeDetailProps) {
             </Category>
           )
         })}
-      </div>
+      </>
     )
   }
 }

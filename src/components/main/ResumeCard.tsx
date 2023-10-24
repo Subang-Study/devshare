@@ -14,7 +14,7 @@ interface IResumeCardProps {
 export default function ResumeCard({ ResumeData }: IResumeCardProps) {
   return (
     <Link
-      href={`/resume?id=${ResumeData._id}`}
+      href={`/resume/${ResumeData._id}`}
       className="flex flex-col justify-around w-full gap-2 p-4 shadow-xl aspect-video rounded-xl bg-neutral-100 min-w-[300px] border-2 border-blue-600 dark:bg-neutral-600"
       prefetch={false}
     >

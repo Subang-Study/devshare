@@ -4,7 +4,10 @@ import Btn from '@/components/ui/Btn'
 import { VscTrash, VscEdit } from 'react-icons/vsc'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
-import { useQueryClient } from '@tanstack/react-query'
+import { useMutation, useQueryClient } from '@tanstack/react-query'
+import { deleteResume } from '@/lib/api/apis'
+import { ApiError } from 'next/dist/server/api-utils'
+import useToast from '@/lib/hooks/useToast'
 
 interface IResumeOwnerBtnsProps {
   resumeId: string
@@ -13,18 +16,20 @@ interface IResumeOwnerBtnsProps {
 export default function ResumeOwnerBtns({ resumeId }: IResumeOwnerBtnsProps) {
   const router = useRouter()
   const queryClient = useQueryClient()
-  const handleDelete = async () => {
-    try {
-      const res = await fetch(`/api/resume/${resumeId}`, { method: 'DELETE' })
-      const result = await res.json()
-      if (result) {
-        queryClient.removeQueries({ queryKey: ['post', resumeId] })
-        router.push('/')
+  const { setToast } = useToast()
+  const { mutate } = useMutation({
+    mutationFn: deleteResume,
+    onSuccess: () => {
+      queryClient.clear()
+      router.push('/')
+      router.refresh()
+    },
+    onError: (e) => {
+      if (e instanceof ApiError) {
+        setToast({ visible: true, detail: e.message })
       }
-    } catch (err) {
-      console.error(err)
-    }
-  }
+    },
+  })
 
   return (
     <div className="absolute top-0 flex flex-row gap-1 p-1 bg-white right-px w-fit dark:bg-neutral-700">
@@ -38,7 +43,7 @@ export default function ResumeOwnerBtns({ resumeId }: IResumeOwnerBtnsProps) {
         shape="slim-border"
         colors="red"
         className="flex flex-row items-center px-1 py-0.5 text-sm"
-        onClick={handleDelete}
+        onClick={() => mutate(resumeId)}
       >
         <VscTrash />
         삭제하기
