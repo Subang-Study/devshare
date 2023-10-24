@@ -1,14 +1,15 @@
 'use client'
 
 import { useForm } from 'react-hook-form'
-import axios from 'axios'
 import { useRouter } from 'next/navigation'
-import { useQueryClient } from '@tanstack/react-query'
-import { specialCharacterReg } from '@/lib/constants/regex'
+import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { IResumeData, initialResumeData } from '@/types/resumeDataType'
 import SkillInput from '@/components/resumeEditor/Skill'
 import CategoryDetails from '@/components/resumeEditor/CategoryDetails'
 import ResumeEditor from '@/components/resumeEditor/ResumeEditor'
+import { addResume, editResume, getPresignedUrl } from '@/lib/api/apis'
+import useToast from '@/lib/hooks/useToast'
+import { ApiError } from 'next/dist/server/api-utils'
 import InputError from '../ui/InputError'
 
 interface ICreateProfileProps {
@@ -17,48 +18,39 @@ interface ICreateProfileProps {
 
 export default function CreateProfile({ id }: ICreateProfileProps) {
   const router = useRouter()
+  const { setToast } = useToast()
   const queryClient = useQueryClient()
-  const defaultValue = queryClient.getQueryData(['post', id])
-  const method = useForm<IResumeData>({ defaultValues: defaultValue ?? initialResumeData })
+  const data = queryClient.getQueryData(['post', id])
+  const method = useForm<IResumeData>({ defaultValues: data ?? initialResumeData })
+  const { mutate } = useMutation({
+    mutationFn: async (form: IResumeData) => {
+      const curData = await getPresignedUrl(id, form)
 
-  const onSubmit = async (form: IResumeData) => {
-    const curData = { ...form }
-    const curTime = new Date()
-
-    const file = curData.userInfo.userImage
-    if (!!file && typeof file !== 'string') {
-      const res = await axios.get<never, { data: { fields: { [key: string]: string }; url: string } }>(
-        `/api/uploadImage/uploadUserImage?file=${id}${curTime.toJSON().replace(specialCharacterReg, '')}`,
-      )
-
-      const formData = new FormData()
-      Object.entries({ ...res.data.fields, file }).forEach(([key, value]) => {
-        formData.append(key, value as Blob)
-      })
-
-      const result = await axios.post(res.data.url, formData)
-
-      if (result.status === 204) {
-        curData.userInfo.userImage = `https://devshareimage.s3.ap-northeast-2.amazonaws.com/userImage/${id}${curTime
-          .toJSON()
-          .replace(specialCharacterReg, '')}`
+      if (form.author) {
+        const result = await editResume(id, curData)
+        return result
       }
-    }
-    if (defaultValue) {
-      const result = await axios.put(`/api/resume/${id}`, curData)
-      if (result.status === 200) {
-        router.push(`/resume?id=${result.data.id}`)
+      const result = await addResume(id, curData)
+      return result
+    },
+    onSuccess: (resData) => {
+      if (resData) {
+        router.push(resData)
+        router.refresh()
       }
-    } else {
-      const result = await axios.post('/api/resume/create', curData)
-      if (result.status === 200) {
-        router.push(`/resume?id=${result.data.id}`)
+    },
+    onError: (e) => {
+      if (e instanceof ApiError) {
+        setToast({
+          visible: true,
+          detail: e.message,
+        })
       }
-    }
-  }
+    },
+  })
 
   return (
-    <ResumeEditor method={method} onSubmit={onSubmit}>
+    <ResumeEditor method={method} onSubmit={mutate}>
       <ResumeEditor.Category.Sort direction="vertical" gap="gap-3">
         <ResumeEditor.UserProfile />
 

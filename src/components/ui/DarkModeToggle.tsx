@@ -1,12 +1,18 @@
 'use client'
 
+import useToast from '@/lib/hooks/useToast'
+import { darkmodeSelector } from '@/store/darkmode'
 import { useRecoilState } from 'recoil'
-import { appStateSelector } from '@/store/appState'
 
 const DarkModeToggle = () => {
-  const [mode, setMode] = useRecoilState(appStateSelector('darkmode'))
+  const [mode, setMode] = useRecoilState(darkmodeSelector)
 
-  const onModeChange = () => setMode(!mode)
+  const { setToast } = useToast()
+
+  const onModeChange = () => {
+    setMode(!mode)
+    setToast({ visible: true, detail: 'theme change' })
+  }
 
   return (
     <label className="cursor-pointer" htmlFor="darkmode">

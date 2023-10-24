@@ -31,7 +31,7 @@ const ResumeEditorBtn = ({ id }: { id: string }) => {
         shape="border"
         colors="blueEmpty"
         className="w-1/4 p-2"
-        onClick={() => router.replace(`/resume?id=${id}`)}
+        onClick={() => router.replace(`/resume?id=${id}`, {})}
       >
         취소
       </Btn>
