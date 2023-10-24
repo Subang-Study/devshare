@@ -11,7 +11,7 @@ const DarkModeToggle = () => {
 
   const onModeChange = () => {
     setMode(!mode)
-    setToast({ visible: true, detail: 'Theme Changed', color: 'BLUE' })
+    setToast({ visible: true, detail: `${mode ? '🌞' : '🌙'} Theme Changing`, color: 'BLUE' })
   }
 
   return (
