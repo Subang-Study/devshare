@@ -35,7 +35,7 @@ export default function Txt({ className, fontSize, color, font = undefined, text
     <span
       className={`${className} ${font && k2d.className} ${FONTSIZE_VARIANT[fontSize]} ${COLOR_VARIANT[color]} ${
         textStyle && TEXT_STYLE[textStyle]
-      }`}
+      } break-words`}
       {...props}
     />
   )

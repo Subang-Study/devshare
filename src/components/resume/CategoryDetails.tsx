@@ -21,7 +21,7 @@ interface ICategoryDetailsProps {
 export default function CategoryDetails({ detailData }: ICategoryDetailsProps) {
   return (
     <div className="flex flex-wrap w-full">
-      <div className="relative flex flex-col max-md:w-full w-1/4 gap-1 text-xl md:border-r-2 border-blue-600 min-w-[200px]">
+      <div className="relative flex flex-col max-md:w-full w-1/4 gap-1 text-xl md:border-r-2 border-blue-600 min-w-[200px] pr-2">
         <Txt color="black" fontSize="mid-title">
           {detailData.title}
         </Txt>
@@ -34,7 +34,7 @@ export default function CategoryDetails({ detailData }: ICategoryDetailsProps) {
           {detailData.content.title}
         </Txt>
         <hr className="w-full h-[1px] bg-neutral-300 dark:bg-neutral-500 border-none rounded-full" />
-        <pre className="text-sm dark:text-white">{detailData.content.description}</pre>
+        <pre className="text-sm break-words whitespace-pre-wrap dark:text-white">{detailData.content.description}</pre>
       </div>
     </div>
   )

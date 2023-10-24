@@ -11,7 +11,8 @@ export default function Skill({ title, description }: SkillProps) {
       <Txt fontSize="mid-title" color="black">
         {title}
       </Txt>
-      <pre className="flex-1 overflow-scroll text-sm scrollbar-hide text-neutral-600 dark:text-neutral-300">
+
+      <pre className="flex-1 w-full overflow-scroll text-sm break-words whitespace-pre-wrap scrollbar-hide text-neutral-600 dark:text-neutral-300">
         {description}
       </pre>
     </div>
