@@ -2,6 +2,8 @@ import { errors } from '@/lib/api/errors'
 import { connectDB } from '@/utils/database'
 import { NextRequest, NextResponse } from 'next/server'
 
+export const dynamic = 'force-dynamic'
+
 export async function GET(request: NextRequest) {
   try {
     const LIMIT = 10
@@ -16,6 +18,7 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ data: result, next: result.length < 10 ? false : offset + 1 }, { status: 200 })
   } catch (err) {
     if (err instanceof Error) {
+      console.log(err)
       return NextResponse.json(errors[404], { status: 404 })
     }
   }
