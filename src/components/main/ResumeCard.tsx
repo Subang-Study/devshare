@@ -19,7 +19,7 @@ export default function ResumeCard({ ResumeData }: IResumeCardProps) {
       prefetch={false}
     >
       <div className="flex flex-col w-full h-1/4">
-        <Txt fontSize="basic" color="black">
+        <Txt fontSize="basic" color="black" className="break-words line-clamp-1">
           {ResumeData.userInfo?.name}
         </Txt>
         <Txt fontSize="detail" color="grey" className="line-clamp-1 text-ellipsis">

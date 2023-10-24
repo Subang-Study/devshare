@@ -41,7 +41,9 @@ export default function ResumeDetails({ id }: IResumeDetailProps) {
         {/* 자기소개 */}
         <Category title="Introduce">
           <Category.Direction direction="none" padding="1">
-            <pre className="w-full gap-1 dark:text-white min-h-[120px]">{data.userInfo.introduction}</pre>
+            <pre className="w-full gap-1 dark:text-white min-h-[120px] whitespace-pre-wrap break-words">
+              {data.userInfo.introduction}
+            </pre>
           </Category.Direction>
         </Category>
         {/* 스킬 셋 */}

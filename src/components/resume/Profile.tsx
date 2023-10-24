@@ -13,10 +13,10 @@ export default function Profile({ profileData }: IProfileProps) {
   return (
     <div className="flex flex-col w-full gap-3">
       <div>
-        <Txt fontSize="title" color="black" textStyle="bold">
+        <Txt fontSize="title" color="black" textStyle="bold" className="line-clamp-1">
           {profileData?.name}
         </Txt>
-        <Txt fontSize="basic" color="black" textStyle="bold" className="line-clamp-1">
+        <Txt fontSize="basic" color="black" textStyle="bold" className="break-words line-clamp-2">
           {profileData?.sentense}
         </Txt>
       </div>
