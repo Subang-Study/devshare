@@ -22,6 +22,7 @@ export default function ResumeOwnerBtns({ resumeId }: IResumeOwnerBtnsProps) {
     onSuccess: () => {
       queryClient.clear()
       router.push('/')
+      router.refresh()
     },
     onError: (e) => {
       if (e instanceof ApiError) {

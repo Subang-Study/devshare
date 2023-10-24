@@ -4,6 +4,7 @@ export interface IResumeData {
   userInfo: IResumeUserInfo
   techStack?: IResumeTechStack[]
   categorys?: IResumeCategory[]
+  createdAt?: string
 }
 
 export interface IResumeUserInfo {

@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { K2D } from 'next/font/google'
 import { getServerSession } from 'next-auth'
-import { authOptions } from '@/pages/api/auth/[...nextauth]'
+import { authOptions } from '@/app/api/auth/[...nextauth]/route'
 import Txt from './Txt'
 
 const k2d = K2D({ weight: '500', subsets: ['latin'] })

@@ -9,12 +9,12 @@ const rejectIfNeeded = async (res: Response) => {
   }
 }
 
-export const getResumeList = async () => {
-  const res = await fetch('/api/resumes/resumes')
+export const getResumeList = async (offset: number) => {
+  const res = await fetch(`/api/resumes?offset=${offset}`)
 
   rejectIfNeeded(res)
 
-  return (await res.json()) as IResumeData[]
+  return (await res.json()) as { data: IResumeData[]; next: number }
 }
 
 export const getResume = async (id: string) => {
@@ -33,8 +33,8 @@ export const deleteResume = async (id: string) => {
   return (await res.json()) as string
 }
 
-export const addResume = async (data: IResumeData) => {
-  const res = await fetch(`/api/resume/create`, { method: 'POST', redirect: 'follow', body: JSON.stringify(data) })
+export const addResume = async (id: string, data: IResumeData) => {
+  const res = await fetch(`/api/resume/${id}`, { method: 'POST', redirect: 'follow', body: JSON.stringify(data) })
 
   rejectIfNeeded(res)
 
@@ -59,9 +59,7 @@ export const getPresignedUrl = async (id: string, form: IResumeData) => {
 
   const file = curData.userInfo.userImage
   if (!!file && typeof file !== 'string') {
-    const res = await fetch(
-      `/api/uploadImage/uploadUserImage?file=${id}${curTime.toJSON().replace(specialCharacterReg, '')}`,
-    )
+    const res = await fetch(`/api/uploadImage/?file=${id}${curTime.toJSON().replace(specialCharacterReg, '')}`)
     const data = await res.json()
 
     const formData = new FormData()

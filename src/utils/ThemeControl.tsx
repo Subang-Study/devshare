@@ -2,10 +2,10 @@
 
 import { darkmodeSelector } from '@/store/darkmode'
 import { useEffect } from 'react'
-import { useRecoilState } from 'recoil'
+import { useSetRecoilState } from 'recoil'
 
 const ThemeControl = () => {
-  const [isDark, setIsDark] = useRecoilState(darkmodeSelector)
+  const setIsDark = useSetRecoilState(darkmodeSelector)
 
   useEffect(() => {
     if (localStorage.getItem('darkmode')) {

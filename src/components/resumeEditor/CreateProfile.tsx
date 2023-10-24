@@ -30,10 +30,15 @@ export default function CreateProfile({ id }: ICreateProfileProps) {
         const result = await editResume(id, curData)
         return result
       }
-      const result = await addResume(curData)
+      const result = await addResume(id, curData)
       return result
     },
-    onSuccess: (resData) => resData && router.push(resData),
+    onSuccess: (resData) => {
+      if (resData) {
+        router.push(resData)
+        router.refresh()
+      }
+    },
     onError: (e) => {
       if (e instanceof ApiError) {
         setToast({
