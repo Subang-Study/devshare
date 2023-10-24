@@ -3,6 +3,7 @@ import { atom, DefaultValue, selector } from 'recoil'
 export interface IToastState {
   visible: boolean
   detail: string
+  color?: 'BLUE' | 'RED'
 }
 
 export const toastState = atom<IToastState>({
