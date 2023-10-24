@@ -3,7 +3,7 @@ import getQueryClient from '@/utils/getQueryClient'
 import { Hydrate, dehydrate } from '@tanstack/react-query'
 
 const getFirstList = async () => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/resumes`)
+  const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/resumes?offset=0`, { cache: 'no-store' })
   return res.json()
 }
 
