@@ -30,6 +30,7 @@
     <li> Next.js Api 서버 구현 및 Github Oauth</li>
     <li>React-Hook-form을 이용한 form데이터 관리 및 확장성을 고려한 컴포넌트 설계</li>
     <li>Recoil을 이용해 다크모드등의 클라이언트 상태 관리</li>
+    <li>React-Query를 이용해 반복되는 api요청 제거 및 최적화</li>
     <li>Tailwindcss 커스텀 플러그인 제작</li>
    </ul>
   </td>
@@ -42,7 +43,9 @@
  <tr>
   <td colspan='2'>
    <ul>
-    <li>공통부분</li>
+    <li>페이지 레이아웃 Figma 작업</li>
+    <li>Tailwindcss 다크모드</li>
+    <li>Input, Txt... 등 기본 컴포넌트 제작</li>
    </ul>
   </td>
  </tr>
