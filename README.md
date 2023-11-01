@@ -57,27 +57,27 @@
 # ⚙️ Skills
 ### Frontend
 <p>
-<img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white" alt="Next.js">
-<img src="https://img.shields.io/badge/React%20Query-FF4154?style=for-the-badge&logo=react-query&logoColor=white" alt="React Query">
-<img src="https://img.shields.io/badge/Recoil-764ABC?style=for-the-badge&logo=recoil&logoColor=white" alt="Recoil">
-<img src="https://img.shields.io/badge/React%20Hook%20Form-EB4034?style=for-the-badge&logo=react-hook-form&logoColor=white" alt="React Hook Form">
-<img src="https://img.shields.io/badge/Tailwind%20CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS">
-<img src="https://img.shields.io/badge/React%20Icons-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React Icons">
-<img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript">
+<img src="https://img.shields.io/badge/Next.js-000000?logo=next.js&logoColor=white" alt="Next.js">
+<img src="https://img.shields.io/badge/React%20Query-FF4154?logo=react-query&logoColor=white" alt="React Query">
+<img src="https://img.shields.io/badge/Recoil-764ABC?logo=recoil&logoColor=white" alt="Recoil">
+<img src="https://img.shields.io/badge/React%20Hook%20Form-EB4034?logo=react-hook-form&logoColor=white" alt="React Hook Form">
+<img src="https://img.shields.io/badge/Tailwind%20CSS-38B2AC?logo=tailwind-css&logoColor=white" alt="Tailwind CSS">
+<img src="https://img.shields.io/badge/React%20Icons-61DAFB?logo=react&logoColor=black" alt="React Icons">
+<img src="https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white" alt="TypeScript">
 </p>
 
 ### Backend
 <p>
-<img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white" alt="Next.js">
-<img src="https://img.shields.io/badge/Next%20Auth-000000?style=for-the-badge&logo=next-auth&logoColor=white" alt="Next-Auth">
-<img src="https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB">
-<img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript">
+<img src="https://img.shields.io/badge/Next.js-000000?logo=next.js&logoColor=white" alt="Next.js">
+<img src="https://img.shields.io/badge/Next%20Auth-000000?logo=next-auth&logoColor=white" alt="Next-Auth">
+<img src="https://img.shields.io/badge/MongoDB-47A248?logo=mongodb&logoColor=white" alt="MongoDB">
+<img src="https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white" alt="TypeScript">
 </p>
 
 ### Deploy
 <p>
-<img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Vercel">
-<img src="https://img.shields.io/badge/Amazon%20S3-569A31?style=for-the-badge&logo=amazon-s3&logoColor=white" alt="Amazon S3">
+<img src="https://img.shields.io/badge/Vercel-000000?logo=vercel&logoColor=white" alt="Vercel">
+<img src="https://img.shields.io/badge/Amazon%20S3-569A31?logo=amazon-s3&logoColor=white" alt="Amazon S3">
 </p>
 
 
@@ -86,26 +86,26 @@
 
 # 📍 Pin Point
 
-<p><img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white" alt="Next.js">
-<img src="https://img.shields.io/badge/Next%20Auth-000000?style=for-the-badge&logo=next-auth&logoColor=white" alt="Next-Auth"></p>
+<p><img src="https://img.shields.io/badge/Next.js-000000?logo=next.js&logoColor=white" alt="Next.js">
+<img src="https://img.shields.io/badge/Next%20Auth-000000?logo=next-auth&logoColor=white" alt="Next-Auth"></p>
 
 - 클라이언트의 로그인상태에 따라 달라지는 UI나 로직을 서버사이드렌더링을 이용해 백엔드에서 처리하는 방식으로 클라이언트에서 불필요한 코드를 줄일 수 있었음
 - Next.js를 이용해 api서버를 손쉽게 구성할 수 있었음
 - 서버사이드 랜더링을 지원하여 초기 페이지 로딩 속도를 향상시킬수 있었음
 
-<img src="https://img.shields.io/badge/React%20Hook%20Form-EB4034?style=for-the-badge&logo=react-hook-form&logoColor=white" alt="React Hook Form">
+<img src="https://img.shields.io/badge/React%20Hook%20Form-EB4034?logo=react-hook-form&logoColor=white" alt="React Hook Form">
 
 - form데이터 관리 및 유효성 검사 좀더 손쉽게 구현하고 데이터 변화에 따른 리렌더링 횟수 감소
 - Compound component와 같은 디자인 패턴도 적용해 여러 형태의 폼을 조합해서 구성가능하게 하는 등 컴포넌트의 확장성과 재사용성을 고려해 설계함
 - 함수 컴포넌트와 훅을 사용하여 코드가 간결해지고 가독성이 향상 되었음
 
-<p><img src="https://img.shields.io/badge/React%20Query-FF4154?style=for-the-badge&logo=react-query&logoColor=white" alt="React Query"> <img src="https://img.shields.io/badge/Recoil-764ABC?style=for-the-badge&logo=recoil&logoColor=white" alt="Recoil"></p>
+<p><img src="https://img.shields.io/badge/React%20Query-FF4154?logo=react-query&logoColor=white" alt="React Query"> <img src="https://img.shields.io/badge/Recoil-764ABC?logo=recoil&logoColor=white" alt="Recoil"></p>
 
 - React-Query를 이용한 api요청 관련 상태관리와 캐시된 데이터를 통해 좀 더 빠른 로딩을 구현
 - Recoil을 통한 다크모드와 같은 클라이언트의 상태를 독립적으로 관리할 수 있게 구현
 - React-Query와 Recoil을 함께 이용해서 서버 상태와 어플리케이션 상태를 분리가능하게 구현
 
-<img src="https://img.shields.io/badge/Tailwind%20CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS">
+<img src="https://img.shields.io/badge/Tailwind%20CSS-38B2AC?logo=tailwind-css&logoColor=white" alt="Tailwind CSS">
 
  - tailwindcss의 plugin 기능을 통해 커스텀 유틸리티 클래스를 확장
  - 다크모드 구현
